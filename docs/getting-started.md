@@ -4,39 +4,51 @@ sidebar_position: 2
 
 # Getting Started
 
-This guide will help you set up Logstag in your environment.
+Start monitoring your databases in minutes with Logstag.
 
 ## Prerequisites
 
-Before you begin, ensure you have the following installed:
-- Node.js (v18 or later)
-- Docker (optional, for containerized deployment)
+- **Supported OS**: Linux (Ubuntu, Debian, RHEL, CentOS, Amazon Linux) or Windows Server.
+- **Access**: Root or Administrator privileges on the host machine.
+- **Network**: Outbound internet access to communicate with Logstag Cloud.
 
 ## Installation
 
-To install Logstag CLI, run:
+### 1. Install the Agent
 
+Logstag uses a lightweight agent to collect performance metrics using read-only queries.
+
+**Linux (Debian/Ubuntu):**
 ```bash
-npm install -g @logstag/cli
+curl -L https://downloads.logstag.com/agent/install.sh | sudo bash
 ```
 
-## Quick Start
+**Windows (PowerShell):**
+```powershell
+iwr -useb https://downloads.logstag.com/agent/install.ps1 | iex
+```
 
-1. Initialize a new Logstag project:
-   ```bash
-   logstag init my-project
-   ```
+### 2. Configure Database Connection
 
-2. Start the Logstag service:
-   ```bash
-   cd my-project
-   logstag start
-   ```
+After installation, configure the agent to connect to your database instance.
 
-3. View your dashboard at `http://localhost:3000`.
+```bash
+logstag config add --type postgres --host localhost --user logstag_user --password <YOUR_PASSWORD>
+```
+
+> **Note**: We recommend creating a dedicated read-only user for Logstag.
+
+### 3. Verify Connection
+
+Check the status of the agent and connection:
+
+```bash
+logstag status
+```
+
+If successful, you should see data appearing in your [Logstag Dashboard](https://app.logstag.com) within a few minutes.
 
 ## Next Steps
 
-- Explore the [API Reference](#) (Coming Soon)
-- Learn about [Integrations](#) (Coming Soon)
-
+- [Configure Smart Alerts](./intro.md#smart-alerts)
+- [Set up Integrations](./intro.md) (Slack, PagerDuty, etc.)

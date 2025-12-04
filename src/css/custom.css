@@ -4,28 +4,34 @@
  * work well for content-centric websites.
  */
 
-/* Logstag Brand Colors */
-/* TODO: Update these variables with exact hex codes from logstag.com */
+/* Logstag Brand Colors (Extracted from logstag.com) */
 :root {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Primary Blue: #203fae */
+  --ifm-color-primary: #203fae;
+  --ifm-color-primary-dark: #1d399d;
+  --ifm-color-primary-darker: #1b3594;
+  --ifm-color-primary-darkest: #162c7a;
+  --ifm-color-primary-light: #2345bf;
+  --ifm-color-primary-lighter: #264ac7;
+  --ifm-color-primary-lightest: #3e60d4;
+  
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Backgrounds & Text */
+  --ifm-font-family-base: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 /* Dark mode overrides */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  /* Lighter Blue for Dark Mode readability */
+  --ifm-color-primary: #4f75ff;
+  --ifm-color-primary-dark: #2e5cff;
+  --ifm-color-primary-darker: #1e50ff;
+  --ifm-color-primary-darkest: #0036eb;
+  --ifm-color-primary-light: #708eff;
+  --ifm-color-primary-lighter: #809bff;
+  --ifm-color-primary-lightest: #b3c2ff;
+  
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }

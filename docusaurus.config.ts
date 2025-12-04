@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Logstag Docs',
-  tagline: 'Modern logging infrastructure for everyone',
+  tagline: 'Monitor Your Databases Like Never Before',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
@@ -40,7 +40,7 @@ const config: Config = {
           editUrl:
             'https://github.com/logstag/logstag-docs/tree/main/',
         },
-        blog: false, // Disabling blog as per plan
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -52,10 +52,11 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'Logstag',
+      title: '', // Hiding title to show logo only or logo + text if logo includes it
       logo: {
-        alt: 'Logstag Logo',
-        src: 'img/logo.svg',
+        alt: 'Logstag',
+        src: 'img/logstag.png',
+        srcDark: 'img/logstag.png', // Ensure visibility in dark mode
       },
       items: [
         {
@@ -65,7 +66,12 @@ const config: Config = {
           label: 'Documentation',
         },
         {
-          href: 'https://github.com/logstag/logstag-docs',
+          href: 'https://logstag.com',
+          label: 'Website',
+          position: 'right',
+        },
+        {
+          href: 'https://github.com/logstag',
           label: 'GitHub',
           position: 'right',
         },
@@ -81,14 +87,18 @@ const config: Config = {
               label: 'Introduction',
               to: '/docs/intro',
             },
+            {
+              label: 'Getting Started',
+              to: '/docs/getting-started',
+            },
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/logstag',
+              label: 'LinkedIn',
+              href: 'https://www.linkedin.com/company/logstag',
             },
             {
               label: 'Twitter',
@@ -96,8 +106,21 @@ const config: Config = {
             },
           ],
         },
+        {
+          title: 'More',
+          items: [
+            {
+              label: 'Logstag.com',
+              href: 'https://logstag.com',
+            },
+            {
+              label: 'Book a Demo',
+              href: 'https://logstag.com/demo',
+            },
+          ],
+        },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Logstag. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Logstag. All rights reserved.`,
     },
     prism: {
       theme: prismThemes.github,
