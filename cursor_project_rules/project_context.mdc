@@ -1,0 +1,33 @@
+# Logstag Project Rules
+
+## Knowledge Base
+- Always refer to these rules to understand the project context.
+- Fundamental rules and guidelines should always be followed.
+
+## Feature Development
+- Follow `implementation-plan.mdc` for feature development.
+- Update `implementation-plan.mdc` with "Done" and a summary after each step.
+
+## Coding Standards
+- **File-by-File Changes**: Make changes file by file.
+- **Single Chunk Edits**: Provide all edits in a single chunk.
+- **Preserve Existing Code**: Don't remove unrelated code.
+- **Explicit Variable Names**: Use descriptive names.
+- **Consistent Style**: Follow existing coding style.
+- **No Whitespace Suggestions**: Do not suggest whitespace changes.
+
+## Communication
+- **No Apologies**: Never apologize.
+- **No Understanding Feedback**: Avoid feedback about understanding.
+- **No Unnecessary Confirmations**: Do not ask for confirmation of known info.
+- **No Inventions**: Do not invent changes not requested.
+
+## Verification
+- **Verify Information**: Verify before presenting.
+- **No Implementation Checks**: Don't ask user to verify visible implementations.
+- **Test Coverage**: Suggest/include unit tests.
+- **Error Handling**: Implement robust error handling.
+
+## Security & Performance
+- **Security-First**: Consider security implications.
+- **Prioritize Performance**: Consider performance.
