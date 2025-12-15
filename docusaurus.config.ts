@@ -19,7 +19,12 @@ const config: Config = {
   projectName: 'logstag-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -34,6 +39,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/', // Docs will be served at the root
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
@@ -57,6 +63,7 @@ const config: Config = {
         alt: 'Logstag',
         src: 'img/logstag.png',
         srcDark: 'img/logstag.png', // Ensure visibility in dark mode
+        href: '/',
       },
       items: [
         {
@@ -85,11 +92,11 @@ const config: Config = {
           items: [
             {
               label: 'Introduction',
-              to: '/docs/intro',
+              to: '/',
             },
             {
               label: 'Getting Started',
-              to: '/docs/getting-started',
+              to: '/getting-started',
             },
           ],
         },
@@ -102,7 +109,7 @@ const config: Config = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/logstag',
+              href: 'https://x.com/logstagbyTP',
             },
           ],
         },
@@ -112,10 +119,6 @@ const config: Config = {
             {
               label: 'Logstag.com',
               href: 'https://logstag.com',
-            },
-            {
-              label: 'Book a Demo',
-              href: 'https://logstag.com/demo',
             },
           ],
         },
