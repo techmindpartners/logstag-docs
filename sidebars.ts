@@ -1,4 +1,4 @@
-import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
+import type { SidebarsConfig } from "@docusaurus/plugin-content-docs";
 
 /**
  * Creating a sidebar enables you to:
@@ -17,18 +17,64 @@ const sidebars: SidebarsConfig = {
   // But you can create a sidebar manually
   tutorialSidebar: [
     {
-      type: 'category',
-      label: 'Introduction',
-      items: ['intro'],
+      type: "category",
+      label: "Overview",
       collapsible: false,
+      items: [
+        "intro",
+        "architecture",
+        "supported-engines",
+        "data-collection-and-privacy",
+        "security-model",
+      ],
     },
     {
-      type: 'category',
-      label: 'Getting Started',
-      items: ['getting-started'],
-      collapsible: false,
+      type: "category",
+      label: "Setup",
+      items: [
+        "getting-started",
+        "agent-installation",
+        "agent-configuration",
+        "api-keys",
+        "managed-targets",
+      ],
     },
-    // Add more sections here as needed
+    {
+      type: "category",
+      label: "Database Engine Setup",
+      items: [
+        "engines/postgresql",
+        "engines/mssql",
+        "engines/mongodb",
+        "engines/redis-valkey",
+        "engines/oracle",
+      ],
+    },
+    {
+      type: "category",
+      label: "Product Guides",
+      items: [
+        "product-guides/health-checks",
+        "product-guides/database-explorer",
+        "product-guides/activity-explorer",
+        "product-guides/query-explorer",
+        "product-guides/schema-explorer",
+        "product-guides/alerts",
+        "product-guides/assets",
+        "product-guides/integrations",
+        "product-guides/audit-logs",
+      ],
+    },
+    {
+      type: "category",
+      label: "Operations",
+      items: [
+        "operations/troubleshooting",
+        "operations/agent-logs",
+        "operations/upgrades",
+        "operations/performance-and-interval-tuning",
+      ],
+    },
   ],
 };
 

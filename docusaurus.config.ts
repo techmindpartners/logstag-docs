@@ -8,15 +8,14 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://techmindpartners.github.io',
+  url: 'https://docs.logstag.com',
   // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'techmindpartners', // Usually your GitHub org/user name.
-  projectName: 'logstag-docs', // Usually your repo name.
+  organizationName: 'techmindpartners',
+  projectName: 'logstag-docs',
 
   onBrokenLinks: 'throw',
   
@@ -41,10 +40,9 @@ const config: Config = {
         docs: {
           routeBasePath: '/', // Docs will be served at the root
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/logstag/logstag-docs/tree/main/',
+            'https://github.com/techmindpartners/logstag-docs/tree/main/',
         },
         blog: false,
         theme: {
@@ -55,8 +53,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/logstag.png',
     navbar: {
       title: '', // Hiding title to show logo only or logo + text if logo includes it
       logo: {
@@ -78,7 +75,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/logstag',
+          href: 'https://github.com/techmindpartners/logstag-docs',
           label: 'GitHub',
           position: 'right',
         },

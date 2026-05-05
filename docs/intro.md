@@ -5,160 +5,102 @@ slug: /
 
 # Introduction
 
-Welcome to the **Logstag** documentation!
+Logstag is a database monitoring platform for teams that operate production databases. It collects operational metadata and database statistics through a lightweight agent, sends those measurements to the Logstag backend, and presents them through focused views for health, activity, queries, schema, alerts, and database inventory.
 
-## What is Logstag?
+Logstag is designed for observability and operational review. It does not act as a database proxy, query builder, migration tool, backup system, or database administration console.
 
-**Logstag** is a comprehensive database performance monitoring platform that helps teams optimize and troubleshoot database performance issues in real-time.
+## What Logstag Collects
 
-Logstag operates as a lightweight agent-based monitoring solution that collects metrics from your database systems using **read-only queries** with minimal performance impact (less than 0.1% resource usage).
+The Logstag agent connects to configured database targets and collects engine-specific operational signals, including:
+
+- Instance and server status.
+- Active sessions, waits, locks, blocking, and connection activity.
+- Query performance statistics where the database engine exposes them.
+- Schema, index, object, permission, and configuration metadata.
+- Replication, availability, persistence, memory, and capacity signals where supported.
+
+Logstag does not read or copy application table rows. Some metadata can still be sensitive, such as query text, object names, users, roles, permissions, and configuration values. Treat the agent configuration and Logstag access controls accordingly.
 
 ## Core Components
 
-### 1. Logstag Agent (Rust)
-A high-performance monitoring client that runs on your infrastructure:
-- Lightweight and efficient (written in Rust)
-- Read-only database access
-- Collects metrics at configurable intervals
-- Supports Linux, Windows, and Docker deployments
-- Secure HTTPS communication with the backend
+### Logstag Agent
 
-### 2. Logstag Backend (Cloud)
-A robust cloud platform that processes and analyzes your database metrics:
-- Real-time data ingestion and processing
-- Event-driven alert system
-- Time-series data storage (PostgreSQL + TimescaleDB)
-- RESTful API for frontend integration
-- Multi-tenant architecture with role-based access control
+The agent is a Rust service that runs in the customer environment. It uses configured database credentials to run monitoring queries, then sends metric payloads to the Logstag agent API.
 
-## Key Features
+Current agent capabilities include:
 
-### 🔍 Real-Time Monitoring
-Three-tier frequency monitoring system:
-- **High Frequency (10s)**: Active sessions, critical metrics
-- **Medium Frequency (1m)**: Query performance, replication status
-- **Low Frequency (10m)**: Schema stats, configuration changes
+- TOML-based configuration.
+- Multiple database targets per agent.
+- Configurable collection intervals.
+- Optional password and API key encryption in local configuration.
+- Linux, Windows, and Docker-oriented packaging paths.
+- Engine-specific collectors for PostgreSQL, Microsoft SQL Server, MongoDB, Redis, Valkey, and Oracle.
 
-### 📊 Performance Analysis
-- Query performance tracking with execution statistics
-- Slow query detection and optimization recommendations
-- Connection pool monitoring
-- Wait event analysis
-- Database size and growth tracking
+### Logstag Backend
 
-### 🚨 Intelligent Alerting
-- YAML-based alert template system
-- Event-driven alert checking
-- Customizable thresholds per database
-- Automated alert policies for common issues
+The backend receives agent payloads, stores time-series and relational metadata, evaluates alerts, and serves product APIs for the web application.
 
-### 🏥 Health Checks
-Comprehensive health reports covering 5 critical areas:
-- Security configuration
-- Performance metrics
-- Database configuration
-- Schema design
-- Maintenance status
+Current backend capabilities include:
 
-### 🔒 Security & Compliance
-- Read-only database permissions
-- API key encryption at rest (PBKDF2 + AES-GCM)
-- TLS-only network communication
-- No data access - only metadata and statistics
+- Agent registration and ingestion APIs under `/agent-api/v1`.
+- Per-engine metric ingestion for PostgreSQL, Microsoft SQL Server, MongoDB, Redis, Valkey, and Oracle.
+- Template-based alerting backed by embedded YAML templates.
+- Health check report generation.
+- Multi-tenant organization, user, role, API key, billing, integration, audit log, and alert management APIs.
+
+### Logstag Web Application
+
+The web application is the primary operator interface. The main product areas are:
+
+- Health Check
+- Database Explorer
+- Schema Explorer
+- Activity Explorer
+- Query Explorer
+- Alerts
+- Assets
+- Integrations
+- Audit Logs
 
 ## Supported Database Engines
 
-### Production Ready
-- **PostgreSQL**: Full support with pg_stat_statements integration
-- **Microsoft SQL Server**: Query Store metrics, Availability Groups
-- **MongoDB**: Server status, collection metrics, operation performance
+Logstag currently has agent and backend support for:
 
-### Coming Soon
-- **Redis & Valkey**: Real-time cache monitoring
-- **MySQL**: Query performance and replication monitoring
-- **Oracle Database**: Enterprise-grade monitoring
+| Engine | Monitoring focus |
+| --- | --- |
+| PostgreSQL | Activity, query statistics, instance metrics, schema metadata, roles, replication, configuration, alerts, and health checks. |
+| Microsoft SQL Server | Session activity, database activity, Query Store or DMV query statistics, performance counters, schema and index metadata, Availability Groups, security, alerts, and health checks. |
+| MongoDB | Server, database, collection, operation, connection pool, security, storage, replication, alerts, and health checks. |
+| Redis | Server, clients, memory, persistence, commands, CPU, slowlog, latency, configuration, security, replication, alerts, and health checks. |
+| Valkey | Redis-compatible monitoring paths for server, clients, memory, persistence, commands, latency, configuration, security, replication, and alerts. |
+| Oracle | Sessions, wait events, locks, tablespace I/O, memory, SQL performance, ASH, Data Guard, backup, AQ, redo logs, profile settings, schema, index, alerts, and health checks. |
 
-## What Logstag IS
+MySQL is not currently listed as a supported agent engine in the codebase.
 
-✅ **A Performance Monitoring Platform**: Tracks and analyzes database performance metrics in real-time
+## Collection Intervals
 
-✅ **Read-Only & Safe**: Uses only read-only queries, never modifies your data or schema
+The agent groups monitoring work into configurable intervals:
 
-✅ **Lightweight & Efficient**: Minimal resource footprint (less than 0.1% overhead)
+| Interval | Default | Typical use |
+| --- | ---: | --- |
+| High frequency | 10 seconds | Active sessions, connection pressure, waits, critical runtime signals. |
+| Medium frequency | 60 seconds | Query performance, replication, memory, persistence, command, or workload signals. |
+| Low frequency | 600 seconds | Configuration, system, and less frequently changing operational signals. |
+| Schema frequency | 14,400 seconds | Schema and index metadata, where collection is heavier and changes less often. |
 
-✅ **Multi-Database Support**: Monitors multiple database engines from a single platform
+The exact collectors assigned to each interval vary by database engine.
 
-✅ **Cloud-Native**: Designed for modern cloud infrastructure (AWS, GCP, Azure)
+## What Logstag Does Not Do
 
-✅ **Alert-Driven**: Proactively notifies you of performance issues
+Logstag does not:
 
-✅ **Historical Analysis**: Stores metrics for trend analysis and capacity planning
+- Modify application tables or database schema.
+- Read or copy application table rows.
+- Sit between applications and databases.
+- Replace backups, replication, or disaster recovery.
+- Rewrite queries or automatically apply database changes.
+- Remove the need for database permissions review.
 
-## What Logstag IS NOT
+## Next Step
 
-❌ **Not a Database Manager**: Logstag does not modify your database schema, data, or configuration
-
-❌ **Not a Backup Solution**: Logstag does not backup your data
-
-❌ **Not a Query Builder**: Logstag monitors queries but does not help you write them
-
-❌ **Not a Data Migration Tool**: Logstag does not move data between databases
-
-❌ **Not an ETL Tool**: Logstag does not transform or load your business data
-
-❌ **Not a Database Proxy**: Logstag does not sit between your application and database
-
-## Architecture Overview
-
-```
-┌─────────────────────────────────────────┐
-│     Customer Infrastructure             │
-│                                         │
-│  ┌──────────┐     ┌──────────────┐     │
-│  │ Database │◄────│ Logstag Agent│     │
-│  │  (PG/MS  │     │    (Rust)    │     │
-│  │  SQL/etc)│     └──────┬───────┘     │
-│  └──────────┘            │             │
-└──────────────────────────┼─────────────┘
-                           │ HTTPS/JSON
-                           │ + API Key
-                           ▼
-┌─────────────────────────────────────────┐
-│       Logstag Cloud Platform            │
-│                                         │
-│  ┌──────────────┐    ┌──────────────┐  │
-│  │ Backend API  │◄──►│  PostgreSQL  │  │
-│  │  (C#/.NET)   │    │ +TimescaleDB │  │
-│  └──────┬───────┘    └──────────────┘  │
-│         │                               │
-│         ├─► Alerting & Health Checks   │
-│         └─► Web Dashboard               │
-└─────────────────────────────────────────┘
-```
-
-## Use Cases
-
-### Database Performance Optimization
-Identify slow queries, missing indexes, and bottlenecks affecting your application performance.
-
-### Capacity Planning
-Track historical trends to predict when you'll need to scale your database resources.
-
-### Troubleshooting
-Quickly diagnose issues with real-time connection monitoring, wait event analysis, and query statistics.
-
-### Compliance & Security
-Monitor database configuration changes, track access patterns, and ensure security best practices.
-
-### Multi-Team Collaboration
-Share insights across development, operations, and DBA teams with role-based access control.
-
-## Getting Started
-
-Ready to start monitoring? Follow our [Getting Started Guide](./getting-started.md) to install the agent and configure your first database.
-
-## Support
-
-- **Documentation**: [https://docs.logstag.com](https://docs.logstag.com)
-- **GitHub**: [https://github.com/techmindpartners](https://github.com/techmindpartners)
-- **Email**: support@logstag.com
+Start with [Getting Started](./getting-started.md) to understand the minimum setup path, then use [Agent Configuration](./agent-configuration.md) and the engine-specific setup pages for production configuration details.

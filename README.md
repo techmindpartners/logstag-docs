@@ -1,41 +1,44 @@
-# Website
+# Logstag Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+This repository contains the public documentation site for Logstag. It is built with [Docusaurus](https://docusaurus.io/) and published as a static site.
 
 ## Installation
 
 ```bash
-yarn
+npm install
 ```
 
 ## Local Development
 
 ```bash
-yarn start
+npm run start
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+This starts the local development server. Most content and styling changes are reflected live without restarting the server.
 
 ## Build
 
 ```bash
-yarn build
+npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This generates static content in the `build` directory.
 
-## Deployment
+## Validation
 
-Using SSH:
+Before publishing documentation changes, run:
 
 ```bash
-USE_SSH=true yarn deploy
+npm run typecheck
+npm run build
 ```
 
-Not using SSH:
+## Project Structure
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+- `docs/`: Markdown documentation pages.
+- `sidebars.ts`: Documentation navigation.
+- `docusaurus.config.ts`: Site metadata, navigation, and Docusaurus settings.
+- `src/css/custom.css`: Global theme overrides.
+- `static/img/`: Static brand and site assets.
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+Production deployment is handled by the GitHub Pages workflow in `.github/workflows/deploy.yml`.

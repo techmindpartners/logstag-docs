@@ -32,7 +32,7 @@ This plan outlines the steps to build the Logstag documentation site using Docus
 - [x] Update Branding Assets
     - **File**: [`static/img/`](static/img/)
     - **Action**: Replace default logo and favicon with Logstag assets.
-    - **Status**: Pending user action. Config points to default paths.
+    - **Status**: Done. Config points to Logstag logo assets.
 
 ## Phase 3: Structure & Content Setup
 
@@ -55,3 +55,33 @@ This plan outlines the steps to build the Logstag documentation site using Docus
 - [x] Review Accessibility & Design
     - **Action**: Check color contrast and layout.
     - **Status**: Done. Basic accessibility check passed via build (no errors). Design aligns with Logstag placeholders.
+
+## Phase 5: Repository Readiness Cleanup
+
+- [x] Align package metadata with the product docs repository
+    - **Files**: [`package.json`](package.json), [`package-lock.json`](package-lock.json)
+    - **Status**: Done. Renamed the npm package from the Docusaurus template placeholder to `logstag-docs`.
+- [x] Replace template README with Logstag docs workflow
+    - **File**: [`README.md`](README.md)
+    - **Status**: Done. Documented npm install, local development, validation, project structure, and GitHub Pages deployment.
+- [x] Align production and repository links
+    - **File**: [`docusaurus.config.ts`](docusaurus.config.ts)
+    - **Status**: Done. Set the production URL to `https://docs.logstag.com` and aligned edit/GitHub links with the repository origin.
+- [x] Remove unused Docusaurus demo components
+    - **Files**: [`src/components/HomepageFeatures`](src/components/HomepageFeatures), demo SVG assets under [`static/img`](static/img)
+    - **Status**: Done. Removed unused homepage feature component and referenced demo SVG assets.
+
+## Phase 6: Documentation Foundation
+
+- [x] Define documentation voice and persona
+    - **File**: [`Logstag Documentation persona.md`](Logstag%20Documentation%20persona.md)
+    - **Status**: Done. Established the shared documentation voice: technical, direct, verifiable, and careful with operational claims.
+- [x] Rework introduction and getting started pages
+    - **Files**: [`docs/intro.md`](docs/intro.md), [`docs/getting-started.md`](docs/getting-started.md)
+    - **Status**: Done. Replaced older content with code-aligned descriptions of supported engines, collection boundaries, agent API path, intervals, and setup flow.
+- [x] Add initial documentation information architecture
+    - **Files**: [`sidebars.ts`](sidebars.ts), [`docs/architecture.md`](docs/architecture.md), [`docs/agent-configuration.md`](docs/agent-configuration.md), [`docs/supported-engines.md`](docs/supported-engines.md), [`docs/product-areas.md`](docs/product-areas.md)
+    - **Status**: Done. Added overview, setup, and product-area pages without decorative icon usage.
+- [x] Add engine setup entry pages
+    - **Files**: [`docs/engines/`](docs/engines/)
+    - **Status**: Done. Added PostgreSQL, Microsoft SQL Server, MongoDB, Redis/Valkey, and Oracle setup entry pages.
