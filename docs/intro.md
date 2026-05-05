@@ -25,7 +25,7 @@ Logstag does not read or copy application table rows. Some metadata can still be
 
 ### Logstag Agent
 
-The agent is a Rust service that runs in the customer environment. It uses configured database credentials to run monitoring queries, then sends metric payloads to the Logstag agent API.
+The agent is a Rust service that runs in the customer environment. It uses configured database credentials to run monitoring queries, then sends metric payloads to Logstag.
 
 Current agent capabilities include:
 
@@ -42,7 +42,7 @@ The backend receives agent payloads, stores time-series and relational metadata,
 
 Current backend capabilities include:
 
-- Agent registration and ingestion APIs under `/agent-api/v1`.
+- Agent registration and metric ingestion.
 - Per-engine metric ingestion for PostgreSQL, Microsoft SQL Server, MongoDB, Redis, Valkey, and Oracle.
 - Template-based alerting backed by embedded YAML templates.
 - Health check report generation.
@@ -84,9 +84,9 @@ The agent groups monitoring work into configurable intervals:
 | Interval | Default | Typical use |
 | --- | ---: | --- |
 | High frequency | 10 seconds | Active sessions, connection pressure, waits, critical runtime signals. |
-| Medium frequency | 60 seconds | Query performance, replication, memory, persistence, command, or workload signals. |
-| Low frequency | 600 seconds | Configuration, system, and less frequently changing operational signals. |
-| Schema frequency | 14,400 seconds | Schema and index metadata, where collection is heavier and changes less often. |
+| Medium frequency | 1 minute | Query performance, replication, memory, persistence, command, or workload signals. |
+| Low frequency | 10 minutes | Configuration, system, and less frequently changing operational signals. |
+| Schema frequency | 240 minutes | Schema and index metadata, where collection is heavier and changes less often. |
 
 The exact collectors assigned to each interval vary by database engine.
 

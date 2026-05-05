@@ -4,57 +4,67 @@ sidebar_position: 2
 
 # Getting Started
 
-This page describes the minimum setup path for a Logstag agent. Use it to understand the flow before moving to engine-specific configuration.
+This page describes the minimum setup path for a Logstag agent. Use it to understand the flow before moving to installation, configuration, and engine-specific setup pages.
+
+## Before You Start
+
+You need:
+
+- A Logstag workspace with permission to create or obtain an agent API key.
+- A host that can reach the monitored database targets.
+- Outbound HTTPS access from the agent host to the Logstag service.
+- A dedicated monitoring user for each database target where the engine supports user-based access control.
+- The engine-specific prerequisites required for the signals you want to collect.
+
+Some product areas depend on database features or permissions that may not be enabled by default. For example, query performance history and security posture signals often require additional engine-level visibility.
 
 ## Setup Flow
 
-1. Create or obtain a Logstag API key.
-2. Install the Logstag agent on a host that can reach the monitored database and the Logstag API.
-3. Create a database user with the required monitoring permissions.
-4. Configure one or more database targets in the agent TOML file.
-5. Start the agent and verify that the database appears in Logstag.
+1. Create or obtain a Logstag agent API key.
+2. Choose an installation method for the agent.
+3. Prepare a dedicated monitoring user for the database engine.
+4. Configure the agent with the Logstag service URL, API key, and one or more targets.
+5. Start the agent.
+6. Verify that the target appears in Logstag and begins reporting data.
 
-## Prerequisites
+## Choose an Installation Method
 
-The agent host needs:
+Logstag agent installation can be handled through the supported deployment mode for your environment:
 
-- Network access to each monitored database target.
-- Outbound HTTPS access to the Logstag agent API.
-- Permission to run the agent as a service, container, or foreground process.
-- A Logstag API key for the organization.
+- Linux package installation.
+- Windows service installation.
+- Docker-based deployment.
+- Foreground execution for testing or controlled validation.
 
-Each database target needs:
+Use the Agent Installation page for deployment-specific commands and service management details.
 
-- A dedicated monitoring user where the engine supports user-based access control.
-- Read-only access to the engine views, catalogs, statistics, or commands required by the relevant collectors.
-- Engine-specific extensions or features when required, such as `pg_stat_statements` for PostgreSQL query statistics or Query Store for Microsoft SQL Server query history.
+## Prepare Database Access
 
-## Agent API Endpoint
+Create a dedicated monitoring identity for each database target. Avoid using personal administrator accounts or application users for monitoring.
 
-Use the agent API endpoint as the base URL:
+At a high level, the monitoring identity needs read-oriented access to the engine metadata and runtime signals used by Logstag:
+
+| Engine | Access Focus |
+| --- | --- |
+| PostgreSQL | Statistics views, catalog metadata, schema metadata, and query statistics when enabled. |
+| Microsoft SQL Server | Database and server state visibility, query performance metadata, schema metadata, and role metadata. |
+| MongoDB | Server, database, collection, index, operation, and security metadata where permitted. |
+| Redis / Valkey | Runtime information, client metadata, replication state, slow log entries, configuration metadata, and ACL metadata where permitted. |
+| Oracle | Dictionary metadata, performance views, session visibility, schema metadata, and security posture settings. |
+
+Use the engine-specific setup pages for concrete permissions. The required scope can vary by database version, deployment model, and enabled Logstag capabilities.
+
+## Configure the Agent
+
+The agent uses a TOML configuration file with one global `[agent]` section and one `[targets.name]` section for each monitored target.
+
+Use the Logstag agent service URL provided for your organization. Keep production URLs and internal paths out of shared examples.
 
 ```toml
 [agent]
-api_base_url = "https://api.logstag.com/agent-api/v1"
-api_key = "your_api_key_here"
-```
-
-The agent sends the API key in request headers and uses the endpoint paths under `/agent-api/v1` for registration and metric ingestion.
-
-## Basic Agent Configuration
-
-The agent uses TOML configuration. A minimal configuration looks like this:
-
-```toml
-[agent]
-api_base_url = "https://api.logstag.com/agent-api/v1"
-api_key = "your_api_key_here"
+api_base_url = "https://<logstag-agent-api-base-url>"
+api_key = "<your-logstag-agent-api-key>"
 log_level = "info"
-
-high_frequency_interval = 10
-medium_frequency_interval = 60
-low_frequency_interval = 600
-schema_frequency_interval = 14400
 
 [targets.production-postgres]
 platform = "self-hosted"
@@ -62,11 +72,11 @@ db_engine = "postgresql"
 db_host = "postgres.example.internal"
 db_port = 5432
 db_username = "logstag_monitor"
-db_password = "your_database_password"
+db_password = "<your-database-password>"
 db_name = "postgres"
 ```
 
-For production environments, prefer encrypted values for sensitive fields after the agent is installed on the target host. Encrypted values are machine-specific and should not be copied between hosts.
+For production environments, store sensitive values using the agent's encrypted local format where available. Encrypted values are machine-specific and should be generated on the host that runs the agent.
 
 ## Supported Target Engines
 
@@ -87,25 +97,7 @@ For Redis and Valkey, `db_name` is the database number as a string, such as `"0"
 
 Use `self-hosted` for standard self-managed targets.
 
-Managed platform support exists for cloud-specific flows such as `aws-rds` and `huawei-rds`. These targets require additional cloud fields, including region, instance ID, access key, secret key, and Huawei project ID where applicable.
-
-## Install the Agent
-
-The agent repository includes packaging assets for Linux, Windows, and Docker-based deployment. Public package distribution URLs should be verified against the current release process before publishing end-user installation commands.
-
-Until the release channel is finalized, documentation should describe the supported installation modes without promising package URLs that are not part of the verified release workflow.
-
-## Create a Monitoring User
-
-Create a dedicated monitoring user per database engine. The exact permissions differ by engine:
-
-- PostgreSQL needs access to statistics views and catalog metadata. `pg_monitor` is the usual starting point for supported PostgreSQL versions.
-- Microsoft SQL Server needs server and database state visibility for DMVs, Query Store, schema, and performance counters.
-- MongoDB needs cluster, server, database, collection, operation, and security metadata visibility.
-- Redis and Valkey need access to monitoring commands such as `INFO`, command statistics, slowlog, latency, and ACL metadata where configured.
-- Oracle needs access to dynamic performance views and dictionary metadata required by the selected collectors.
-
-Use the engine-specific setup pages before publishing final permission snippets. Permission examples should be tested against the current collectors.
+Managed platform support exists for cloud-specific flows such as AWS RDS and Huawei Cloud RDS. These targets require additional cloud fields, including region, instance ID, access key, secret key, and Huawei project ID where applicable.
 
 ## Start and Verify
 
@@ -116,15 +108,15 @@ After configuration:
 3. Open Logstag and confirm that the database appears in Database Explorer or the relevant inventory view.
 4. Confirm that metrics begin appearing for the expected product areas.
 
-The first visible data depends on the configured interval and engine. Runtime activity can appear quickly; schema and index metadata can take longer because it is collected on the schema interval.
+The first visible data depends on the configured interval and engine. Runtime activity can appear quickly; schema and index metadata can take longer because it is collected less frequently.
 
 ## Troubleshooting Checklist
 
 Check these items first:
 
-- `api_base_url` includes `/agent-api/v1`.
+- The Logstag agent service URL is configured correctly.
 - The API key belongs to the expected Logstag organization.
-- The agent host can resolve and reach the Logstag API over HTTPS.
+- The agent host can resolve and reach the Logstag service over HTTPS.
 - The agent host can reach the database host and port.
 - The database user can connect to the target database.
 - Required database views, commands, extensions, or features are enabled.

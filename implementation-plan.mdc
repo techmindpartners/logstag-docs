@@ -85,3 +85,33 @@ This plan outlines the steps to build the Logstag documentation site using Docus
 - [x] Add engine setup entry pages
     - **Files**: [`docs/engines/`](docs/engines/)
     - **Status**: Done. Added PostgreSQL, Microsoft SQL Server, MongoDB, Redis/Valkey, and Oracle setup entry pages.
+- [x] Rework data collection and security model pages
+    - **Files**: [`docs/data-collection-and-privacy.md`](docs/data-collection-and-privacy.md), [`docs/security-model.md`](docs/security-model.md)
+    - **Status**: Done. Rewrote both pages using agent documentation as source material while excluding internal API paths, implementation file paths, and raw permission scripts from public documentation.
+- [x] Refine Getting Started page
+    - **File**: [`docs/getting-started.md`](docs/getting-started.md)
+    - **Status**: Done. Reworked the onboarding flow with masked service URL examples, no public API paths, no raw interval values, and clearer handoff to installation, configuration, and engine setup pages.
+- [x] Rework Agent Installation page
+    - **File**: [`docs/agent-installation.md`](docs/agent-installation.md)
+    - **Status**: Done. Replaced the placeholder with Linux, Windows, Docker, service management, default paths, upgrade, verification, and troubleshooting guidance using masked installer and service URLs.
+- [x] Rework Agent Configuration page
+    - **File**: [`docs/agent-configuration.md`](docs/agent-configuration.md)
+    - **Status**: Done. Expanded configuration reference with masked service URL examples, interval explanations in minutes where applicable, target/platform fields, sensitive value handling, multiple targets, validation, and current Oracle connectivity guidance.
+- [x] Rework API Keys page
+    - **File**: [`docs/api-keys.md`](docs/api-keys.md)
+    - **Status**: Done. Added organization scope, configuration, local encrypted storage, rotation, revocation, validation, and troubleshooting guidance without exposing endpoint paths, header names, or key format details.
+- [x] Rework Managed Targets page
+    - **File**: [`docs/managed-targets.md`](docs/managed-targets.md)
+    - **Status**: Done. Added self-hosted vs managed platform model, AWS RDS and Huawei Cloud RDS fields, cloud metric behavior, credential handling, verification, and troubleshooting without exposing provider endpoint details or unsupported platform values.
+- [x] Rework PostgreSQL setup page
+    - **File**: [`docs/engines/postgresql.md`](docs/engines/postgresql.md)
+    - **Status**: Done. Added target configuration, monitoring access model, SQL setup for dedicated monitoring user, pg_monitor, schema usage, pg_stat_statements, managed PostgreSQL notes, validation, and troubleshooting.
+- [x] Rework Microsoft SQL Server setup page
+    - **File**: [`docs/engines/mssql.md`](docs/engines/mssql.md)
+    - **Status**: Done. Added target configuration, monitoring login and user setup, server and database state visibility, Query Store guidance, Availability Groups notes, data collection boundaries, validation, and troubleshooting.
+- [x] Rework MongoDB setup page
+    - **File**: [`docs/engines/mongodb.md`](docs/engines/mongodb.md)
+    - **Status**: Done. Added target configuration, monitoring user setup, read and clusterMonitor access model, optional security inventory, optional current operation diagnostics, data collection boundaries, deployment notes, validation, and troubleshooting.
+- [x] Rework Redis and Valkey setup page
+    - **File**: [`docs/engines/redis-valkey.md`](docs/engines/redis-valkey.md)
+    - **Status**: Done. Added supported deployment scope, Redis and Valkey target configuration, ACL-based monitoring user setup, password-only authentication notes, command access model, data collection boundaries, deployment notes, validation, and troubleshooting.
