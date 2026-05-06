@@ -6,7 +6,7 @@ sidebar_position: 1
 
 Logstag monitors PostgreSQL through system statistics views, catalog metadata, role metadata, replication metadata, and query statistics when `pg_stat_statements` is enabled.
 
-Use a dedicated monitoring user. Do not use a personal administrator account or an application user for the agent.
+Use a dedicated monitoring user instead of a personal administrator account or application user.
 
 ## Supported Target Configuration
 

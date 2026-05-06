@@ -19,7 +19,7 @@ Logstag supports multiple database engines through engine-specific agent collect
 
 ## Planned Engines
 
-Logstag is planned to expand engine coverage beyond the currently supported set. These engines are on the product roadmap and will be documented with setup, permissions, and verification steps as support becomes available:
+Logstag is planned to expand engine coverage beyond the currently supported set. These engines are on the product roadmap and will receive setup, permissions, and verification guidance as support becomes available:
 
 | Engine | Status |
 | --- | --- |
@@ -30,4 +30,4 @@ Logstag is planned to expand engine coverage beyond the currently supported set.
 | SAP | Planned |
 | CockroachDB | Planned |
 
-Engine-specific setup pages should include tested permissions, required database features, configuration examples, and verification steps once an engine is supported.
+As each engine becomes available, its setup guidance will include tested permissions, required database features, configuration examples, and verification steps.

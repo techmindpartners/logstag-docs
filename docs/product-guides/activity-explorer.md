@@ -6,10 +6,202 @@ sidebar_position: 3
 
 Activity Explorer shows runtime database activity such as sessions, connections, waits, blocking, and transactions.
 
-This page will cover:
+It is designed for operators who need to understand what is happening inside a database while a workload is running.
 
-- Supported engines.
-- Activity metrics.
-- Wait and blocking views.
-- Time range behavior.
-- Engine-specific limitations.
+## Purpose
+
+Activity Explorer helps answer operational questions such as:
+
+1. Which databases currently have active workload?
+2. Which sessions or connections are consuming time?
+3. Are users waiting on locks, I/O, client activity, or other engine wait classes?
+4. Is one session blocking other sessions?
+5. Did deadlocks or long waits increase compared with the previous period?
+
+The page focuses on observable runtime activity. It is not a query tuning report, schema analysis view, or replacement for Health Check. Query-level performance history belongs in Query Explorer, while Health Check provides a broader report across performance, configuration, security, schema, and maintenance signals.
+
+## Preview And Roadmap
+
+Preview mode can show Activity Explorer as part of the broader Monitoring menu.
+
+| Surface | Status | Direction |
+| --- | --- | --- |
+| Activity Explorer | Supported | Runtime activity investigation for monitored databases and instances. |
+| Overview activity roll-up | Coming soon | Planned summary of activity pressure in the consolidated monitoring dashboard. |
+| Insight-driven activity recommendations | Roadmap | Planned linkage between runtime activity signals and higher-level Insights recommendations. |
+
+The supported Activity Explorer page remains the detailed source for sessions, waits, blocking, and connection analysis.
+
+## Supported Engines
+
+Activity Explorer currently provides detailed activity views for:
+
+| Engine | Activity scope |
+| --- | --- |
+| PostgreSQL | Sessions, connection states, wait events, blocking chains, transactions, deadlocks, query duration, and resource context. |
+| Microsoft SQL Server | Sessions, connection states, waits, blocking chains, transactions, deadlocks, CPU/read/write session metadata, and resource context. |
+| Oracle | Sessions, wait events, blocking chains, SQL execution rate, Oracle session serial, SQL identifiers, wait classes, and resource context. |
+
+MongoDB, Redis, and Valkey continue to be covered by their supported monitoring, alerting, health, and explorer workflows, but they are not part of the current Activity Explorer tab model.
+
+## Activity Database List
+
+The Activity Explorer database list shows databases that can be reviewed for activity.
+
+The list includes:
+
+- Database name.
+- Hosting instance.
+- Engine.
+- Active or inactive state.
+- Activity data availability for the selected time window.
+- Critical and warning alert counts.
+- Navigation to the activity detail view.
+
+The list can be filtered by database name, instance name, engine, data availability, and blocking issue presence. It can also be sorted by activity-focused fields such as blocked sessions, waiting sessions, active sessions, total sessions, and similar runtime metrics where available.
+
+## Detail Tabs
+
+Selecting a database opens the Activity Explorer detail view. The detail view uses four tabs:
+
+| Tab | Purpose |
+| --- | --- |
+| Overview | High-level activity metrics, recent activity rows, and resource utilization. |
+| Connections | Current sessions or connections, connection state distribution, and connection-level details. |
+| Wait Events | Current wait events, wait type distribution, and wait details. |
+| Blocking Chains | Root blockers, blocked sessions, chain depth, wait duration, and deadlock-related context. |
+
+Each tab uses the selected time window to calculate trends and compare current values with the previous comparable period.
+
+## Overview
+
+The Overview tab summarizes activity across the selected database.
+
+It can include:
+
+- Active Sessions.
+- Transactions / second for PostgreSQL and Microsoft SQL Server.
+- SQL Executions / second for Oracle.
+- Deadlocks.
+- Average query time.
+- CPU, memory, and network resource utilization.
+- Recent activity records.
+
+Recent activity records can include timestamp, activity type, database, instance, object, user, status, duration, and engine. The exact activity type depends on the engine and available runtime data.
+
+## Connections
+
+The Connections tab shows current database sessions or connections.
+
+Top-level metrics include:
+
+- Total Connections.
+- Active Connections.
+- Idle Connections.
+- Average Wait Time.
+
+The connection state distribution groups engine-native session states into shared categories:
+
+| State | Meaning |
+| --- | --- |
+| Active | Work is currently executing or active in the engine. |
+| Idle | The session exists but is not actively executing work. |
+| Idle In Transaction | The session is idle while holding an open transaction. |
+| Waiting For Lock | The session is waiting on a lock-related condition. |
+| Other | The engine state does not map cleanly to the main categories. |
+
+Connection rows can include session identifier, database, user, application name, client address, session or process start time, state, wait event, duration, query text, transaction start, blocker identifier, and engine-specific fields.
+
+Engine-specific fields include:
+
+| Engine | Additional connection fields |
+| --- | --- |
+| Oracle | Session serial, SQL identifier, and last-call timing where available. |
+| Microsoft SQL Server | Host name, CPU time, logical reads, physical reads, writes, and open transaction count where available. |
+| PostgreSQL | PostgreSQL session and wait metadata exposed through activity views. |
+
+## Wait Events
+
+The Wait Events tab focuses on sessions that are waiting for database resources.
+
+Top-level metrics include:
+
+- Wait Events.
+- Locks.
+- Blocked Processes.
+- Potential Deadlocks.
+
+Wait events are grouped into shared categories:
+
+| Category | Meaning |
+| --- | --- |
+| Locks | Lock-related waits or blocking conditions. |
+| LWLocks | Lightweight lock waits where the engine exposes them. |
+| IO | Storage, file, or I/O-related waits. |
+| Client | Client communication or client-side wait conditions. |
+| Other | Engine-specific waits outside the main categories. |
+
+Wait event rows can include session identifier, event type, event name, resource, duration, session count, average time, query text, wait start time, blocker identifier, database, user, application name, client address, and engine.
+
+Oracle can also expose wait class. Microsoft SQL Server can expose wait resource and host name. PostgreSQL exposes PostgreSQL wait event type and wait event name where available.
+
+## Blocking Chains
+
+The Blocking Chains tab shows lock chains where one session blocks one or more other sessions.
+
+Top-level metrics include:
+
+- Active Blocking Chains.
+- Longest Blocking Duration.
+- Total Blocked Sessions.
+- Deadlocks Detected.
+- Maximum chain depth.
+- Average block duration.
+
+A blocking chain includes:
+
+- Root blocker session.
+- Blocked sessions.
+- Chain depth.
+- Number of blocked sessions.
+- Duration.
+- Detected time.
+- Query text where available.
+- Lock or wait resource details where available.
+
+Oracle blocking details can include lock type, lock mode, object owner, object name, and session serial. Microsoft SQL Server blocking details can include host name and wait resource. PostgreSQL blocking details use PostgreSQL session, lock, and wait metadata.
+
+## Filtering, Sorting, And Pagination
+
+Activity Explorer supports pagination and sorting across detail tables.
+
+Connections can be filtered by connection state and sorted by duration, session identifier, user, or database.
+
+Wait events can be filtered by wait event type and minimum duration, then sorted by duration, session identifier, event type, or event name.
+
+Blocking chains can be filtered by minimum blocked session count and minimum duration, then sorted by duration, chain depth, blocked count, or root blocker session.
+
+## Status And Trends
+
+Activity Explorer metrics can include:
+
+- Current value.
+- Change percentage.
+- Trend direction.
+- Status band.
+
+Status bands are used to highlight operational pressure. They are based on runtime thresholds for the specific metric, such as active sessions, transaction or execution rate, deadlocks, wait counts, blocked processes, chain depth, and wait duration.
+
+An upward trend is not always bad. For throughput metrics, an increase can indicate higher workload. For deadlocks, wait time, blocked sessions, or blocking duration, an increase usually deserves review.
+
+## Data Freshness
+
+Activity Explorer uses collected runtime signals for the selected time window. Activity data is most useful when high-frequency and workload collectors are enabled and the monitoring user has access to the required engine activity views.
+
+If activity data is unavailable, the database can still appear in the list with a no-data reason. Common causes include no activity in the selected time window, missing permissions, unsupported engine activity surfaces, disabled collectors, or an inactive database target.
+
+## Data Boundaries
+
+Activity Explorer displays operational metadata. This can include query text or snippets, user names, application names, client addresses, session identifiers, wait resources, lock metadata, object names, and timing data.
+
+Logstag does not copy application table rows through Activity Explorer. However, runtime metadata can still reveal sensitive workload behavior. Activity Explorer is intended for users who are allowed to inspect live database activity and operational metadata.

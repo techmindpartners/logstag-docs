@@ -16,7 +16,7 @@ Recommended practice:
 
 - Use separate keys for production, staging, and test environments.
 - Use separate keys for materially different deployment groups when rotation boundaries differ.
-- Avoid sharing one key across unrelated customers, organizations, or network zones.
+- Use separate keys for unrelated customers, organizations, or network zones.
 - Remove unused keys after an agent is decommissioned.
 
 ## Configuration
@@ -29,22 +29,22 @@ api_base_url = "https://<logstag-agent-api-base-url>"
 api_key = "<your-logstag-agent-api-key>"
 ```
 
-Use the Logstag service URL provided for your organization. Do not paste production keys or real service URLs into shared documentation, tickets, screenshots, or chat messages.
+Use the Logstag service URL provided for your organization. Shared documentation, tickets, screenshots, and chat messages should use masked keys and masked service URLs.
 
 ## Local Storage
 
 The agent supports encrypted local values for sensitive fields, including `api_key`.
 
-Encrypted values are machine-specific. Generate the encrypted value on the host that runs the agent, and do not copy encrypted values between hosts.
+Encrypted values are machine-specific. Generate the encrypted value on the host that runs the agent because encrypted values are not portable between hosts.
 
 For production:
 
 - Store the key using the encrypted local format where available.
 - Restrict read access to the agent configuration file.
 - Limit administrator access on the agent host.
-- Avoid exposing the key through shell history, process arguments, logs, or deployment templates.
+- Keep the key out of shell history, process arguments, logs, and deployment templates.
 
-Plain text keys may be useful during local validation, but they should not be used for long-running production deployments.
+Plain text keys may be useful during local validation. Long-running production deployments should use encrypted local values where available.
 
 ## Rotation
 
@@ -65,7 +65,7 @@ Recommended rotation flow:
 5. Verify that the target reports successfully.
 6. Revoke the old key after the replacement is confirmed.
 
-Do not revoke the old key before confirming the replacement if the monitored target must remain continuously visible.
+For targets that must remain continuously visible, revoke the old key only after confirming the replacement.
 
 ## Revocation
 

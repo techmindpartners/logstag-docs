@@ -30,7 +30,7 @@ The agent is deployed inside the customer-controlled environment. It needs netwo
 - The Logstag service.
 - Cloud provider APIs, when cloud platform metrics are enabled.
 
-The agent initiates outbound communication to Logstag. Public documentation should not require opening inbound access from Logstag into the customer network for normal monitoring.
+The agent initiates outbound communication to Logstag. Normal monitoring does not require inbound access from Logstag into the customer network.
 
 Operators should restrict egress to the expected Logstag destination, keep database access scoped to the agent host, and use network controls appropriate for the deployment environment.
 
@@ -83,13 +83,13 @@ Monitoring collection is designed to read from engine-provided metadata and diag
 
 Logstag does not require application write access for monitoring. It does not create, update, or delete application rows, MongoDB documents, Redis keys, or Oracle/MSSQL/PostgreSQL schema objects as part of normal monitoring.
 
-For Redis and Valkey, the agent reads slow log entries without resetting the slow log. It should not use state-changing commands as part of normal monitoring.
+For Redis and Valkey, the agent reads slow log entries without resetting the slow log. Normal monitoring does not rely on state-changing commands.
 
 Some engines require read access to powerful metadata interfaces. A permission may be read-only while still revealing sensitive operational or security information. Review those grants according to your internal access policy.
 
 ## Permission-Limited Data
 
-When the monitoring user lacks permission for a specific signal, Logstag should treat that signal as unavailable or permission-limited.
+When the monitoring user lacks permission for a specific signal, Logstag treats that signal as unavailable or permission-limited.
 
 This matters for:
 
@@ -99,7 +99,7 @@ This matters for:
 - Redis and Valkey ACL inspection.
 - Oracle performance views that may require additional licensing or database privileges.
 
-Unavailable data should not be interpreted as a healthy zero-value metric. It means the agent could not observe that signal under the current permission model.
+Unavailable data is not a healthy zero-value metric. It means the agent could not observe that signal under the current permission model.
 
 ## Operator Responsibilities
 

@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Agent logs are the first place to check when registration, database connection, or metric ingestion fails.
 
-This page will cover:
+Agent Logs focuses on:
 
 - Linux log paths.
 - Windows log paths.

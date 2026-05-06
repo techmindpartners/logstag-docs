@@ -6,7 +6,7 @@ sidebar_position: 2
 
 Logstag monitors Microsoft SQL Server through server and database metadata, dynamic management views, Query Store where enabled, performance counters, schema metadata, index metadata, security metadata, and Availability Groups metadata where applicable.
 
-Use a dedicated monitoring login. The account should be able to connect to the monitored database and read operational metadata, but it should not own application schemas or application data.
+Use a dedicated monitoring login that can connect to the monitored database and read operational metadata without owning application schemas or application data.
 
 ## Target Configuration
 
@@ -69,7 +69,7 @@ GRANT VIEW DATABASE STATE TO [logstag_monitor];
 GO
 ```
 
-These grants are intended for observability metadata. They do not grant ownership over application schemas and do not grant write access to application tables.
+These grants are intended for observability metadata, without ownership over application schemas or write access to application tables.
 
 ## Query Store
 

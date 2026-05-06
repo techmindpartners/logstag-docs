@@ -51,7 +51,7 @@ The following data types should be treated as sensitive operational metadata:
 - Redis slowlog command arguments, which can include key names or command parameters.
 - MongoDB index key definitions and namespace names.
 
-Logstag documentation should avoid describing these fields as harmless. They are not application rows, but they can reveal application structure, access patterns, naming conventions, and operational behavior.
+These fields are not application rows, but they can reveal application structure, access patterns, naming conventions, and operational behavior.
 
 ## Engine Coverage Matrix
 
@@ -59,7 +59,7 @@ Logstag documentation should avoid describing these fields as harmless. They are
 | --- | --- | --- | --- | --- | --- |
 | PostgreSQL | Sessions, waits, blocking, transactions, database activity, replication. | Active query text and normalized query text from query statistics where available. | Schemas, tables, columns, indexes, views, functions, sequences, constraints, bloat, vacuum activity. | Roles, role membership, schema/table/function privileges, elevated role attributes. | Database settings, table and index sizes, row estimates, cache and I/O activity. |
 | Microsoft SQL Server | Sessions, waits, blocking, database activity, performance counters, Availability Groups. | Current SQL text and query text from Query Store or DMV-based collection. | Schemas, tables, columns, views, procedures, functions, indexes, permissions, object metadata. | Logins, users, roles, sysadmin membership, orphaned users, password policy indicators, permission grants. | Instance settings, server configuration, memory, database files, index usage, storage and row estimates. |
-| MongoDB | Server status, operation counters, connection pool, collection performance, replication and lock signals. | Aggregate operation counters and collection-level operation timings. Current operation command documents are not part of the current documented collection set. | Databases, collections, namespaces, collection size metrics, index names, index key definitions, index usage. | Users, roles, inherited roles, privileges, authentication and TLS-related indicators where available. | Server build and host info, command line options, startup warnings, storage engine, collection and index size metrics. |
+| MongoDB | Server status, operation counters, connection pool, collection performance, replication and lock signals. | Aggregate operation counters and collection-level operation timings. Current operation command documents are outside the current collection boundary. | Databases, collections, namespaces, collection size metrics, index names, index key definitions, index usage. | Users, roles, inherited roles, privileges, authentication and TLS-related indicators where available. | Server build and host info, command line options, startup warnings, storage engine, collection and index size metrics. |
 | Redis | Server stats, client stats, replication state, latency, persistence, CPU, memory. | Command statistics and slowlog entries, including command names and arguments returned by Redis. | Keyspace-level statistics and logical database metrics. Individual key values are not copied as records. | ACL users, command permissions, key and channel access patterns, password-present indicators. | Configuration statistics, memory, persistence, replication, CPU, eviction, expiry, and command activity. |
 | Valkey | Redis-compatible runtime activity and replication metrics. | Redis-compatible command statistics and slowlog metadata where available. | Redis-compatible keyspace and logical database metrics. | Redis-compatible ACL and security metadata where available. | Redis-compatible configuration, memory, persistence, CPU, and capacity metrics. |
 | Oracle | Sessions, waits, locks, tablespace I/O, ASH samples, Data Guard, AQ, redo, backup status. | SQL identifiers, plan hashes, SQL performance metrics, and SQL text snippets where exposed by Oracle. | Schemas, objects, indexes, tablespaces, queues, roles, and object-level metadata. | Users, roles, role hierarchies, object privileges, system privileges, profile security settings. | Instance configuration, audit settings, profile settings, memory, backup, redo, tablespace, and index metrics. |
@@ -86,7 +86,7 @@ Engine behavior differs:
 - Microsoft SQL Server can expose current SQL text and query text through Query Store or DMV-based collection.
 - Oracle can expose SQL identifiers, plan hashes, metrics, and SQL text snippets.
 - Redis and Valkey slowlog entries can include command arguments.
-- MongoDB currently focuses on server, database, collection, security, and aggregate operation metrics rather than storing current operation command documents as part of the documented collection set.
+- MongoDB currently focuses on server, database, collection, security, and aggregate operation metrics rather than storing current operation command documents.
 
 Operators should avoid embedding secrets, tokens, personally identifiable information, or business-sensitive literals in SQL, Redis commands, or database object names. Where an engine supports query normalization, normalization can reduce but does not eliminate sensitivity.
 

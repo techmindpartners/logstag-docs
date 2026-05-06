@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The agent groups collectors into high, medium, low, and schema intervals.
 
-This page will cover:
+Performance and interval tuning focuses on:
 
 - Default intervals.
 - When to tune each interval.

@@ -40,7 +40,7 @@ Use the Agent Installation page for deployment-specific commands and service man
 
 ## Prepare Database Access
 
-Create a dedicated monitoring identity for each database target. Avoid using personal administrator accounts or application users for monitoring.
+Create a dedicated monitoring identity for each database target instead of using personal administrator accounts or application users for monitoring.
 
 At a high level, the monitoring identity needs read-oriented access to the engine metadata and runtime signals used by Logstag:
 
@@ -58,7 +58,7 @@ Use the engine-specific setup pages for concrete permissions. The required scope
 
 The agent uses a TOML configuration file with one global `[agent]` section and one `[targets.name]` section for each monitored target.
 
-Use the Logstag agent service URL provided for your organization. Keep production URLs and internal paths out of shared examples.
+Use the Logstag agent service URL provided for your organization. Shared examples should use masked URLs and placeholder credentials.
 
 ```toml
 [agent]

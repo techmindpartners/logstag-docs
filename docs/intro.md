@@ -60,7 +60,23 @@ The web application is the primary operator interface. The main product areas ar
 - Alerts
 - Assets
 - Integrations
-- Audit Logs
+- Audit Logs, available only to the Account Owner
+
+## Preview And Roadmap Surfaces
+
+Logstag can show preview-mode product surfaces that demonstrate the broader product direction. These surfaces are useful for evaluation, but the documentation separates them from currently supported workflows.
+
+| Surface | Documentation status | Direction |
+| --- | --- | --- |
+| Overview | Coming soon | A consolidated monitoring dashboard for instances, databases, connections, alerts, trends, and system health. |
+| Insights | Roadmap | Higher-level analytics for optimization opportunities, change impact, security posture, data inventory, and forecasting. |
+| Reports | Coming soon | A monitoring reports area that will include Health Check output as Monitoring becomes the primary product entry point. |
+| Integration catalog | Roadmap | A broader catalog beyond Jira Cloud, including APM, CI/CD, project management, source control, incident management, cloud monitoring, and observability tools. |
+| Users | Supported where enabled | Organization member, role, and access management for administrative users. |
+
+Audit Logs are intentionally separate from regular operator workflows. They are available only to the Account Owner because they contain organization activity and access-review context.
+
+When a page documents a preview-mode capability, it uses `Coming soon` or `Roadmap` language unless that capability is already available in the supported operational flow.
 
 ## Supported Database Engines
 
@@ -75,7 +91,7 @@ Logstag currently has agent and backend support for:
 | Valkey | Redis-compatible monitoring paths for server, clients, memory, persistence, commands, latency, configuration, security, replication, and alerts. |
 | Oracle | Sessions, wait events, locks, tablespace I/O, memory, SQL performance, ASH, Data Guard, backup, AQ, redo logs, profile settings, schema, index, alerts, and health checks. |
 
-MySQL is not currently listed as a supported agent engine in the codebase.
+MySQL is planned for future coverage and is not part of the current supported engine set.
 
 ## Collection Intervals
 

@@ -6,7 +6,7 @@ sidebar_position: 3
 
 Logstag monitors MongoDB through server commands, database statistics, collection statistics, index usage metadata, connection pool metadata, replication metadata, and security metadata where permissions allow it.
 
-Use a dedicated monitoring user. The user should be able to read MongoDB operational metadata, but it should not be used by the application and should not have write access to application collections.
+Use a dedicated monitoring user with read access to MongoDB operational metadata. Keep this user separate from application users and without write access to application collections.
 
 ## Target Configuration
 
@@ -86,9 +86,9 @@ Only grant this role when Logstag is expected to report MongoDB security posture
 
 ## Optional Current Operation Diagnostics
 
-Current operation diagnostics are permission-dependent and should be used as a controlled diagnostic layer. They can expose namespace, operation type, application name, execution duration, lock state, and client metadata.
+Current operation diagnostics are permission-dependent and work best as a controlled diagnostic layer. They can expose namespace, operation type, application name, execution duration, lock state, and client metadata.
 
-When enabled and permitted, Logstag should collect only minimized operation metadata. Full command bodies, literal query filters, raw aggregation pipelines, and document payloads should not be treated as required monitoring data.
+When enabled and permitted, Logstag collects minimized operation metadata. Full command bodies, literal query filters, raw aggregation pipelines, and document payloads are outside the required monitoring data boundary.
 
 If the environment does not allow this visibility, MongoDB operational monitoring still works from aggregate server, database, collection, index, and replication metadata.
 
@@ -105,7 +105,7 @@ Depending on enabled collectors and granted visibility, Logstag can collect:
 - Replica set status, role, set name, oplog size, and replication lag where applicable.
 - Security metadata, including users, roles, inherited roles, and privilege level analysis when the monitoring user has the required visibility.
 
-Logstag does not copy MongoDB documents as dataset content. Collection statistics may execute metadata-focused aggregations, including document size estimation, but exported values should remain measurements and operational metadata rather than document payloads.
+Logstag does not copy MongoDB documents as dataset content. Collection statistics may execute metadata-focused aggregations, including document size estimation, but exported values remain measurements and operational metadata rather than document payloads.
 
 ## Deployment Notes
 

@@ -115,3 +115,39 @@ This plan outlines the steps to build the Logstag documentation site using Docus
 - [x] Rework Redis and Valkey setup page
     - **File**: [`docs/engines/redis-valkey.md`](docs/engines/redis-valkey.md)
     - **Status**: Done. Added supported deployment scope, Redis and Valkey target configuration, ACL-based monitoring user setup, password-only authentication notes, command access model, data collection boundaries, deployment notes, validation, and troubleshooting.
+- [x] Rework Oracle setup page
+    - **File**: [`docs/engines/oracle.md`](docs/engines/oracle.md)
+    - **Status**: Done. Added supported deployment scope, PDB-oriented target configuration, Oracle client notes, monitoring user setup, dictionary and dynamic performance view access model, ASH licensing guidance, Data Guard notes, data collection boundaries, validation, and troubleshooting.
+- [x] Rework Health Checks product guide
+    - **File**: [`docs/product-guides/health-checks.md`](docs/product-guides/health-checks.md)
+    - **Status**: Done. Added Phase 1 and Phase 2 product direction, report purpose, user model, backend-aligned report tabs, engine-specific tab scope, scoring method, system health method, report information, scope comparison, charts, recommendations, report statuses, and finding structure.
+- [x] Clean public documentation language
+    - **File**: [`docs`](docs)
+    - **Status**: Done. Removed editor-facing placeholders and internal-note style language from public pages, converted unfinished page scaffolds into neutral scope summaries, and kept security guidance in customer-facing wording.
+- [x] Rework Database Explorer product guide
+    - **File**: [`docs/product-guides/database-explorer.md`](docs/product-guides/database-explorer.md)
+    - **Status**: Done. Added inventory list behavior, filtering and sorting, database detail tabs, engine-adaptive overview metrics, charts, health indicators, alerts, schema view, data freshness, and data boundary guidance.
+- [x] Rework Activity Explorer product guide
+    - **File**: [`docs/product-guides/activity-explorer.md`](docs/product-guides/activity-explorer.md)
+    - **Status**: Done. Added purpose, supported engine scope, activity database list behavior, detail tabs, overview metrics, connections, wait events, blocking chains, filtering, sorting, status and trend language, data freshness, and data boundary guidance.
+- [x] Rework Query Explorer product guide
+    - **File**: [`docs/product-guides/query-explorer.md`](docs/product-guides/query-explorer.md)
+    - **Status**: Done. Added purpose, supported engine scope, query list behavior, active detail tabs, overview metrics, statistics, alert signals, engine data requirements, data freshness, and data boundary guidance.
+- [x] Rework Schema Explorer product guide
+    - **File**: [`docs/product-guides/schema-explorer.md`](docs/product-guides/schema-explorer.md)
+    - **Status**: Done. Added purpose, supported engine scope, schema list behavior, active detail tabs, overview metrics, database objects, health indicators, changes, permissions, alerts, data freshness, and data boundary guidance.
+- [x] Rework Alerts product guide
+    - **File**: [`docs/product-guides/alerts.md`](docs/product-guides/alerts.md)
+    - **Status**: Done. Added purpose, supported engine coverage, alert sources, templates, policies, severity, scope, list/detail behavior, lifecycle states, assignment, SLA tracking, escalation, history, data freshness, and data boundary guidance.
+- [x] Rework Assets product guide
+    - **File**: [`docs/product-guides/assets.md`](docs/product-guides/assets.md)
+    - **Status**: Done. Added asset purpose, supported engine registration scope, list behavior, connection status model, create/setup flow, ownership and environment fields, registration token behavior, detail view, connection management, Health Check entry point, Jira mapping, delete behavior, data freshness, and data boundary guidance.
+- [x] Rework Integrations product guide
+    - **File**: [`docs/product-guides/integrations.md`](docs/product-guides/integrations.md)
+    - **Status**: Done. Added Jira-supported integration scope, preview catalog and coming-soon roadmap entries, permissions, configuration fields, create/update behavior, database-to-project mappings, alert escalation behavior, issue type resolution, external ticket links, Jira status updates, rate limiting, removal behavior, data freshness, and data boundary guidance.
+- [x] Add preview-mode roadmap language across product documentation
+    - **Files**: [`docs/intro.md`](docs/intro.md), [`docs/product-areas.md`](docs/product-areas.md), [`docs/product-guides/health-checks.md`](docs/product-guides/health-checks.md), [`docs/product-guides/database-explorer.md`](docs/product-guides/database-explorer.md), [`docs/product-guides/activity-explorer.md`](docs/product-guides/activity-explorer.md), [`docs/product-guides/query-explorer.md`](docs/product-guides/query-explorer.md), [`docs/product-guides/schema-explorer.md`](docs/product-guides/schema-explorer.md), [`docs/product-guides/alerts.md`](docs/product-guides/alerts.md), [`docs/product-guides/assets.md`](docs/product-guides/assets.md), [`docs/product-guides/audit-logs.md`](docs/product-guides/audit-logs.md), [`docs/product-guides/integrations.md`](docs/product-guides/integrations.md)
+    - **Status**: Done. Added Supported, Coming soon, and Roadmap status language for preview-mode product surfaces including Overview, Insights, Reports, integration catalog expansion, governance, and product-area roll-ups without exposing internal routes or implementation details.
+- [x] Refine Audit Logs access model
+    - **Files**: [`docs/product-guides/audit-logs.md`](docs/product-guides/audit-logs.md), [`docs/product-areas.md`](docs/product-areas.md), [`docs/intro.md`](docs/intro.md), [`docs/architecture.md`](docs/architecture.md)
+    - **Status**: Done. Clarified that Audit Logs are an Account Owner-only governance view and separated them from normal operator workflows.

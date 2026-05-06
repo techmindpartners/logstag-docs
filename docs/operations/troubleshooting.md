@@ -4,9 +4,9 @@ sidebar_position: 1
 
 # Troubleshooting
 
-This page will collect common troubleshooting workflows for Logstag agents and product views.
+This page collects common troubleshooting workflows for Logstag agents and product views.
 
-Planned sections:
+Common troubleshooting areas:
 
 - Agent registration failures.
 - API key errors.

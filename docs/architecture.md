@@ -48,4 +48,4 @@ Collection timing is configurable. Runtime signals can be collected as frequentl
 - Alerts: Active and historical alert management.
 - Assets: Monitored infrastructure and database assets.
 - Integrations: External workflow and incident management integrations.
-- Audit Logs: Administrative and organization audit events.
+- Audit Logs: Account Owner-only administrative and organization audit events.

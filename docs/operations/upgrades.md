@@ -4,9 +4,9 @@ sidebar_position: 3
 
 # Upgrades
 
-This page will document agent and documentation upgrade behavior.
+This page describes agent upgrade behavior.
 
-Planned sections:
+Upgrade areas:
 
 - Agent update channels.
 - Automatic update checks.

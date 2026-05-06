@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The Logstag agent uses a TOML configuration file. The file has one global `[agent]` section and one `[targets.name]` section for each monitored database target.
 
-Use the service URL and API key provided for your Logstag organization. Keep production URLs, internal paths, and real credentials out of shared examples.
+Use the service URL and API key provided for your Logstag organization. Shared examples should use masked URLs and placeholder credentials.
 
 ## Configuration Structure
 
@@ -56,7 +56,7 @@ Intervals are configured as seconds in TOML. Setting an interval to `0` disables
 | `update_channel` | `main` | Release channel used for update checks. Use the production channel unless Logstag support instructs otherwise. |
 | `update_check_interval` | 1440 minutes | Interval between update checks. |
 | `auto_install_updates` | `true` | Allow automatic installation of available updates. |
-| `export_to_file` | `false` | Debug-only payload export. Do not enable in production unless directed. |
+| `export_to_file` | `false` | Debug-only payload export. Keep disabled in production unless Logstag support directs otherwise. |
 | `export_path` | Current directory | Directory used when debug payload export is enabled. |
 | `mock_mode` | `false` | Local development mode that disables normal Logstag submission. |
 
@@ -85,7 +85,7 @@ db_name = "postgres"
 | `db_password` | Yes | Monitoring user password. Empty values are valid only where the engine and deployment intentionally allow unauthenticated access. |
 | `db_name` | Yes | Database name, Redis/Valkey database number, or Oracle service/PDB identifier depending on the engine. |
 
-Use a dedicated monitoring identity for each target. Avoid using personal administrator accounts or application users.
+Use a dedicated monitoring identity for each target instead of personal administrator accounts or application users.
 
 ## Engine Values
 
@@ -115,7 +115,7 @@ Engine-specific behavior:
 | AWS RDS | `aws-rds` | Requires cloud metadata and cloud credentials when cloud metrics are enabled. |
 | Huawei Cloud RDS | `huawei-rds` | Requires cloud metadata, cloud credentials, and project ID when cloud metrics are enabled. |
 
-Other managed platforms may appear in internal configuration flows before they are fully documented. Do not configure an undocumented platform value unless Logstag support confirms it for your environment.
+Use only the managed platform values listed here unless Logstag support confirms another value for your environment.
 
 ## Managed Platform Fields
 
@@ -139,7 +139,7 @@ The agent supports encrypted local values for sensitive fields:
 - `db_password`
 - `cloud_secret_key`
 
-Encrypted values are machine-specific and should be generated on the host that runs the agent. Do not copy encrypted values between hosts.
+Encrypted values are machine-specific and should be generated on the host that runs the agent. Copying encrypted values between hosts will not produce a portable secret.
 
 Use plain text values only for local testing or controlled troubleshooting. Production configurations should use encrypted local values where available and should be readable only by the agent service account and administrators.
 
@@ -194,6 +194,6 @@ After restart, check the agent logs for configuration, authentication, connectiv
 - Keep production API keys, passwords, and cloud secrets out of tickets, screenshots, and shared documentation.
 - Use one dedicated monitoring user per engine or target group.
 - Keep target names stable; changing names may affect how operators recognize assets.
-- Avoid enabling debug payload export in production.
+- Keep debug payload export disabled in production unless Logstag support directs otherwise.
 - Prefer the default intervals unless there is a specific operational reason to tune them.
 - Use engine setup pages to prepare database permissions before expecting full product coverage.

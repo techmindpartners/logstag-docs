@@ -6,7 +6,7 @@ sidebar_position: 4
 
 Logstag monitors Redis and Valkey through the Redis protocol. The same monitoring model is used for both engines because Valkey is Redis protocol compatible.
 
-Use a dedicated monitoring user when ACLs are enabled. The user should have read-only operational visibility and should not be used by the application.
+Use a dedicated monitoring user when ACLs are enabled. The user needs read-only operational visibility and should remain separate from application access.
 
 ## Supported Deployment Scope
 
@@ -16,8 +16,8 @@ Use a dedicated monitoring user when ACLs are enabled. The user should have read
 | Valkey | Valkey 8.0 and later. |
 | Standalone | Supported. |
 | Replication | Supported for primary and replica role visibility. |
-| Redis Cluster | Not currently documented as a supported target mode. |
-| Sentinel | Not currently documented as a supported target mode. |
+| Redis Cluster | Requires separate deployment validation. |
+| Sentinel | Requires separate deployment validation. |
 
 For clustered Redis or Sentinel environments, monitor each supported Redis or Valkey node according to the deployment guidance approved for that environment.
 
@@ -101,7 +101,7 @@ If Logstag should collect ACL security inventory, grant ACL read visibility as a
 ACL SETUSER logstag_monitor +acl|users +acl|getuser
 ```
 
-Avoid granting write or destructive commands to the monitoring user.
+Keep write and destructive commands out of the monitoring user's ACL.
 
 ## Password-Only Authentication
 
@@ -143,7 +143,7 @@ Logstag does not read Redis key values as dataset content. Some Redis metadata c
 
 Standalone Redis and Valkey instances may not expose meaningful replication metrics. Replication metrics are collected only when the node reports a primary or replica role.
 
-Redis Cluster and Sentinel mode are not covered by this setup page. Do not use this page to infer cluster-wide monitoring behavior.
+Redis Cluster and Sentinel deployments require separate validation before rollout. This setup page describes standalone Redis and Valkey node monitoring.
 
 Managed Redis services may restrict commands such as `CONFIG GET`, `SLOWLOG`, `LATENCY`, `CLIENT LIST`, or ACL inspection. When a command is restricted, Logstag can continue collecting the remaining permitted metrics and report reduced coverage for the restricted area.
 

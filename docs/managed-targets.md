@@ -18,7 +18,7 @@ Each target has a `platform` value:
 | AWS RDS | `aws-rds` | The target is an Amazon RDS instance and cloud system metrics should be collected. |
 | Huawei Cloud RDS | `huawei-rds` | The target is a Huawei Cloud RDS instance and cloud system metrics should be collected. |
 
-Do not configure undocumented platform values unless Logstag support confirms them for your environment.
+Use only the managed platform values listed here unless Logstag support confirms another value for your environment.
 
 ## What Changes for Managed Targets
 
@@ -116,7 +116,7 @@ Managed targets include two credential sets:
 
 Store `db_password` and `cloud_secret_key` using encrypted local values where available. Cloud credentials should be scoped to the monitored instances and rotated according to your internal credential policy.
 
-Do not use broad personal cloud credentials for agent deployments. Prefer a dedicated cloud identity with the minimum permissions required for monitoring.
+Prefer a dedicated cloud identity with the minimum permissions required for monitoring instead of broad personal cloud credentials.
 
 ## Verification
 
