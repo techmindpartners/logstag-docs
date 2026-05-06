@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Logstag Docs',
   tagline: 'Monitor Your Databases Like Never Before',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/logstag_favicon.svg',
 
   // Set the production url of your site here
   url: 'https://docs.logstag.com',

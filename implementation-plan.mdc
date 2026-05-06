@@ -151,3 +151,18 @@ This plan outlines the steps to build the Logstag documentation site using Docus
 - [x] Refine Audit Logs access model
     - **Files**: [`docs/product-guides/audit-logs.md`](docs/product-guides/audit-logs.md), [`docs/product-areas.md`](docs/product-areas.md), [`docs/intro.md`](docs/intro.md), [`docs/architecture.md`](docs/architecture.md)
     - **Status**: Done. Clarified that Audit Logs are an Account Owner-only governance view and separated them from normal operator workflows.
+- [x] Rework Troubleshooting operations guide
+    - **File**: [`docs/operations/troubleshooting.md`](docs/operations/troubleshooting.md)
+    - **Status**: Done. Replaced the placeholder with a best-practice troubleshooting runbook covering safe diagnostic order, service state, configuration validation, authentication, network and database connectivity, permission-limited data, missing metrics, product view issues, Health Check completeness, alerts, integrations, safe restarts, redaction, and escalation evidence.
+- [x] Rework Agent Logs operations guide
+    - **File**: [`docs/operations/agent-logs.md`](docs/operations/agent-logs.md)
+    - **Status**: Done. Replaced the placeholder with code-aligned log locations, Linux/Windows/Docker access commands, log level guidance, rotation and cleanup behavior, symptom-based log review, time-bounded evidence collection, redaction rules, debug payload export guidance, and support escalation package.
+- [x] Rework Upgrades operations guide
+    - **File**: [`docs/operations/upgrades.md`](docs/operations/upgrades.md)
+    - **Status**: Done. Replaced the placeholder with a production-safe upgrade guide covering automatic and manual update models, update configuration, channels, pre-upgrade checks, Linux/Windows/Docker flows, post-upgrade verification, rollback, compatibility checks, troubleshooting, and escalation evidence.
+- [x] Rework Performance and Interval Tuning operations guide
+    - **File**: [`docs/operations/performance-and-interval-tuning.md`](docs/operations/performance-and-interval-tuning.md)
+    - **Status**: Done. Replaced the placeholder with a production tuning guide covering interval defaults, product-area dependencies, tuning triggers, high/medium/low/schema tier impact, large database guidance, multi-target agents, startup warmup, payload compression, disabling tiers, change procedure, verification, and troubleshooting.
+- [x] Update documentation site favicon
+    - **File**: [`docusaurus.config.ts`](docusaurus.config.ts)
+    - **Status**: Done. Pointed the browser favicon to the dedicated Logstag favicon SVG asset.
