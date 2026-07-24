@@ -25,17 +25,26 @@ import { readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { marked } from "marked";
 
-// Usage: node build-explain.mjs [partialsDir] [--inject <html file>]
+// Usage: node build-explain.mjs [partialsDir] [--inject <html file>] [--docs-origin <url>]
 const argv = process.argv.slice(2);
-const injectIdx = argv.indexOf("--inject");
-const injectTarget = injectIdx !== -1 ? argv[injectIdx + 1] : null;
-const positional = argv.filter((a, i) => i !== injectIdx && i !== injectIdx + 1);
+function takeFlag(name) {
+  const i = argv.indexOf(name);
+  if (i === -1) return null;
+  const value = argv[i + 1];
+  argv.splice(i, 2);
+  return value;
+}
+const injectTarget = takeFlag("--inject");
+const docsOriginFlag = takeFlag("--docs-origin");
+const positional = argv;
 const PARTIALS_DIR = resolve(
   positional[0] ??
     new URL("./partials/", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")
 );
 const STATIC_DIR = resolve(PARTIALS_DIR, "../../../../../static");
-const DOCS_ORIGIN = "https://docs.logstag.com";
+// Default: production docs. Pass --docs-origin http://localhost:3111 to make
+// panel links open a locally hosted Docusaurus during review.
+const DOCS_ORIGIN = docsOriginFlag ?? "https://docs.logstag.com";
 const SOURCE_PREFIX = "docs/product-guides/_explain/activity-explorer/blocking-chains/";
 
 marked.setOptions({ gfm: true });
