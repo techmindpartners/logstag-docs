@@ -1,0 +1,37 @@
+---
+title: "Blocking Chains: Metric Reference"
+description: What each Blocking Chains metric and table shows, how it is calculated, and how to read it.
+---
+
+import ActiveChains from './_explain/activity-explorer/blocking-chains/metric.active-chains.md';
+import LongestBlock from './_explain/activity-explorer/blocking-chains/metric.longest-block.md';
+import BlockedSessions from './_explain/activity-explorer/blocking-chains/metric.blocked-sessions.md';
+import Deadlocks from './_explain/activity-explorer/blocking-chains/metric.deadlocks.md';
+import DetectedChains from './_explain/activity-explorer/blocking-chains/table.detected-chains.md';
+
+# Blocking Chains: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Activity Explorer](/product-guides/activity-explorer/#blocking-chains) Blocking Chains tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+## Active Chains
+
+<ActiveChains />
+
+## Longest Block
+
+<LongestBlock />
+
+## Blocked Sessions
+
+<BlockedSessions />
+
+## Deadlocks Detected
+
+<Deadlocks />
+
+## Detected Chains
+
+<DetectedChains />

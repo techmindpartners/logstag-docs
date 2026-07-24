@@ -1,0 +1,60 @@
+{
+  "category": "Activity Explorer · Blocking Chains",
+  "docsPage": "/product-guides/activity-explorer-blocking-chains/",
+  "entries": {
+    "metric.active-chains": {
+      "file": "metric.active-chains.md",
+      "kind": "metric",
+      "title": "Active Chains",
+      "figure": "chain-tree",
+      "anchor": "#active-chains",
+      "related": [
+        "metric.longest-block",
+        "table.detected-chains"
+      ]
+    },
+    "metric.blocked-sessions": {
+      "file": "metric.blocked-sessions.md",
+      "kind": "metric",
+      "title": "Blocked Sessions",
+      "figure": "counted",
+      "anchor": "#blocked-sessions",
+      "related": [
+        "metric.active-chains",
+        "table.detected-chains"
+      ]
+    },
+    "metric.deadlocks": {
+      "file": "metric.deadlocks.md",
+      "kind": "metric",
+      "title": "Deadlocks Detected",
+      "figure": "cycle",
+      "anchor": "#deadlocks-detected",
+      "related": [
+        "metric.active-chains"
+      ]
+    },
+    "metric.longest-block": {
+      "file": "metric.longest-block.md",
+      "kind": "metric",
+      "title": "Longest Block",
+      "figure": "peak-bars",
+      "anchor": "#longest-block",
+      "related": [
+        "metric.active-chains",
+        "metric.blocked-sessions"
+      ]
+    },
+    "table.detected-chains": {
+      "file": "table.detected-chains.md",
+      "kind": "table",
+      "title": "Detected Chains",
+      "figure": "table-anatomy",
+      "anchor": "#detected-chains",
+      "related": [
+        "metric.active-chains",
+        "metric.blocked-sessions"
+      ]
+    }
+  }
+}
