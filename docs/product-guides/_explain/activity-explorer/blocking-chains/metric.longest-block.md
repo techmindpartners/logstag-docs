@@ -8,7 +8,9 @@ The longest time any single session spent waiting on a lock inside the time wind
 
 ### Example
 
-*In the dashboard this section shows the wait bars of blocked sessions, with the single worst wait highlighted.*
+![Lock wait durations with the maximum highlighted](/img/explain/activity-explorer/blocking-chains/peak-bars.svg)
+
+*Three blocked sessions in the window — the tile reports only the tallest bar, the single worst wait.*
 
 ### Reading it
 

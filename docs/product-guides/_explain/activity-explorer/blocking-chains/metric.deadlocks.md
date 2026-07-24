@@ -11,7 +11,9 @@ The agent ingests these events; the tile counts them in the window.
 
 ### Example
 
-*In the dashboard this section shows a two-session cycle with the chosen victim.*
+![Deadlock cycle between two sessions](/img/explain/activity-explorer/blocking-chains/cycle.svg)
+
+*A deadlock is a cycle — neither side can ever proceed, so the engine terminates one victim and rolls its transaction back.*
 
 ### Reading it
 

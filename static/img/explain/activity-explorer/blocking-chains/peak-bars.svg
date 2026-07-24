@@ -1,0 +1,13 @@
+<svg width="420" height="108" viewBox="0 0 420 108" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif" role="img" aria-label="Lock wait durations, maximum highlighted">
+  <text x="8" y="25" font-family="ui-monospace, monospace" font-size="12" fill="#838b9a">67</text>
+  <rect x="46" y="12" width="304" height="16" rx="5" fill="#e5484d"/>
+  <text x="358" y="25" font-size="12" font-weight="700" fill="#d84a50">10.8 s</text>
+  <text x="8" y="59" font-family="ui-monospace, monospace" font-size="12" fill="#838b9a">71</text>
+  <rect x="46" y="46" width="304" height="16" rx="5" fill="rgba(131,139,154,.15)"/>
+  <rect x="46" y="46" width="67" height="16" rx="5" fill="rgba(131,139,154,.38)"/>
+  <text x="358" y="59" font-size="12" fill="#9aa1ad">2.4 s</text>
+  <text x="8" y="93" font-family="ui-monospace, monospace" font-size="12" fill="#838b9a">84</text>
+  <rect x="46" y="80" width="304" height="16" rx="5" fill="rgba(131,139,154,.15)"/>
+  <rect x="46" y="80" width="25" height="16" rx="5" fill="rgba(131,139,154,.38)"/>
+  <text x="358" y="93" font-size="12" fill="#9aa1ad">0.9 s</text>
+</svg>

@@ -8,7 +8,9 @@ How many sessions were stuck waiting behind a blocker in the window. This is the
 
 ### Example
 
-*In the dashboard this section shows which sessions in a chain are counted — root blockers never are.*
+![Which sessions in a chain are counted](/img/explain/activity-explorer/blocking-chains/counted.svg)
+
+*Two blocked sessions here: 67 waits on 52 while also blocking 71. The root blocker itself is never counted.*
 
 ### Reading it
 

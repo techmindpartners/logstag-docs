@@ -2,7 +2,9 @@ Every blocking chain in the window, worst first. Each chain expands into the ses
 
 ### Example
 
-*In the dashboard this section shows an annotated miniature of the table rows.*
+![Annotated Detected Chains table rows](/img/explain/activity-explorer/blocking-chains/table-anatomy.svg)
+
+*How to read the table: ① summary strip ② root blocker (red tint, Granted: Yes) ③ blocked sessions, indented by depth.*
 
 ### Columns
 

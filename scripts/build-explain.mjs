@@ -34,6 +34,7 @@ const PARTIALS_DIR = resolve(
   positional[0] ??
     new URL("./partials/", import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, "$1")
 );
+const STATIC_DIR = resolve(PARTIALS_DIR, "../../../../../static");
 const DOCS_ORIGIN = "https://docs.logstag.com";
 const SOURCE_PREFIX = "docs/product-guides/_explain/activity-explorer/blocking-chains/";
 
@@ -58,6 +59,18 @@ function transform(md, fm) {
   // an italic-only paragraph right after the figure slot is docs-site fallback
   // text ("shown in the in-app panel") — the live figure replaces it here
   html = html.replace(/(<div class="xp-fig"[^>]*><\/div>)\s*<p><em>[\s\S]*?<\/em><\/p>/g, "$1");
+
+  // figure images from the docs static dir: `![alt](/img/…)` followed by an
+  // optional italic caption. The SVG file is inlined so the panel shows the
+  // exact asset the docs site serves; the caption renders on both surfaces.
+  html = html.replace(
+    /<p><img src="(\/img\/[^"]+\.svg)" alt="[^"]*"\s*\/?><\/p>(?:\s*<p><em>([\s\S]*?)<\/em><\/p>)?/g,
+    (m, src, cap) => {
+      const svg = readFileSync(join(STATIC_DIR, src), "utf8").trim();
+      const caption = cap ? `<div class="xp-figcap">${cap}</div>` : "";
+      return `<div class="xp-fig xp-fig-img">${svg}${caption}</div>`;
+    }
+  );
 
   // engine tables → xp-engines rows
   html = html.replace(/<table>[\s\S]*?<\/table>/g, (tbl) => {

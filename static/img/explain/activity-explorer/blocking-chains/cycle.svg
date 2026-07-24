@@ -1,0 +1,12 @@
+<svg width="420" height="96" viewBox="0 0 420 96" xmlns="http://www.w3.org/2000/svg" font-family="ui-sans-serif, system-ui, sans-serif" role="img" aria-label="Deadlock cycle between two sessions">
+  <rect x="8" y="34" width="164" height="36" rx="18" fill="none" stroke="rgba(163,170,182,.7)"/>
+  <text x="24" y="56" font-family="ui-monospace, monospace" font-size="12.5" font-weight="700" fill="#6f7787">PID 52</text>
+  <text x="82" y="56" font-size="10.5" fill="#9aa1ad">holds A · wants B</text>
+  <path d="M180 44 H232 M226 38 L236 44 L226 50" fill="none" stroke="rgba(131,139,154,.9)" stroke-width="1.5"/>
+  <path d="M240 60 H188 M194 54 L184 60 L194 66" fill="none" stroke="rgba(131,139,154,.9)" stroke-width="1.5"/>
+  <rect x="248" y="34" width="164" height="36" rx="18" fill="none" stroke="rgba(163,170,182,.7)"/>
+  <text x="264" y="56" font-family="ui-monospace, monospace" font-size="12.5" font-weight="700" fill="#6f7787">PID 67</text>
+  <text x="322" y="56" font-size="10.5" fill="#9aa1ad">holds B · wants A</text>
+  <rect x="330" y="8" width="52" height="19" rx="9.5" fill="rgba(229,72,77,.12)"/>
+  <text x="356" y="21.5" font-size="10.5" font-weight="600" fill="#d84a50" text-anchor="middle">victim</text>
+</svg>

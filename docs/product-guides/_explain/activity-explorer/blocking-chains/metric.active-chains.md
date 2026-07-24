@@ -16,7 +16,9 @@ The number of separate blocking chains detected in the selected time window. A b
 
 ### Example
 
-*In the dashboard this section shows a live chain diagram: session 52 holds the lock and runs, session 67 queues behind it.*
+![Blocking chain example diagram](/img/explain/activity-explorer/blocking-chains/chain-tree.svg)
+
+*One chain: session 52 holds the lock and runs; session 67 queues behind it. Deeper trees count as a single chain too.*
 
 ### Reading it
 
