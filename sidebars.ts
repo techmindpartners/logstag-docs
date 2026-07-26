@@ -56,8 +56,12 @@ const sidebars: SidebarsConfig = {
       items: [
         "product-guides/health-checks",
         "product-guides/database-explorer",
-        "product-guides/activity-explorer",
-        "product-guides/activity-explorer-blocking-chains",
+        {
+          type: "category",
+          label: "Activity Explorer",
+          link: { type: "doc", id: "product-guides/activity-explorer/index" },
+          items: ["product-guides/activity-explorer/blocking-chains"],
+        },
         "product-guides/query-explorer",
         "product-guides/schema-explorer",
         "product-guides/alerts",

@@ -2,23 +2,12 @@
 sidebar_position: 3
 ---
 
+import PageOverview from '../_explain/activity-explorer/page/page.overview.md';
+import DatabasesTable from '../_explain/activity-explorer/page/table.databases.md';
+
 # Activity Explorer
 
-Activity Explorer shows runtime database activity such as sessions, connections, waits, blocking, and transactions.
-
-It is designed for operators who need to understand what is happening inside a database while a workload is running.
-
-## Purpose
-
-Activity Explorer helps answer operational questions such as:
-
-1. Which databases currently have active workload?
-2. Which sessions or connections are consuming time?
-3. Are users waiting on locks, I/O, client activity, or other engine wait classes?
-4. Is one session blocking other sessions?
-5. Did deadlocks or long waits increase compared with the previous period?
-
-The page focuses on observable runtime activity. It is not a query tuning report, schema analysis view, or replacement for Health Check. Query-level performance history belongs in Query Explorer, while Health Check provides a broader report across performance, configuration, security, schema, and maintenance signals.
+<PageOverview />
 
 ## Preview And Roadmap
 
@@ -46,19 +35,7 @@ MongoDB, Redis, and Valkey continue to be covered by their supported monitoring,
 
 ## Activity Database List
 
-The Activity Explorer database list shows databases that can be reviewed for activity.
-
-The list includes:
-
-- Database name.
-- Hosting instance.
-- Engine.
-- Active or inactive state.
-- Activity data availability for the selected time window.
-- Critical and warning alert counts.
-- Navigation to the activity detail view.
-
-The list can be filtered by database name, instance name, engine, data availability, and blocking issue presence. It can also be sorted by activity-focused fields such as blocked sessions, waiting sessions, active sessions, total sessions, and similar runtime metrics where available.
+<DatabasesTable />
 
 ## Detail Tabs
 
@@ -147,29 +124,11 @@ Oracle can also expose wait class. Microsoft SQL Server can expose wait resource
 
 ## Blocking Chains
 
-The Blocking Chains tab shows lock chains where one session blocks one or more other sessions.
+The Blocking Chains tab shows lock chains where one session blocks one or more other sessions: the root blocker, everything queued behind it, chain depth, durations, and deadlock context.
 
-Top-level metrics include:
+Metric definitions, worked examples, and how each value is calculated live in the [Blocking Chains reference](./blocking-chains.mdx).
 
-- Active Blocking Chains.
-- Longest Blocking Duration.
-- Total Blocked Sessions.
-- Deadlocks Detected.
-- Maximum chain depth.
-- Average block duration.
-
-A blocking chain includes:
-
-- Root blocker session.
-- Blocked sessions.
-- Chain depth.
-- Number of blocked sessions.
-- Duration.
-- Detected time.
-- Query text where available.
-- Lock or wait resource details where available.
-
-Oracle blocking details can include lock type, lock mode, object owner, object name, and session serial. Microsoft SQL Server blocking details can include host name and wait resource. PostgreSQL blocking details use PostgreSQL session, lock, and wait metadata.
+Engine specifics: Oracle blocking details can include lock type, lock mode, object owner, object name, and session serial. Microsoft SQL Server can include host name and wait resource. PostgreSQL uses PostgreSQL session, lock, and wait metadata.
 
 ## Filtering, Sorting, And Pagination
 

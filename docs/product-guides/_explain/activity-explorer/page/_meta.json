@@ -1,0 +1,23 @@
+{
+  "group": "activity-explorer",
+  "category": "Activity Explorer",
+  "docsPage": "/product-guides/activity-explorer/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Activity Explorer",
+      "anchor": "",
+      "related": ["table.databases"],
+      "app": true
+    },
+    "table.databases": {
+      "file": "table.databases.md",
+      "kind": "table",
+      "title": "Activity Databases",
+      "anchor": "#activity-database-list",
+      "related": ["page.overview"],
+      "app": true
+    }
+  }
+}

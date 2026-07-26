@@ -1,6 +1,7 @@
 {
+  "group": "activity-explorer.blocking-chains",
   "category": "Activity Explorer · Blocking Chains",
-  "docsPage": "/product-guides/activity-explorer-blocking-chains/",
+  "docsPage": "/product-guides/activity-explorer/blocking-chains/",
   "entries": {
     "metric.active-chains": {
       "file": "metric.active-chains.md",
@@ -11,7 +12,8 @@
       "related": [
         "metric.longest-block",
         "table.detected-chains"
-      ]
+      ],
+      "app": true
     },
     "metric.blocked-sessions": {
       "file": "metric.blocked-sessions.md",
@@ -22,7 +24,8 @@
       "related": [
         "metric.active-chains",
         "table.detected-chains"
-      ]
+      ],
+      "app": true
     },
     "metric.deadlocks": {
       "file": "metric.deadlocks.md",
@@ -32,7 +35,8 @@
       "anchor": "#deadlocks-detected",
       "related": [
         "metric.active-chains"
-      ]
+      ],
+      "app": true
     },
     "metric.longest-block": {
       "file": "metric.longest-block.md",
@@ -43,7 +47,8 @@
       "related": [
         "metric.active-chains",
         "metric.blocked-sessions"
-      ]
+      ],
+      "app": true
     },
     "table.detected-chains": {
       "file": "table.detected-chains.md",
@@ -54,7 +59,8 @@
       "related": [
         "metric.active-chains",
         "metric.blocked-sessions"
-      ]
+      ],
+      "app": true
     }
   }
 }

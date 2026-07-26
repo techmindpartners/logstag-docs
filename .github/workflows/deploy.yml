@@ -31,6 +31,10 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Build HelpPanel registry
+        # Emits static/explain/v1/*.json so `npm run build` ships the
+        # in-app help registry atomically with the site.
+        run: node scripts/build-explain.mjs
       - name: Build
         run: npm run build
       - name: Upload artifact
