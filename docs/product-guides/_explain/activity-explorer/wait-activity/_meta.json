@@ -1,0 +1,73 @@
+{
+  "group": "activity-explorer.wait-activity",
+  "category": "Activity Explorer · Wait Activity (Oracle)",
+  "docsPage": "/product-guides/activity-explorer/wait-activity/",
+  "entries": {
+    "metric.active-session-time": {
+      "file": "metric.active-session-time.md",
+      "kind": "metric",
+      "title": "Active session time",
+      "anchor": "#active-session-time",
+      "related": [
+        "metric.cpu-vs-wait",
+        "chart.top-wait-classes"
+      ],
+      "app": true
+    },
+    "metric.cpu-vs-wait": {
+      "file": "metric.cpu-vs-wait.md",
+      "kind": "metric",
+      "title": "CPU vs Wait",
+      "anchor": "#cpu-vs-wait",
+      "related": [
+        "metric.active-session-time",
+        "chart.top-wait-classes"
+      ],
+      "app": true
+    },
+    "metric.completed-wait-sum": {
+      "file": "metric.completed-wait-sum.md",
+      "kind": "metric",
+      "title": "Completed-wait sum (reference)",
+      "anchor": "#completed-wait-sum",
+      "related": [
+        "metric.active-session-time",
+        "table.top-wait-events"
+      ],
+      "app": true
+    },
+    "chart.top-wait-classes": {
+      "file": "chart.top-wait-classes.md",
+      "kind": "chart",
+      "title": "Top Wait Classes",
+      "anchor": "#top-wait-classes",
+      "related": [
+        "table.top-wait-events",
+        "metric.cpu-vs-wait"
+      ],
+      "app": true
+    },
+    "table.top-wait-events": {
+      "file": "table.top-wait-events.md",
+      "kind": "table",
+      "title": "Top Wait Events",
+      "anchor": "#top-wait-events",
+      "related": [
+        "chart.top-wait-classes",
+        "metric.completed-wait-sum"
+      ],
+      "app": true
+    },
+    "table.top-sql": {
+      "file": "table.top-sql.md",
+      "kind": "table",
+      "title": "Top SQL by ASH activity",
+      "anchor": "#top-sql",
+      "related": [
+        "table.top-wait-events",
+        "metric.active-session-time"
+      ],
+      "app": true
+    }
+  }
+}

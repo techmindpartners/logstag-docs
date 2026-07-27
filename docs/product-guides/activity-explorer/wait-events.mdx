@@ -1,0 +1,45 @@
+---
+title: "Wait Events: Metric Reference"
+sidebar_label: Wait Events
+description: What each Wait Events metric, chart, and table shows on the Activity Explorer, how it is calculated, and how to read it.
+---
+
+import WaitEvents from '../_explain/activity-explorer/wait-events/metric.wait-events.md';
+import Locks from '../_explain/activity-explorer/wait-events/metric.locks.md';
+import BlockedProcesses from '../_explain/activity-explorer/wait-events/metric.blocked-processes.md';
+import PotentialDeadlocks from '../_explain/activity-explorer/wait-events/metric.potential-deadlocks.md';
+import WaitEventsHistory from '../_explain/activity-explorer/wait-events/chart.wait-events-history.md';
+import CurrentWaitEvents from '../_explain/activity-explorer/wait-events/table.current-wait-events.md';
+
+# Wait Events: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Activity Explorer](/product-guides/activity-explorer/) Wait Events tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Wait Events tab is available for PostgreSQL, Microsoft SQL Server, and Oracle databases.
+
+## Wait Events
+
+<WaitEvents />
+
+## Locks
+
+<Locks />
+
+## Blocked Processes
+
+<BlockedProcesses />
+
+## Potential Deadlocks
+
+<PotentialDeadlocks />
+
+## Wait Events History
+
+<WaitEventsHistory />
+
+## Current Wait Events
+
+<CurrentWaitEvents />

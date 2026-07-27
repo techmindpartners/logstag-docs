@@ -27,7 +27,7 @@ MongoDB, Redis, and Valkey continue to be covered by their supported monitoring,
 
 ## Detail Tabs
 
-Selecting a database opens the Activity Explorer detail view. The detail view uses four tabs:
+Selecting a database opens the Activity Explorer detail view. The detail view uses five tabs; the last one appears only for Oracle:
 
 | Tab | Purpose |
 | --- | --- |
@@ -35,6 +35,7 @@ Selecting a database opens the Activity Explorer detail view. The detail view us
 | Connections | Current sessions or connections, connection state distribution, and connection-level details. |
 | Wait Events | Current wait events, wait type distribution, and wait details. |
 | Blocking Chains | Root blockers, blocked sessions, chain depth, wait duration, and deadlock-related context. |
+| Wait Activity (Oracle only) | ASH-driven wait analysis: active session time, CPU vs wait split, top wait classes, events, and SQL. |
 
 Each tab uses the selected time window to calculate trends and compare current values with the previous comparable period.
 
@@ -56,59 +57,19 @@ Recent activity records can include timestamp, activity type, database, instance
 
 ## Connections
 
-The Connections tab shows current database sessions or connections.
+The Connections tab shows the sessions connected to the database: totals split by state, a connection-state history, and a per-connection table with an in-place detail view.
 
-Top-level metrics include:
+Metric definitions, the shared state model, and how each value is calculated live in the [Connections reference](./connections.mdx).
 
-- Total Connections.
-- Active Connections.
-- Idle Connections.
-- Average Wait Time.
-
-The connection state distribution groups engine-native session states into shared categories:
-
-| State | Meaning |
-| --- | --- |
-| Active | Work is currently executing or active in the engine. |
-| Idle | The session exists but is not actively executing work. |
-| Idle In Transaction | The session is idle while holding an open transaction. |
-| Waiting For Lock | The session is waiting on a lock-related condition. |
-| Other | The engine state does not map cleanly to the main categories. |
-
-Connection rows can include session identifier, database, user, application name, client address, session or process start time, state, wait event, duration, query text, transaction start, blocker identifier, and engine-specific fields.
-
-Engine-specific fields include:
-
-| Engine | Additional connection fields |
-| --- | --- |
-| Oracle | Session serial, SQL identifier, and last-call timing where available. |
-| Microsoft SQL Server | Host name, CPU time, logical reads, physical reads, writes, and open transaction count where available. |
-| PostgreSQL | PostgreSQL session and wait metadata exposed through activity views. |
+Engine specifics: Oracle connection details can include session serial, SQL identifier, and last-call timing. Microsoft SQL Server can include host name, CPU time, reads, writes, and open transaction count. PostgreSQL rows represent query-bearing client backends.
 
 ## Wait Events
 
-The Wait Events tab focuses on sessions that are waiting for database resources.
+The Wait Events tab focuses on sessions waiting for database resources: wait totals by category, a category history, and a per-wait table with an in-place detail view.
 
-Top-level metrics include:
+Metric definitions, the per-engine category mapping, and how each value is calculated live in the [Wait Events reference](./wait-events.mdx).
 
-- Wait Events.
-- Locks.
-- Blocked Processes.
-- Potential Deadlocks.
-
-Wait events are grouped into shared categories:
-
-| Category | Meaning |
-| --- | --- |
-| Locks | Lock-related waits or blocking conditions. |
-| LWLocks | Lightweight lock waits where the engine exposes them. |
-| IO | Storage, file, or I/O-related waits. |
-| Client | Client communication or client-side wait conditions. |
-| Other | Engine-specific waits outside the main categories. |
-
-Wait event rows can include session identifier, event type, event name, resource, duration, session count, average time, query text, wait start time, blocker identifier, database, user, application name, client address, and engine.
-
-Oracle can also expose wait class. Microsoft SQL Server can expose wait resource and host name. PostgreSQL exposes PostgreSQL wait event type and wait event name where available.
+Engine specifics: Oracle also exposes its native wait class. Microsoft SQL Server can expose wait resource and host name. PostgreSQL exposes its native wait event type and wait event name.
 
 ## Blocking Chains
 
@@ -117,6 +78,12 @@ The Blocking Chains tab shows lock chains where one session blocks one or more o
 Metric definitions, worked examples, and how each value is calculated live in the [Blocking Chains reference](./blocking-chains.mdx).
 
 Engine specifics: Oracle blocking details can include lock type, lock mode, object owner, object name, and session serial. Microsoft SQL Server can include host name and wait resource. PostgreSQL uses PostgreSQL session, lock, and wait metadata.
+
+## Wait Activity (Oracle)
+
+The Wait Activity tab appears only for Oracle databases. It analyzes Oracle's Active Session History — active session time, the CPU vs wait split, and the top wait classes, wait events, and SQL statements for the selected window. ASH requires the Oracle Diagnostics Pack.
+
+Metric definitions and how each value is derived from ASH samples live in the [Wait Activity reference](./wait-activity.mdx).
 
 ## Filtering, Sorting, And Pagination
 

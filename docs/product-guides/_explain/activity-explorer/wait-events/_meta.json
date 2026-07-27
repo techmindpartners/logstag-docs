@@ -1,0 +1,73 @@
+{
+  "group": "activity-explorer.wait-events",
+  "category": "Activity Explorer · Wait Events",
+  "docsPage": "/product-guides/activity-explorer/wait-events/",
+  "entries": {
+    "metric.wait-events": {
+      "file": "metric.wait-events.md",
+      "kind": "metric",
+      "title": "Wait Events",
+      "anchor": "#wait-events",
+      "related": [
+        "chart.wait-events-history",
+        "table.current-wait-events"
+      ],
+      "app": true
+    },
+    "metric.locks": {
+      "file": "metric.locks.md",
+      "kind": "metric",
+      "title": "Locks",
+      "anchor": "#locks",
+      "related": [
+        "metric.blocked-processes",
+        "chart.wait-events-history"
+      ],
+      "app": true
+    },
+    "metric.blocked-processes": {
+      "file": "metric.blocked-processes.md",
+      "kind": "metric",
+      "title": "Blocked Processes",
+      "anchor": "#blocked-processes",
+      "related": [
+        "metric.locks",
+        "metric.potential-deadlocks"
+      ],
+      "app": true
+    },
+    "metric.potential-deadlocks": {
+      "file": "metric.potential-deadlocks.md",
+      "kind": "metric",
+      "title": "Potential Deadlocks",
+      "anchor": "#potential-deadlocks",
+      "related": [
+        "metric.blocked-processes",
+        "metric.locks"
+      ],
+      "app": true
+    },
+    "chart.wait-events-history": {
+      "file": "chart.wait-events-history.md",
+      "kind": "chart",
+      "title": "Wait Events History",
+      "anchor": "#wait-events-history",
+      "related": [
+        "metric.wait-events",
+        "table.current-wait-events"
+      ],
+      "app": true
+    },
+    "table.current-wait-events": {
+      "file": "table.current-wait-events.md",
+      "kind": "table",
+      "title": "Current Wait Events",
+      "anchor": "#current-wait-events",
+      "related": [
+        "chart.wait-events-history",
+        "metric.wait-events"
+      ],
+      "app": true
+    }
+  }
+}

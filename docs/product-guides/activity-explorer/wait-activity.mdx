@@ -1,0 +1,47 @@
+---
+title: "Wait Activity (Oracle): Metric Reference"
+sidebar_label: Wait Activity (Oracle)
+description: What the Oracle ASH-driven Wait Activity tab shows on the Activity Explorer, how each figure is derived from Active Session History, and how to read it.
+---
+
+import ActiveSessionTime from '../_explain/activity-explorer/wait-activity/metric.active-session-time.md';
+import CpuVsWait from '../_explain/activity-explorer/wait-activity/metric.cpu-vs-wait.md';
+import CompletedWaitSum from '../_explain/activity-explorer/wait-activity/metric.completed-wait-sum.md';
+import TopWaitClasses from '../_explain/activity-explorer/wait-activity/chart.top-wait-classes.md';
+import TopWaitEvents from '../_explain/activity-explorer/wait-activity/table.top-wait-events.md';
+import TopSql from '../_explain/activity-explorer/wait-activity/table.top-sql.md';
+
+# Wait Activity (Oracle): Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Activity Explorer](/product-guides/activity-explorer/) Wait Activity tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Wait Activity tab appears only for Oracle databases. It is driven by Oracle's
+**Active Session History (ASH)**, which requires the Diagnostics Pack — see the
+requirements note under Active session time.
+
+## Active session time {#active-session-time}
+
+<ActiveSessionTime />
+
+## CPU vs Wait {#cpu-vs-wait}
+
+<CpuVsWait />
+
+## Completed-wait sum (reference) {#completed-wait-sum}
+
+<CompletedWaitSum />
+
+## Top Wait Classes {#top-wait-classes}
+
+<TopWaitClasses />
+
+## Top Wait Events {#top-wait-events}
+
+<TopWaitEvents />
+
+## Top SQL by ASH activity {#top-sql}
+
+<TopSql />

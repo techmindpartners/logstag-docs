@@ -59,7 +59,12 @@ const sidebars: SidebarsConfig = {
           type: "category",
           label: "Activity Explorer",
           link: { type: "doc", id: "product-guides/activity-explorer/index" },
-          items: ["product-guides/activity-explorer/blocking-chains"],
+          items: [
+            "product-guides/activity-explorer/connections",
+            "product-guides/activity-explorer/wait-events",
+            "product-guides/activity-explorer/blocking-chains",
+            "product-guides/activity-explorer/wait-activity",
+          ],
         },
         "product-guides/query-explorer",
         "product-guides/schema-explorer",

@@ -1,0 +1,74 @@
+{
+  "group": "activity-explorer.connections",
+  "category": "Activity Explorer · Connections",
+  "docsPage": "/product-guides/activity-explorer/connections/",
+  "entries": {
+    "metric.total-connections": {
+      "file": "metric.total-connections.md",
+      "kind": "metric",
+      "title": "Total Connections",
+      "anchor": "#total-connections",
+      "related": [
+        "metric.active-connections",
+        "metric.idle-connections",
+        "chart.connection-states"
+      ],
+      "app": true
+    },
+    "metric.active-connections": {
+      "file": "metric.active-connections.md",
+      "kind": "metric",
+      "title": "Active Connections",
+      "anchor": "#active-connections",
+      "related": [
+        "metric.total-connections",
+        "metric.idle-connections"
+      ],
+      "app": true
+    },
+    "metric.idle-connections": {
+      "file": "metric.idle-connections.md",
+      "kind": "metric",
+      "title": "Idle Connections",
+      "anchor": "#idle-connections",
+      "related": [
+        "metric.active-connections",
+        "chart.connection-states"
+      ],
+      "app": true
+    },
+    "metric.avg-wait-time": {
+      "file": "metric.avg-wait-time.md",
+      "kind": "metric",
+      "title": "Avg Wait Time",
+      "anchor": "#avg-wait-time",
+      "related": [
+        "table.database-workloads",
+        "chart.connection-states"
+      ],
+      "app": true
+    },
+    "chart.connection-states": {
+      "file": "chart.connection-states.md",
+      "kind": "chart",
+      "title": "Connection States",
+      "anchor": "#connection-states",
+      "related": [
+        "metric.total-connections",
+        "table.database-workloads"
+      ],
+      "app": true
+    },
+    "table.database-workloads": {
+      "file": "table.database-workloads.md",
+      "kind": "table",
+      "title": "Database Workloads",
+      "anchor": "#database-workloads",
+      "related": [
+        "chart.connection-states",
+        "metric.avg-wait-time"
+      ],
+      "app": true
+    }
+  }
+}

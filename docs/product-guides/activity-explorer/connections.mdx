@@ -1,0 +1,45 @@
+---
+title: "Connections: Metric Reference"
+sidebar_label: Connections
+description: What each Connections metric, chart, and table shows on the Activity Explorer, how it is calculated, and how to read it.
+---
+
+import TotalConnections from '../_explain/activity-explorer/connections/metric.total-connections.md';
+import ActiveConnections from '../_explain/activity-explorer/connections/metric.active-connections.md';
+import IdleConnections from '../_explain/activity-explorer/connections/metric.idle-connections.md';
+import AvgWaitTime from '../_explain/activity-explorer/connections/metric.avg-wait-time.md';
+import ConnectionStates from '../_explain/activity-explorer/connections/chart.connection-states.md';
+import DatabaseWorkloads from '../_explain/activity-explorer/connections/table.database-workloads.md';
+
+# Connections: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Activity Explorer](/product-guides/activity-explorer/) Connections tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Connections tab is available for PostgreSQL, Microsoft SQL Server, and Oracle databases.
+
+## Total Connections
+
+<TotalConnections />
+
+## Active Connections
+
+<ActiveConnections />
+
+## Idle Connections
+
+<IdleConnections />
+
+## Avg Wait Time
+
+<AvgWaitTime />
+
+## Connection States
+
+<ConnectionStates />
+
+## Database Workloads
+
+<DatabaseWorkloads />
