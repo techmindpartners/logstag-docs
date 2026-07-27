@@ -41,7 +41,7 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: "category",
-      label: "Database Engine Setup",
+      label: "Database Engines",
       items: [
         "engines/postgresql",
         "engines/mssql",
