@@ -60,6 +60,7 @@ const sidebars: SidebarsConfig = {
           label: "Activity Explorer",
           link: { type: "doc", id: "product-guides/activity-explorer/index" },
           items: [
+            "product-guides/activity-explorer/overview",
             "product-guides/activity-explorer/connections",
             "product-guides/activity-explorer/wait-events",
             "product-guides/activity-explorer/blocking-chains",

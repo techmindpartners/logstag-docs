@@ -1,0 +1,45 @@
+---
+title: "Overview Tab: Metric Reference"
+sidebar_label: Overview
+description: What each Overview metric, the resource bars, and the recent-activities list show on the Activity Explorer detail view, and how to read them.
+---
+
+import ActiveSessions from '../_explain/activity-explorer/overview/metric.active-sessions.md';
+import TransactionRate from '../_explain/activity-explorer/overview/metric.transaction-rate.md';
+import Deadlocks from '../_explain/activity-explorer/overview/metric.deadlocks.md';
+import AvgQueryTime from '../_explain/activity-explorer/overview/metric.avg-query-time.md';
+import ResourceUtilization from '../_explain/activity-explorer/overview/chart.resource-utilization.md';
+import RecentActivities from '../_explain/activity-explorer/overview/table.recent-activities.md';
+
+# Overview Tab: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Activity Explorer](/product-guides/activity-explorer/) detail view's Overview tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Overview tab is available for PostgreSQL, Microsoft SQL Server, and Oracle databases.
+
+## Active Sessions
+
+<ActiveSessions />
+
+## Transaction Rate
+
+<TransactionRate />
+
+## Deadlocks
+
+<Deadlocks />
+
+## Avg Query Time
+
+<AvgQueryTime />
+
+## Resource Utilization
+
+<ResourceUtilization />
+
+## Recent Activities
+
+<RecentActivities />

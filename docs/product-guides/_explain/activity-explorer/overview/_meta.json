@@ -1,0 +1,73 @@
+{
+  "group": "activity-explorer.overview",
+  "category": "Activity Explorer · Overview",
+  "docsPage": "/product-guides/activity-explorer/overview/",
+  "entries": {
+    "metric.active-sessions": {
+      "file": "metric.active-sessions.md",
+      "kind": "metric",
+      "title": "Active Sessions",
+      "anchor": "#active-sessions",
+      "related": [
+        "metric.transaction-rate",
+        "metric.avg-query-time"
+      ],
+      "app": true
+    },
+    "metric.transaction-rate": {
+      "file": "metric.transaction-rate.md",
+      "kind": "metric",
+      "title": "Transaction Rate",
+      "anchor": "#transaction-rate",
+      "related": [
+        "metric.active-sessions",
+        "metric.avg-query-time"
+      ],
+      "app": true
+    },
+    "metric.deadlocks": {
+      "file": "metric.deadlocks.md",
+      "kind": "metric",
+      "title": "Deadlocks",
+      "anchor": "#deadlocks",
+      "related": [
+        "metric.active-sessions",
+        "table.recent-activities"
+      ],
+      "app": true
+    },
+    "metric.avg-query-time": {
+      "file": "metric.avg-query-time.md",
+      "kind": "metric",
+      "title": "Avg Query Time",
+      "anchor": "#avg-query-time",
+      "related": [
+        "metric.transaction-rate",
+        "metric.active-sessions"
+      ],
+      "app": true
+    },
+    "chart.resource-utilization": {
+      "file": "chart.resource-utilization.md",
+      "kind": "chart",
+      "title": "Resource Utilization",
+      "anchor": "#resource-utilization",
+      "related": [
+        "metric.active-sessions",
+        "metric.avg-query-time"
+      ],
+      "app": true
+    },
+    "table.recent-activities": {
+      "file": "table.recent-activities.md",
+      "kind": "table",
+      "title": "Recent Activities",
+      "anchor": "#recent-activities",
+      "related": [
+        "metric.deadlocks",
+        "metric.active-sessions"
+      ],
+      "app": true
+    }
+  }
+}
