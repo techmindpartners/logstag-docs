@@ -49,16 +49,9 @@ Current backend capabilities include:
 
 ### Logstag Web Application
 
-The web application is the primary operator interface. The main product areas are:
+The web application is the primary operator interface. It opens on Overview, a landing dashboard that summarizes health and activity across monitored databases. Alongside Overview, Alerts applies template-based alerting across all six engines, Insights (Beta) runs background analysis over already-collected metrics to surface findings such as query performance regressions and workload anomalies, and Data Inventory (Beta) applies identifier-based classification to schema metadata for sensitive-data categories such as PII, financial data, and credentials.
 
-- Database Explorer
-- Schema Explorer
-- Activity Explorer
-- Query Explorer
-- Alerts
-- Assets
-- Integrations
-- Audit Logs, available only to the Account Owner
+A Monitoring group of explorers — Databases, Schemas, Activities, and Queries — provides inventory and detail views for connected database targets, with some detail views scoped to specific engines. A Resources group provides Asset Management, Users, Audit Logs, and Workspace settings for organization administration.
 
 ## Supported Database Engines
 
@@ -73,7 +66,7 @@ Logstag currently has agent and backend support for:
 | Valkey | Redis-compatible monitoring paths for server, clients, memory, persistence, commands, latency, configuration, security, replication, and alerts. |
 | Oracle | Sessions, wait events, locks, tablespace I/O, memory, SQL performance, ASH, Data Guard, backup, AQ, redo logs, profile settings, schema, index, and alerts. |
 
-MySQL is planned for future coverage and is not part of the current supported engine set.
+MySQL is not part of the current supported engine set.
 
 ## Collection Intervals
 
