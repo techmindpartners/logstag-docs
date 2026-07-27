@@ -64,6 +64,8 @@ const sidebars: SidebarsConfig = {
         "product-guides/query-explorer",
         "product-guides/schema-explorer",
         "product-guides/alerts",
+        "product-guides/insights",
+        "product-guides/data-inventory",
         "product-guides/assets",
         "product-guides/integrations",
         "product-guides/audit-logs",

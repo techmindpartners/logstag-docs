@@ -151,9 +151,6 @@ Managed Redis services may restrict commands such as `CONFIG GET`, `SLOWLOG`, `L
 
 After updating the target configuration, validate the agent configuration before restarting the service.
 
-```bash
-logstag-agent --config /etc/logstag-agent/config.toml --check-config
-```
 
 Restart the agent after validation.
 
@@ -177,4 +174,4 @@ On Windows, restart the Logstag Agent service from the Services console or with 
 | Slow log metrics are missing | Confirm `SLOWLOG LEN` and `SLOWLOG GET` are permitted. |
 | Configuration metrics are missing | Confirm `CONFIG GET` is permitted by ACL and provider policy. |
 | Security inventory is missing | Confirm ACL read visibility is intentionally granted. If not granted, this area is expected to be unavailable. |
-| No metrics arrive after configuration changes | Validate the configuration, restart the agent, and review local agent logs. |
+| No metrics arrive after configuration changes | Re-check the target settings in the configuration file, restart the agent, and review local agent logs. |

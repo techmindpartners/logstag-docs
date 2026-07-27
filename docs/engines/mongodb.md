@@ -117,9 +117,6 @@ For managed MongoDB services, confirm which admin commands and cluster roles are
 
 After updating the target configuration, validate the agent configuration before restarting the service.
 
-```bash
-logstag-agent --config /etc/logstag-agent/config.toml --check-config
-```
 
 Restart the agent after validation.
 
@@ -141,4 +138,4 @@ On Windows, restart the Logstag Agent service from the Services console or with 
 | Replication metrics are missing | Confirm the target is part of a replica set and the user has cluster monitoring visibility. |
 | Security inventory is missing | Confirm user and role visibility is intentionally granted. If not granted, this area is expected to be unavailable. |
 | Current operation diagnostics are unavailable | Confirm the required diagnostic visibility is granted and that collection is enabled for the target. |
-| No metrics arrive after configuration changes | Validate the configuration, restart the agent, and review local agent logs. |
+| No metrics arrive after configuration changes | Re-check the target settings in the configuration file, restart the agent, and review local agent logs. |

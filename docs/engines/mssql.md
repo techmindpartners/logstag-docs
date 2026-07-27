@@ -109,9 +109,6 @@ Logstag does not copy table rows as database content. SQL text, object definitio
 
 After updating the target configuration, validate the agent configuration before restarting the service.
 
-```bash
-logstag-agent --config /etc/logstag-agent/config.toml --check-config
-```
 
 Restart the agent after validation.
 
@@ -131,4 +128,4 @@ On Windows, restart the Logstag Agent service from the Services console or with 
 | Query performance history is incomplete | Confirm Query Store is enabled on the monitored database and the user has database state visibility. |
 | Schema or security metadata is incomplete | Confirm the mapped database user can see the relevant metadata, users, roles, objects, and permission grants. |
 | Availability Group data is missing | Confirm Always On is configured and the monitoring login can read Availability Group metadata. |
-| No metrics arrive after configuration changes | Validate the configuration, restart the agent, and review local agent logs. |
+| No metrics arrive after configuration changes | Re-check the target settings in the configuration file, restart the agent, and review local agent logs. |

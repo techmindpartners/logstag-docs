@@ -172,21 +172,19 @@ db_name = "0"
 
 Configure only targets that the agent host can reach. If targets live in separate network zones, deploy separate agents closer to those databases.
 
-## Validate Configuration
+## Apply Configuration Changes
 
-Validate the configuration before starting or restarting the service.
+The agent validates its configuration at startup. Restart the service to apply changes.
 
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 ```
 
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 ```
 

@@ -213,16 +213,14 @@ Use this sequence for production tuning:
 2. Capture current interval values.
 3. Capture recent agent logs and current product freshness.
 4. Change one interval.
-5. Validate the configuration.
-6. Restart the agent.
-7. Watch logs for one full interval cycle.
-8. Verify the affected product view.
-9. Record the outcome.
+5. Restart the agent.
+6. Watch logs for one full interval cycle.
+7. Verify the affected product view.
+8. Record the outcome.
 
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 sudo tail -f /var/log/logstag-agent/agent.log
 ```
@@ -230,7 +228,6 @@ sudo tail -f /var/log/logstag-agent/agent.log
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 Get-Content "C:\ProgramData\Logstag Agent\logs\agent.log" -Wait
 ```

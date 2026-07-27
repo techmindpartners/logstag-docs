@@ -88,7 +88,6 @@ After adding or changing a key:
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 sudo journalctl -u logstag-agent -f
 ```
@@ -96,15 +95,13 @@ sudo journalctl -u logstag-agent -f
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 Get-Content "C:\ProgramData\Logstag Agent\logs\agent.log" -Tail 50
 ```
 
 Confirm that:
 
-- The configuration validates.
-- The agent service starts successfully.
+- The agent service starts without configuration errors.
 - The agent can reach the Logstag service over HTTPS.
 - Authentication errors no longer appear in the agent logs.
 - The expected target appears in Logstag.

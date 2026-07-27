@@ -129,9 +129,6 @@ Logstag does not copy Oracle table rows as dataset content. SQL text, object nam
 
 After updating the target configuration, validate the agent configuration before restarting the service.
 
-```bash
-logstag-agent --config /etc/logstag-agent/config.toml --check-config
-```
 
 Restart the agent after validation.
 
@@ -153,4 +150,4 @@ On Windows, restart the Logstag Agent service from the Services console or with 
 | ASH metrics are missing | Confirm ASH access and Oracle Diagnostics Pack licensing approval. If not approved, this area should remain disabled or unavailable. |
 | Data Guard metrics are missing | Confirm the deployment uses Data Guard and the connected role exposes the required metadata. |
 | Backup or AQ metrics are missing | Confirm the database exposes the relevant catalog metadata and the monitoring user can read it. |
-| No metrics arrive after configuration changes | Validate the configuration, restart the agent, and review local agent logs. |
+| No metrics arrive after configuration changes | Re-check the target settings in the configuration file, restart the agent, and review local agent logs. |

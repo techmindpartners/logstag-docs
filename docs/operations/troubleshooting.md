@@ -27,12 +27,11 @@ Follow this order for most incidents:
 
 1. Check the agent service state.
 2. Check recent agent logs.
-3. Validate the agent configuration.
-4. Confirm Logstag service connectivity.
-5. Confirm database connectivity from the agent host.
-6. Confirm database monitoring permissions.
-7. Confirm whether the affected product area depends on a slower collection tier.
-8. Restart the agent only after the checks above point to a restartable state issue or after a configuration change.
+3. Confirm Logstag service connectivity.
+4. Confirm database connectivity from the agent host.
+5. Confirm database monitoring permissions.
+6. Confirm whether the affected product area depends on a slower collection tier.
+7. Restart the agent only after the checks above point to a restartable state issue or after a configuration change.
 
 This order helps avoid masking the original failure. A restart can be useful, but it should not be the first diagnostic step unless the service is clearly stopped or unhealthy.
 
@@ -89,23 +88,9 @@ Common causes:
 - The host was rebooted and the service was not enabled for automatic startup.
 - A previous upgrade left the service in a failed state.
 
-## Configuration Does Not Validate
+## Configuration Errors at Startup
 
-Validate the configuration before starting the service.
-
-Linux:
-
-```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
-```
-
-Windows:
-
-```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
-```
-
-Review:
+The agent validates its configuration when it starts. If the service fails to start or exits immediately after a configuration change, check the agent log for configuration errors, then review:
 
 - The configuration file is in the expected path for the deployment mode.
 - The Logstag service URL is the organization-provided value.
@@ -133,12 +118,11 @@ Check:
 
 Recommended fix path:
 
-1. Validate the configuration.
-2. Confirm outbound HTTPS connectivity to the Logstag service.
-3. Replace the key with a known-good key if revocation or exposure is suspected.
-4. Restart the agent.
-5. Confirm authentication errors disappear from the logs.
-6. Revoke the old key only after the replacement is confirmed.
+1. Confirm outbound HTTPS connectivity to the Logstag service.
+2. Replace the key with a known-good key if revocation or exposure is suspected.
+3. Restart the agent.
+4. Confirm authentication errors disappear from the logs.
+5. Revoke the old key only after the replacement is confirmed.
 
 ## Agent Cannot Reach Logstag
 
@@ -190,7 +174,7 @@ Unavailable data is not the same as a healthy zero value. If a signal is permiss
 If a newly configured target does not appear:
 
 1. Confirm the agent service is running.
-2. Confirm the configuration validates.
+2. Check the agent log for configuration errors after startup.
 3. Confirm the agent authenticates successfully.
 4. Confirm the agent can connect to the target database.
 5. Check whether the target name is unique and stable.

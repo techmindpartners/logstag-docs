@@ -122,17 +122,15 @@ Prefer a dedicated cloud identity with the minimum permissions required for moni
 
 After configuring a managed target:
 
-1. Validate the agent configuration.
-2. Restart the agent.
-3. Confirm the database target appears in Logstag.
-4. Confirm database-level metrics are arriving.
-5. Confirm cloud system metrics are arriving for the managed instance.
-6. Check the agent logs for cloud authentication, region, instance ID, or permission errors.
+1. Restart the agent.
+2. Confirm the database target appears in Logstag.
+3. Confirm database-level metrics are arriving.
+4. Confirm cloud system metrics are arriving for the managed instance.
+5. Check the agent logs for cloud authentication, region, instance ID, or permission errors.
 
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 sudo journalctl -u logstag-agent -f
 ```
@@ -140,7 +138,6 @@ sudo journalctl -u logstag-agent -f
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 Get-Content "C:\ProgramData\Logstag Agent\logs\agent.log" -Tail 50
 ```

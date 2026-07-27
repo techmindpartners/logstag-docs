@@ -198,20 +198,17 @@ Manual configuration is also available:
 2. Set the masked Logstag service URL to the organization-specific value.
 3. Set the agent API key directly, or encrypt it first with `logstag-agent encrypt <api-key>`.
 4. Add one or more database targets.
-5. Validate the configuration.
-6. Start or restart the service.
+5. Start or restart the service.
 
 On Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 ```
 
 On Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 ```
 
@@ -235,7 +232,7 @@ Use the main release channel for production unless Logstag support directs you t
 After installation and configuration:
 
 1. Confirm the service is running.
-2. Confirm the configuration validates.
+2. Confirm the agent log shows no configuration errors after startup.
 3. Check the agent log for authentication, registration, connection, or permission errors.
 4. Confirm the database target appears in Logstag.
 5. Confirm expected metrics begin appearing for the target engine.

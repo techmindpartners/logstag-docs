@@ -136,18 +136,16 @@ Database-level PostgreSQL permissions and cloud-provider permissions are separat
 
 After updating the database and agent configuration:
 
-1. Validate the agent configuration.
-2. Restart the agent.
-3. Check the agent logs for connection, authentication, permission, or extension errors.
-4. Confirm the PostgreSQL target appears in Logstag.
-5. Confirm runtime metrics appear.
-6. Confirm query statistics appear if `pg_stat_statements` was enabled.
-7. Confirm schema and index metadata appear after the schema collection interval.
+1. Restart the agent.
+2. Check the agent logs for connection, authentication, permission, or extension errors.
+3. Confirm the PostgreSQL target appears in Logstag.
+4. Confirm runtime metrics appear.
+5. Confirm query statistics appear if `pg_stat_statements` was enabled.
+6. Confirm schema and index metadata appear after the schema collection interval.
 
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 sudo journalctl -u logstag-agent -f
 ```
@@ -155,7 +153,6 @@ sudo journalctl -u logstag-agent -f
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 Get-Content "C:\ProgramData\Logstag Agent\logs\agent.log" -Tail 50
 ```

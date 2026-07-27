@@ -130,19 +130,17 @@ Common levels:
 
 Use `info` for normal production operation. Increase to `debug` only for a time-bounded investigation, then return to `info`.
 
-After changing `log_level`, validate the configuration and restart the service:
+After changing `log_level`, restart the service:
 
 Linux:
 
 ```bash
-/opt/logstag-agent/bin/logstag-agent --check-config
 sudo systemctl restart logstag-agent
 ```
 
 Windows:
 
 ```powershell
-& "C:\Program Files\Logstag Agent\bin\logstag-agent.exe" --check-config
 Restart-Service "Logstag Agent"
 ```
 
