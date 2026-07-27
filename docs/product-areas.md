@@ -6,33 +6,17 @@ sidebar_position: 6
 
 Logstag groups database observability workflows into focused product areas. Each area is defined by what it shows, what data it depends on, and which engines support it.
 
-## Product Status Language
-
-Logstag documentation uses these status labels when a product surface appears in preview mode but is not fully available in the supported operational flow.
-
-| Status | Meaning |
-| --- | --- |
-| Supported | Available in the active Logstag workflow and documented with operational behavior. |
-| Coming soon | Visible in product direction or preview mode, but not yet available for production configuration or customer workflow ownership. |
-| Roadmap | Planned product direction. Scope, workflow, and availability can change before release. |
-
-## Health Check
-
-Health Check creates engine-specific reports for performance, security, configuration, schema, and maintenance signals. Reports are generated from previously ingested metrics and metadata.
-
-Reports is a coming-soon surface for the broader monitoring experience. Health Check reports will move into that area as Monitoring becomes the primary entry point.
-
 ## Overview
 
-Overview is a coming-soon monitoring dashboard surface. It is designed to summarize instances, databases, connections, alerts, trends, system health, and database inventory in a single operational view.
+Overview is a monitoring dashboard surface. It is designed to summarize instances, databases, connections, alerts, trends, system health, and database inventory in a single operational view.
 
-In the current supported flow, these signals are available through Health Check, explorer pages, Alerts, and Assets rather than a single production Overview page.
+These signals are available through explorer pages, Alerts, and Assets rather than a single Overview page.
 
 ## Insights
 
-Insights is a roadmap analytics surface. It is intended to combine health scoring, optimization opportunities, change impact, security posture, data inventory, and forecasting into a higher-level operational intelligence view.
+Insights is an analytics surface. It is intended to combine health scoring, optimization opportunities, change impact, security posture, data inventory, and forecasting into a higher-level operational intelligence view.
 
-The preview experience shows the intended direction for Insights. Until this surface becomes part of the supported workflow, operational decisions should continue to rely on Health Check, explorer pages, Alerts, Assets, and Integrations. Audit Logs remain an Account Owner-only governance view.
+Operational decisions currently rely on explorer pages, Alerts, Assets, and Integrations. Audit Logs remain an Account Owner-only governance view.
 
 ## Database Explorer
 
@@ -62,7 +46,7 @@ Assets represent monitored infrastructure and database resources. They help team
 
 Integrations connect Logstag workflows to external tools. Each integration defines the required credentials, scopes, supported events, and operational behavior.
 
-Jira Cloud is the supported integration today. The broader integration catalog is roadmap and should be described as coming soon until each integration is available in the supported setup flow.
+Jira Cloud is the supported integration today. The broader integration catalog will expand as additional integrations become available in the setup flow.
 
 ## Audit Logs
 
@@ -72,4 +56,4 @@ Audit Logs show administrative and organization-level activity. They are an Acco
 
 Users is an administration surface for organization member management, roles, and permissions. It is available to administrative roles where enabled.
 
-Preview mode also shows Users as part of the wider administration direction. User management and Audit Logs should be documented as governance surfaces, not as database monitoring collectors. Audit Logs should also remain clearly separated from normal operator workflows because access is limited to the Account Owner.
+User management and Audit Logs should be documented as governance surfaces, not as database monitoring collectors. Audit Logs should also remain clearly separated from normal operator workflows because access is limited to the Account Owner.

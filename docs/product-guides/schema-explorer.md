@@ -21,19 +21,6 @@ Schema Explorer helps answer operational questions such as:
 
 The page focuses on database structure and access metadata. It is not a table data browser, SQL editor, or migration tool. Database-level inventory belongs in Database Explorer, runtime activity belongs in Activity Explorer, and query behavior belongs in Query Explorer.
 
-## Preview And Roadmap
-
-Preview mode can show schema-related insights as part of the broader Monitoring and Insights direction.
-
-| Surface | Status | Direction |
-| --- | --- | --- |
-| Schema Explorer | Supported | Schema inventory, object metadata, permissions, changes, health indicators, and schema-related alerts. |
-| Schema health roll-up | Coming soon | Planned summary of schema risk in Overview and Insights surfaces. |
-| Change impact analysis | Roadmap | Planned connection between schema changes, code changes, exceptions, and database operational risk. |
-| Data inventory analytics | Roadmap | Planned higher-level inventory view for sensitive data categories, growth patterns, and access risk. |
-
-The supported Schema Explorer page remains focused on collected database structure and permission metadata. Roadmap analytics should not be treated as migration control or direct data browsing.
-
 ## Supported Engines
 
 Schema Explorer currently provides schema inventory and detail views for:
@@ -147,9 +134,9 @@ The object list supports client-side search, sorting, pagination, and object det
 
 ## Health Indicators
 
-Schema Explorer can show schema health indicators derived from the latest completed Health Check and related alert context.
+Schema Explorer can show schema health indicators computed from collected metrics and related alert context.
 
-Health dimensions follow the shared Health Check model:
+Health dimensions follow a shared model:
 
 - Performance.
 - Security.
@@ -157,7 +144,7 @@ Health dimensions follow the shared Health Check model:
 - Schema.
 - Maintenance.
 
-Health indicators are shown when Health Check data is available for the related database and instance. If no completed Health Check exists yet, schema metadata can still appear while health indicators remain unavailable.
+Health indicators are shown when a completed health assessment is available for the related database and instance. If no health assessment has completed yet, schema metadata can still appear while health indicators remain unavailable.
 
 ## Changes
 

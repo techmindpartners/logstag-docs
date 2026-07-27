@@ -21,19 +21,6 @@ Assets help administrators answer questions such as:
 
 Assets are not a replacement for Database Explorer. Database Explorer focuses on database-level operational data. Assets focus on instance lifecycle, setup, ownership, and integration mapping.
 
-## Preview And Roadmap
-
-Preview mode includes an Assets entry in the broader administration area.
-
-| Surface | Status | Direction |
-| --- | --- | --- |
-| Assets | Supported | Instance registration, agent setup, ownership, environment metadata, connection testing, and integration mapping. |
-| Asset inventory dashboard | Coming soon | Planned administration summary for connected, disconnected, and attention-needed assets. |
-| Bridged connection setup | Coming soon | Planned setup option for teams that want one deployment to manage multiple reachable instances. |
-| Ownership and governance analytics | Roadmap | Planned reporting around asset ownership, stale assets, and operational accountability. |
-
-The supported Assets page remains the source of truth for instance lifecycle and setup state.
-
 ## Supported Engines
 
 The Assets flow supports the database engines that can be registered as monitored instances in Logstag.
@@ -63,7 +50,7 @@ Asset cards can show:
 - Environment type.
 - Owner.
 - Last check time.
-- Health score, when a health check has been completed.
+- Health score, once available.
 - Connection status.
 
 The list supports search by instance name, server value, and engine type. It can also be filtered by status and environment.
@@ -78,7 +65,7 @@ Asset status is derived from whether the instance has an active agent connection
 | Disconnected | The asset has not completed setup or the agent is not active. |
 | Issues | Reserved for warning-style presentation where the product has enough context to show a degraded state. |
 
-Health score is shown separately from connection status. A connected asset can still have low health check scores if the latest Health Check report found operational risks.
+Health score is shown separately from connection status. A connected asset can still have a low health score if the most recent assessment found operational risks.
 
 ## Creating An Asset
 
@@ -151,7 +138,7 @@ Detail information can include:
 - Health score.
 - Last check timestamp.
 
-Instance name, environment type, and owner can be edited from the detail view. Engine type, server, port, version, and health check information are reported by the system or derived from the connected agent.
+Instance name, environment type, and owner can be edited from the detail view. Engine type, server, port, version, and health score information are reported by the system or derived from the connected agent.
 
 ## Connection Management
 
@@ -170,13 +157,7 @@ Connection test output can include:
 - Configuration issue details.
 - Fix suggestions where available.
 
-Connection testing is focused on setup validation. Health Check remains the report-style assessment for configuration, performance, security, maintenance, and availability-related findings.
-
-## Health Check Entry Point
-
-Assets provide an entry point into Health Check for a specific instance.
-
-When started from an asset, Health Check can use the selected instance context so the user does not need to choose the target again. The resulting report still follows the Health Check scoring and report structure.
+Connection testing is focused on setup validation. It is separate from the report-style assessment that covers configuration, performance, security, maintenance, and availability-related findings.
 
 ## Integrations
 

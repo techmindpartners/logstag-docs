@@ -6,7 +6,7 @@ sidebar_position: 4
 
 The Logstag agent groups monitoring work into frequency tiers. These tiers control how often different categories of database and infrastructure signals are collected.
 
-Use the default intervals for production unless there is a clear operational reason to tune them. Shorter intervals improve freshness but increase database, network, and Logstag ingestion load. Longer intervals reduce load but can make product views, alerts, and Health Check evidence less current.
+Use the default intervals for production unless there is a clear operational reason to tune them. Shorter intervals improve freshness but increase database, network, and Logstag ingestion load. Longer intervals reduce load but can make product views, alerts, and monitoring reports less current.
 
 ## Default Intervals
 
@@ -36,7 +36,7 @@ Setting a tier to `0` disables that tier.
 schema_frequency_interval = 0
 ```
 
-Disabling a tier should be treated as a product coverage decision. It can remove data from product views, alerts, and Health Check reports.
+Disabling a tier should be treated as a product coverage decision. It can remove data from product views, alerts, and monitoring reports.
 
 ## Product Area Impact
 
@@ -47,7 +47,6 @@ Disabling a tier should be treated as a product coverage decision. It can remove
 | Database Explorer | Mix of high, medium, and low frequency signals depending on engine and metric. |
 | Schema Explorer | Mostly schema-frequency metadata, with related alert and health context. |
 | Alerts | Depends on the interval that collects the underlying signal. |
-| Health Check | Depends on previously collected high, medium, low, and schema evidence. |
 | Assets | Depends on registration and target state, with freshness affected by ongoing collection. |
 
 If a product view is empty or stale, identify which interval tier feeds that view before changing configuration.
@@ -115,7 +114,7 @@ Increase it when:
 - The engine exposes low-frequency metadata through expensive views.
 - Database owners request a lower monitoring footprint.
 
-Keep it enabled if Alerts or Health Check reports depend on configuration or security evidence.
+Keep it enabled if Alerts or monitoring reports depend on configuration or security evidence.
 
 ## Schema Frequency Tuning
 
@@ -130,7 +129,7 @@ Tune schema frequency carefully for:
 
 Increase schema frequency when collection load is too high. Decrease it only when there is a clear need for fresher schema change visibility.
 
-If schema frequency is disabled, Schema Explorer, schema-related Health Check evidence, schema-related alerts, and permission/change visibility can become unavailable or stale.
+If schema frequency is disabled, Schema Explorer, schema-related reporting evidence, schema-related alerts, and permission/change visibility can become unavailable or stale.
 
 ## Large Database Guidance
 
@@ -201,7 +200,7 @@ Before disabling a tier, record:
 
 - Which product views will lose data.
 - Which alerts can stop firing.
-- Which Health Check sections can become incomplete.
+- Which monitoring report sections can become incomplete.
 - When the tier will be re-enabled.
 
 ## Change Procedure
@@ -248,7 +247,7 @@ After tuning, verify:
 | Product freshness | The affected product area updates according to the new interval. |
 | Database impact | Database owners do not see unacceptable monitoring overhead. |
 | Alerts | Alerts based on the changed tier still behave as expected. |
-| Health Check | Reports have the required evidence after enough collection time. |
+| Monitoring reports | Reports have the required evidence after enough collection time. |
 
 Validate slower tiers over the correct time horizon. A schema interval change cannot be confirmed from only a few minutes of observation unless the interval was intentionally shortened for validation.
 
@@ -260,7 +259,7 @@ Validate slower tiers over the correct time horizon. A schema interval change ca
 | Product view is empty | Check engine support, permissions, and collector errors before lowering intervals. |
 | Database load increased | Identify which tier changed and review logs by timestamp. |
 | Logs show skipped monitor | Confirm whether the interval was set to `0`. |
-| Health Check is incomplete | Confirm all required evidence tiers are enabled and have completed at least one cycle. |
+| A monitoring report is incomplete | Confirm all required evidence tiers are enabled and have completed at least one cycle. |
 | Alerts changed unexpectedly | Confirm the alert depends on a tier that was changed or disabled. |
 
 Use the Troubleshooting and Agent Logs pages for deeper investigation.

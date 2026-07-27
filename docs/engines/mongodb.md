@@ -29,7 +29,7 @@ Use `db_name` for the database Logstag should monitor. If the MongoDB deployment
 
 | Access area | Required for |
 | --- | --- |
-| Database connection | Agent health checks and target registration. |
+| Database connection | Agent connection checks and target registration. |
 | `read` on the monitored database | Database statistics, collection discovery, collection statistics, index usage, and document size estimates. |
 | `clusterMonitor` | Server statistics, connection pool metadata, collection operation timings, and replica set status. |
 | User and role visibility | Security inventory, role assignments, inherited roles, and privilege analysis. |

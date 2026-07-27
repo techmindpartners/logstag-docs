@@ -9,7 +9,7 @@ Activity Explorer shows runtime database activity — sessions, connections, wai
 
 ### Scope
 
-Detailed activity views cover **PostgreSQL**, **SQL Server**, and **Oracle**. MongoDB, Redis, and Valkey are covered by their monitoring, alerting, health, and explorer workflows instead. Query-level performance history belongs in Query Explorer; broader posture across performance, configuration, security, schema, and maintenance belongs to Health Check.
+Detailed activity views cover **PostgreSQL**, **SQL Server**, and **Oracle**. MongoDB, Redis, and Valkey are covered by their monitoring, alerting, and explorer workflows instead. Query-level performance history belongs in Query Explorer.
 
 ### Reading it
 

@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Data Collection and Privacy
 
-Logstag collects operational metadata and database statistics for monitoring, alerting, health checks, and explorer views. The agent is designed to observe database behavior, configuration, security posture, schema shape, and workload signals without acting as a database proxy or copying application datasets.
+Logstag collects operational metadata and database statistics for monitoring, alerting, and explorer views. The agent is designed to observe database behavior, configuration, security posture, schema shape, and workload signals without acting as a database proxy or copying application datasets.
 
 This page defines the data boundary operators should understand before connecting production databases.
 
@@ -31,11 +31,11 @@ Some collected metadata can still be sensitive. Treat Logstag access, agent conf
 
 | Category | What it includes | Why Logstag uses it |
 | --- | --- | --- |
-| Runtime activity | Sessions, connections, waits, locks, blocking, transactions, active operations, client activity, and replication state. | Activity Explorer, Health Checks, Alerts, and troubleshooting workflows. |
+| Runtime activity | Sessions, connections, waits, locks, blocking, transactions, active operations, client activity, and replication state. | Activity Explorer, Alerts, and troubleshooting workflows. |
 | Query and command metadata | Query identifiers, normalized query text, SQL text snippets, execution counts, rows processed, CPU, I/O, duration, command names, and slowlog entries where supported. | Query Explorer, performance alerts, workload analysis, and regression review. |
-| Schema and object metadata | Database, schema, table, view, procedure, function, sequence, index, collection, queue, object, and column metadata where supported. | Schema Explorer, Health Checks, schema risk detection, and inventory views. |
-| Security and permission metadata | Users, roles, role membership, privileges, permissions, authentication settings, policy settings, and elevated access indicators. | Security health checks, permission review, and security alerts. |
-| Configuration metadata | Database and instance settings, memory settings, audit settings, engine configuration, startup warnings, feature flags, and server options. | Configuration health checks, operational review, and configuration alerts. |
+| Schema and object metadata | Database, schema, table, view, procedure, function, sequence, index, collection, queue, object, and column metadata where supported. | Schema Explorer, schema risk detection, and inventory views. |
+| Security and permission metadata | Users, roles, role membership, privileges, permissions, authentication settings, policy settings, and elevated access indicators. | The monitoring explorers, permission review, and security alerts. |
+| Configuration metadata | Database and instance settings, memory settings, audit settings, engine configuration, startup warnings, feature flags, and server options. | The monitoring explorers, operational review, and configuration alerts. |
 | Capacity and storage metrics | Database size, table or collection size, index size, object counts, row or document counts, memory usage, persistence, tablespace, and file statistics. | Capacity planning, schema review, storage alerts, and database inventory. |
 | Availability and maintenance metrics | Replication, Data Guard, Availability Groups, backup status, redo logs, persistence, vacuum activity, checkpoints, and queue health. | Availability review, maintenance alerts, and health reporting. |
 

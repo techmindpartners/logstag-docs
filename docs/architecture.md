@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 2
 ---
 
 # Architecture
@@ -40,7 +40,6 @@ Collection timing is configurable. Runtime signals can be collected as frequentl
 
 ## Main Product Areas
 
-- Health Check: Engine-specific health reports across performance, security, configuration, schema, and maintenance signals.
 - Database Explorer: Database inventory, metrics, status, alerts, and details.
 - Schema Explorer: Schema, object, index, permission, and change views where supported by the engine.
 - Activity Explorer: Connections, sessions, waits, blocking, and runtime activity.

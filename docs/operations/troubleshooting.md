@@ -182,7 +182,6 @@ Use the engine setup page for the affected engine and verify the monitoring user
 | Query Explorer | Query statistics, Query Store, SQL performance views, or query-statistics extensions. |
 | Schema Explorer | Schema, object, index, collection, permission, and change metadata. |
 | Alerts | The underlying metric or metadata required by the alert template. |
-| Health Check | Previously collected metrics and metadata across performance, security, configuration, schema, and maintenance areas. |
 
 Unavailable data is not the same as a healthy zero value. If a signal is permission-limited, Logstag may show missing, stale, or partial data for the related product area.
 
@@ -236,18 +235,6 @@ If the agent is healthy but a Logstag page looks empty:
 7. Confirm the target has data in another product area.
 
 For example, a database can appear in Assets while Query Explorer is empty if query statistics are not available. That is a data coverage issue, not necessarily an agent registration issue.
-
-## Health Check Report Is Incomplete
-
-Health Check reports use previously collected metrics and metadata. If a report is incomplete:
-
-- Confirm the target has been monitored long enough to collect the required data.
-- Confirm runtime, query, configuration, security, schema, and maintenance collectors are enabled as needed.
-- Confirm the monitoring user has engine-specific visibility for the report sections.
-- Check whether missing sections correspond to unsupported engine capabilities.
-- Regenerate the report only after the missing collection or permission issue is fixed.
-
-An incomplete report is not a healthy assessment. Missing evidence should be resolved or documented before sharing the report externally.
 
 ## Alerts Are Not Generated
 

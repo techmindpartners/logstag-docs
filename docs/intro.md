@@ -45,14 +45,12 @@ Current backend capabilities include:
 - Agent registration and metric ingestion.
 - Per-engine metric ingestion for PostgreSQL, Microsoft SQL Server, MongoDB, Redis, Valkey, and Oracle.
 - Template-based alerting backed by embedded YAML templates.
-- Health check report generation.
 - Multi-tenant organization, user, role, API key, billing, integration, audit log, and alert management APIs.
 
 ### Logstag Web Application
 
 The web application is the primary operator interface. The main product areas are:
 
-- Health Check
 - Database Explorer
 - Schema Explorer
 - Activity Explorer
@@ -62,34 +60,18 @@ The web application is the primary operator interface. The main product areas ar
 - Integrations
 - Audit Logs, available only to the Account Owner
 
-## Preview And Roadmap Surfaces
-
-Logstag can show preview-mode product surfaces that demonstrate the broader product direction. These surfaces are useful for evaluation, but the documentation separates them from currently supported workflows.
-
-| Surface | Documentation status | Direction |
-| --- | --- | --- |
-| Overview | Coming soon | A consolidated monitoring dashboard for instances, databases, connections, alerts, trends, and system health. |
-| Insights | Roadmap | Higher-level analytics for optimization opportunities, change impact, security posture, data inventory, and forecasting. |
-| Reports | Coming soon | A monitoring reports area that will include Health Check output as Monitoring becomes the primary product entry point. |
-| Integration catalog | Roadmap | A broader catalog beyond Jira Cloud, including APM, CI/CD, project management, source control, incident management, cloud monitoring, and observability tools. |
-| Users | Supported where enabled | Organization member, role, and access management for administrative users. |
-
-Audit Logs are intentionally separate from regular operator workflows. They are available only to the Account Owner because they contain organization activity and access-review context.
-
-When a page documents a preview-mode capability, it uses `Coming soon` or `Roadmap` language unless that capability is already available in the supported operational flow.
-
 ## Supported Database Engines
 
 Logstag currently has agent and backend support for:
 
 | Engine | Monitoring focus |
 | --- | --- |
-| PostgreSQL | Activity, query statistics, instance metrics, schema metadata, roles, replication, configuration, alerts, and health checks. |
-| Microsoft SQL Server | Session activity, database activity, Query Store or DMV query statistics, performance counters, schema and index metadata, Availability Groups, security, alerts, and health checks. |
-| MongoDB | Server, database, collection, operation, connection pool, security, storage, replication, alerts, and health checks. |
-| Redis | Server, clients, memory, persistence, commands, CPU, slowlog, latency, configuration, security, replication, alerts, and health checks. |
+| PostgreSQL | Activity, query statistics, instance metrics, schema metadata, roles, replication, configuration, and alerts. |
+| Microsoft SQL Server | Session activity, database activity, Query Store or DMV query statistics, performance counters, schema and index metadata, Availability Groups, security, and alerts. |
+| MongoDB | Server, database, collection, operation, connection pool, security, storage, replication, and alerts. |
+| Redis | Server, clients, memory, persistence, commands, CPU, slowlog, latency, configuration, security, replication, and alerts. |
 | Valkey | Redis-compatible monitoring paths for server, clients, memory, persistence, commands, latency, configuration, security, replication, and alerts. |
-| Oracle | Sessions, wait events, locks, tablespace I/O, memory, SQL performance, ASH, Data Guard, backup, AQ, redo logs, profile settings, schema, index, alerts, and health checks. |
+| Oracle | Sessions, wait events, locks, tablespace I/O, memory, SQL performance, ASH, Data Guard, backup, AQ, redo logs, profile settings, schema, index, and alerts. |
 
 MySQL is planned for future coverage and is not part of the current supported engine set.
 

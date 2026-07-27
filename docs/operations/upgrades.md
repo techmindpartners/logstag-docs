@@ -6,7 +6,7 @@ sidebar_position: 3
 
 This page describes how to plan, perform, verify, and recover from Logstag agent upgrades.
 
-Treat agent upgrades as operational changes. The agent is not in the application transaction path, but upgrade issues can temporarily affect monitoring freshness, alert generation, Health Check evidence, and product views that depend on recently collected data.
+Treat agent upgrades as operational changes. The agent is not in the application transaction path, but upgrade issues can temporarily affect monitoring freshness, alert generation, and product views that depend on recently collected data. Monitoring data can be temporarily affected until collection resumes.
 
 ## Upgrade Model
 
@@ -182,7 +182,7 @@ After any upgrade, verify:
 | Database connectivity | Logs do not show target connection failures. |
 | Permissions | Logs do not show new permission-limited collector failures. |
 | Collection | Runtime metrics appear first; slower metadata can follow later. |
-| Product views | Assets, explorers, Alerts, and Health Check evidence remain current for the affected target. |
+| Product views | Assets, explorers, Alerts, and monitoring reports remain current for the affected target. |
 
 Runtime data may recover before schema, index, configuration, or security metadata. Use the relevant interval and product area before declaring the upgrade incomplete.
 

@@ -54,7 +54,6 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Product Guides",
       items: [
-        "product-guides/health-checks",
         "product-guides/database-explorer",
         {
           type: "category",

@@ -19,20 +19,7 @@ Alerts help operators answer questions such as:
 5. Which action should be taken next?
 6. Has the alert been acknowledged, assigned, escalated, or resolved?
 
-Alerts are not a replacement for Health Check. Health Check gives a report-style assessment across major dimensions. Alerts are event-like signals that keep active and recently detected issues visible across Logstag.
-
-## Preview And Roadmap
-
-Preview mode includes alert-oriented summary surfaces that sit above the detailed Alerts queue.
-
-| Surface | Status | Direction |
-| --- | --- | --- |
-| Alerts queue | Supported | Consolidated alert list, detail, assignment, acknowledgement, lifecycle, SLA context, and escalation behavior. |
-| Overview alert card | Coming soon | Planned dashboard summary for alert volume, severity mix, and recent alert trend. |
-| Alert analytics | Roadmap | Planned trend analysis for alert frequency, resolution time, recurrence, and operational impact. |
-| Insights alert recommendations | Roadmap | Planned linkage between alerts and higher-level optimization, security, and change-impact recommendations. |
-
-The supported Alerts page remains the operational queue for active and historical alert review.
+Alerts are not a replacement for the monitoring explorers. Database Explorer, Schema Explorer, Query Explorer, and Activity Explorer give ongoing operational visibility across major dimensions. Alerts are event-like signals that keep active and recently detected issues visible across Logstag.
 
 ## Supported Engines
 

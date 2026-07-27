@@ -19,19 +19,7 @@ Query Explorer helps answer operational questions such as:
 5. Which queries have active alert signals?
 6. Which database and instance does a query belong to?
 
-The page focuses on query performance metadata. It is not a SQL editor, query execution console, or data browsing surface. Database inventory belongs in Database Explorer, runtime session activity belongs in Activity Explorer, and broader diagnostic reporting belongs in Health Check.
-
-## Preview And Roadmap
-
-Preview mode can show Query Explorer as part of the broader Monitoring menu.
-
-| Surface | Status | Direction |
-| --- | --- | --- |
-| Query Explorer | Supported | Query performance investigation for engines that expose query statistics. |
-| Overview query trend summary | Coming soon | Planned roll-up of query pressure and alert signals in the consolidated monitoring dashboard. |
-| Optimization insights | Roadmap | Planned recommendations that connect query behavior, schema shape, and workload change impact. |
-
-The supported Query Explorer page remains the detailed source for query statistics and query-level alert triage.
+The page focuses on query performance metadata. It is not a SQL editor, query execution console, or data browsing surface. Database inventory belongs in Database Explorer, and runtime session activity belongs in Activity Explorer.
 
 ## Supported Engines
 

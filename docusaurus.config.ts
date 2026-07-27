@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'Logstag Docs',
-  tagline: 'Monitor Your Databases Like Never Before',
+  tagline: 'Monitor database performance, activity, schema health, and operational risk from one place',
   favicon: 'img/logstag_favicon.svg',
 
   // Set the production url of your site here

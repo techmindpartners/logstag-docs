@@ -18,7 +18,7 @@ Check agent logs when:
 - A database target cannot be reached.
 - A product area has missing or stale data.
 - A collector reports permission-limited data.
-- Health Check reports are incomplete.
+- A monitoring report is incomplete.
 - Agent upgrade or update behavior is unclear.
 - Logstag support asks for recent sanitized evidence.
 
@@ -172,7 +172,7 @@ Use the symptom to guide the search.
 | Product area is empty | Collector errors, missing engine permissions, disabled interval tier, no activity in the selected time range. |
 | Schema data is delayed | Schema interval timing, schema collector errors, object metadata permissions. |
 | Query data is missing | Query-statistics feature availability, Query Store, SQL performance view permissions, selected time range. |
-| Health Check is incomplete | Missing collected evidence, permission-limited sections, unsupported engine capability, stale target data. |
+| A monitoring report is incomplete | Missing collected evidence, permission-limited sections, unsupported engine capability, stale target data. |
 | Upgrade issue | Update check, download, install, restart, or version compatibility messages. |
 
 Search by timestamp first, then by the affected target name or engine. Keep the search window narrow so unrelated targets and time ranges do not obscure the signal.

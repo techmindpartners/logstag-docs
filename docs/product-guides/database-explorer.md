@@ -12,18 +12,6 @@ It helps operators answer three questions:
 2. Are the database and its hosting instance currently reporting?
 3. Which database needs attention because of workload, resource pressure, schema shape, health score, or alerts?
 
-## Overview Dashboard Roadmap
-
-Preview mode includes an Overview dashboard that brings database inventory into a wider monitoring summary.
-
-| Surface | Status | Relationship to Database Explorer |
-| --- | --- | --- |
-| Database Explorer | Supported | Main production surface for database inventory and detail review. |
-| Overview dashboard database panel | Coming soon | Planned summary entry point for database inventory inside a consolidated monitoring dashboard. |
-| Cross-area trend cards | Roadmap | Planned roll-up of database, instance, connection, and alert trends before users drill into Explorer pages. |
-
-Database Explorer remains the source of detailed database investigation. Overview is intended to become a higher-level entry point, not a replacement for database detail pages.
-
 ## Database List
 
 The database list is the entry point for database inventory. Each row represents a monitored database target and shows the database together with its hosting instance.
@@ -113,9 +101,9 @@ Charts may appear with empty data when Logstag knows the chart is applicable but
 
 ## Health Indicators
 
-Database Explorer can show a database health summary derived from the latest completed Health Check for the hosting instance, combined with active database and instance alert counts.
+Database Explorer can show a database health summary computed from collected metrics for the hosting instance, combined with active database and instance alert counts.
 
-Health dimensions follow the Health Check model:
+Health dimensions follow a shared model:
 
 - Performance.
 - Security.
@@ -123,9 +111,9 @@ Health dimensions follow the Health Check model:
 - Schema.
 - Maintenance.
 
-Redis and Valkey use the applicable dimensions for their current Health Check model: Performance, Configuration, and Schema. Security and Maintenance are treated as not applicable for those engines in Database Explorer health indicators.
+Redis and Valkey use the applicable dimensions for their current health-scoring model: Performance, Configuration, and Schema. Security and Maintenance are treated as not applicable for those engines in Database Explorer health indicators.
 
-Overall health is calculated from the available Health Check section scores. The standard weights are:
+Overall health is calculated from the available section scores. The standard weights are:
 
 | Dimension | Weight |
 | --- | --- |
@@ -145,7 +133,7 @@ Health score status uses these bands:
 | 60 to 79 | Warning |
 | 0 to 59 | Critical |
 
-If no completed Health Check exists yet, health scores can appear as pending or unavailable while other Database Explorer metrics continue to display.
+If no health score has been computed yet, health scores can appear as pending or unavailable while other Database Explorer metrics continue to display.
 
 ## Alerts
 

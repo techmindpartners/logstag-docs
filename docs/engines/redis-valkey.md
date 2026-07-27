@@ -59,7 +59,7 @@ If the deployment is configured without authentication, `db_username` and `db_pa
 
 | Access area | Required for |
 | --- | --- |
-| `PING` | Agent health checks. |
+| `PING` | Agent connection checks. |
 | `SELECT` | Selecting the configured logical database. |
 | `INFO` | Server, client, keyspace, memory, command, persistence, CPU, and replication metrics. |
 | `DBSIZE` | Key count for the monitored logical database. |
@@ -82,7 +82,7 @@ ACL SETUSER logstag_monitor on >strong-password ~* &* \
   +ping +select +info +dbsize +role
 ```
 
-This gives the user the core command visibility needed for health checks, database selection, server metrics, key count, and role detection.
+This gives the user the core command visibility needed for connection checks, database selection, server metrics, key count, and role detection.
 
 For fuller operational coverage, add the read-only diagnostic commands required by your monitoring scope.
 

@@ -1,10 +1,10 @@
 ---
-sidebar_position: 5
+sidebar_position: 3
 ---
 
 # Supported Engines
 
-Logstag supports multiple database engines through engine-specific agent collectors, ingestion, alert templates, health checks, and web application views.
+Logstag supports multiple database engines through engine-specific agent collectors, ingestion, alerting, dashboards, and monitoring explorers.
 
 ## Currently Supported
 

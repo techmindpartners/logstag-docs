@@ -17,17 +17,6 @@ Audit Logs answer questions such as:
 - How long did the request take?
 - Was the action performed through an impersonation session?
 
-## Preview And Roadmap
-
-| Area | Status | What it means |
-| --- | --- | --- |
-| Audit Logs | Account Owner only | Organization activity can be reviewed from a dedicated governance page restricted to the Account Owner. |
-| Users | Supported where enabled | User and role management is part of the administration surface. |
-| Insights governance signals | Roadmap | Audit activity will contribute to broader security and governance analysis. |
-| Governance dashboards | Roadmap | Audit trends, access changes, and administrative activity will be summarized in higher-level views. |
-
-Audit Logs remain the detailed evidence view. Roadmap governance surfaces are intended to summarize patterns, not replace the raw activity trail.
-
 ## Access Model
 
 Audit Logs are available only to the Account Owner.
@@ -125,7 +114,7 @@ A typical Account Owner review flow is:
 2. Filter by product area, entity type, or operation method.
 3. Check the user, role, status, and timing of the action.
 4. Open optional columns when request context, duration, IP address, or entity identifiers are needed.
-5. Correlate the result with alerts, assets, integrations, or Health Check reports when the activity relates to an operational change.
+5. Correlate the result with alerts, assets, integrations, or monitoring reports when the activity relates to an operational change.
 
 ## Data Boundaries
 
@@ -133,4 +122,4 @@ Audit Logs are a Logstag governance feature. They describe activity inside the L
 
 Audit Logs do not provide a database-native audit trail for every action performed directly inside a monitored database. Database-native auditing, compliance logs, and privileged access monitoring should continue to be managed according to the customer's database and security policies.
 
-Because Audit Logs are Account Owner-only, they should not be used as the primary collaboration surface for incident response. When an operational issue needs team follow-up, the Account Owner can correlate audit evidence with Alerts, Assets, Integrations, Health Check reports, or explorer pages and share only the necessary operational context through the appropriate workflow.
+Because Audit Logs are Account Owner-only, they should not be used as the primary collaboration surface for incident response. When an operational issue needs team follow-up, the Account Owner can correlate audit evidence with Alerts, Assets, Integrations, monitoring reports, or explorer pages and share only the necessary operational context through the appropriate workflow.
