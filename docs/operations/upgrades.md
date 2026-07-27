@@ -27,7 +27,7 @@ Update behavior is controlled in the `[agent]` section.
 [agent]
 update_check_enabled = true
 update_channel = "main"
-update_check_interval = 86400
+update_check_interval = 1440
 auto_install_updates = true
 ```
 

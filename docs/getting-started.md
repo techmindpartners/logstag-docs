@@ -56,7 +56,9 @@ Use the engine-specific setup pages for concrete permissions. The required scope
 
 ## Configure the Agent
 
-The agent uses a TOML configuration file with one global `[agent]` section and one `[targets.name]` section for each monitored target.
+The quickest way to configure the agent is the interactive `logstag-agent configure` command. It walks through the Logstag service URL, API key, and target setup, and is what the installers invoke automatically.
+
+The agent uses a TOML configuration file with one global `[agent]` section and one `[targets.name]` section for each monitored target. This is the same configuration that `logstag-agent configure` writes, and it can also be edited manually.
 
 Use the Logstag agent service URL provided for your organization. Shared examples should use masked URLs and placeholder credentials.
 

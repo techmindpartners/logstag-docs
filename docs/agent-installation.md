@@ -55,6 +55,20 @@ export LOGSTAG_API_KEY="<your-logstag-agent-api-key>"
 curl -sSL "https://<logstag-agent-linux-install-script-url>" | bash
 ```
 
+The Linux installer accepts these environment variables:
+
+| Variable | Description |
+| --- | --- |
+| `LOGSTAG_INSTALL_NONINTERACTIVE` | Run the installer without interactive prompts. |
+| `LOGSTAG_API_BASE_URL` | Logstag service URL used to configure the agent. |
+| `LOGSTAG_API_KEY` | Agent API key used to configure the agent. |
+| `LOGSTAG_CHANNEL` | Release channel used for installation. |
+| `LOGSTAG_VERSION` | Specific agent version to install instead of the latest. |
+| `LOGSTAG_START_SERVICE` | Start the service after successful configuration (default: `true`). |
+| `LOGSTAG_ENCRYPT_API_KEY` | Set to `false` to store the API key as plain text instead of encrypted. |
+
+When `LOGSTAG_API_KEY` is provided, the installer encrypts it by default using `logstag-agent encrypt` before writing it to the configuration file, unless `LOGSTAG_ENCRYPT_API_KEY=false`.
+
 The installer supports release channels. Use the production channel unless Logstag support instructs otherwise.
 
 ## Linux Defaults
@@ -170,11 +184,19 @@ The container must be able to reach the configured database targets and the Logs
 
 ## Configure After Installation
 
-After installing the agent:
+The quickest way to configure the agent is the interactive `configure` command, which is what the installers invoke:
+
+```bash
+/opt/logstag-agent/bin/logstag-agent configure
+```
+
+Add `--channel <channel>` to set the release channel during configuration. The command walks through the Logstag service URL, API key, and target setup interactively.
+
+Manual configuration is also available:
 
 1. Open the agent configuration file for your deployment mode.
 2. Set the masked Logstag service URL to the organization-specific value.
-3. Set or encrypt the agent API key.
+3. Set the agent API key directly, or encrypt it first with `logstag-agent encrypt <api-key>`.
 4. Add one or more database targets.
 5. Validate the configuration.
 6. Start or restart the service.

@@ -59,6 +59,9 @@ Intervals are configured as seconds in TOML. Setting an interval to `0` disables
 | `export_to_file` | `false` | Debug-only payload export. Keep disabled in production unless Logstag support directs otherwise. |
 | `export_path` | Current directory | Directory used when debug payload export is enabled. |
 | `mock_mode` | `false` | Local development mode that disables normal Logstag submission. |
+| `schema_object_limit` | 1500 | Caps how many schema objects are collected per cycle. Values above 1500 are reduced to 1500 with a startup warning. |
+| `continuous_monitoring` | `false` | Keeps collection always-on for all targets (recommended for production). When `false`, collection runs only during scheduled assessment windows. |
+| `time_windows` | None | Managed automatically by the platform to schedule assessment windows; do not edit by hand. |
 
 Debug payload export can contain operational metadata, query text, object names, or security posture information depending on the enabled engines. Treat exported files as sensitive.
 
@@ -139,7 +142,7 @@ The agent supports encrypted local values for sensitive fields:
 - `db_password`
 - `cloud_secret_key`
 
-Encrypted values are machine-specific and should be generated on the host that runs the agent. Copying encrypted values between hosts will not produce a portable secret.
+Encrypted values are produced with `logstag-agent encrypt <value>`. Encrypted values are machine-specific and should be generated on the host that runs the agent. Copying encrypted values between hosts will not produce a portable secret.
 
 Use plain text values only for local testing or controlled troubleshooting. Production configurations should use encrypted local values where available and should be readable only by the agent service account and administrators.
 

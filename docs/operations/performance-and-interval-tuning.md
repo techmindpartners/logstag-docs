@@ -129,6 +129,8 @@ Tune schema frequency carefully for:
 
 Increase schema frequency when collection load is too high. Decrease it only when there is a clear need for fresher schema change visibility.
 
+For very large schemas, `schema_object_limit` is a complementary lever to the interval. It caps how many schema objects the agent collects per cycle; the default and maximum is 1500, and configured values above 1500 are reduced to 1500 with a startup warning. Lowering it reduces the size of each schema collection cycle without changing how often collection runs.
+
 If schema frequency is disabled, Schema Explorer, schema-related reporting evidence, schema-related alerts, and permission/change visibility can become unavailable or stale.
 
 ## Large Database Guidance

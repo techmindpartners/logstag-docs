@@ -6,7 +6,7 @@ sidebar_position: 7
 
 Assets are the monitored database instances registered in Logstag.
 
-The Assets area is used to create an instance record, complete agent setup, review connection state, manage ownership metadata, and connect the instance to external workflows where integrations are configured.
+The Assets area, called Asset Management in the navigation, is used to create an instance record, complete agent setup, review connection state, manage ownership metadata, and connect the instance to external workflows where integrations are configured.
 
 ## Purpose
 

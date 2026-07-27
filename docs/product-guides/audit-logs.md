@@ -4,9 +4,9 @@ sidebar_position: 9
 
 # Audit Logs
 
-Audit Logs provide an Account Owner-only record of activity inside Logstag. The page is designed for security review, operational traceability, and administrative accountability.
+Audit Logs provide a record of activity inside Logstag, available to the Admin and SuperAdmin roles. The page is designed for security review, operational traceability, and administrative accountability.
 
-Audit Logs are not a general operator page. They are intended for the Account Owner because they can expose user activity, administrative actions, access context, and sensitive operational metadata about how the organization uses Logstag.
+Audit Logs are not a general operator page. They are available to the Admin and SuperAdmin roles because they can expose user activity, administrative actions, access context, and sensitive operational metadata about how the organization uses Logstag.
 
 Audit Logs answer questions such as:
 
@@ -19,11 +19,11 @@ Audit Logs answer questions such as:
 
 ## Access Model
 
-Audit Logs are available only to the Account Owner.
+Audit Logs are available to users with the Admin or SuperAdmin role.
 
-This restriction keeps the audit trail independent from normal operational workflows. Database operators, developers, billing users, and regular administrative users should use the product areas relevant to their work without receiving direct access to the organization audit trail.
+This restriction keeps the audit trail independent from normal operational workflows. Database operators, developers, and billing users should use the product areas relevant to their work without receiving direct access to the organization audit trail.
 
-Account Owner access is appropriate because Audit Logs can include:
+Access is restricted to the Admin and SuperAdmin roles because Audit Logs can include:
 
 - User identity and role context.
 - Administrative activity.
@@ -69,7 +69,7 @@ The table shows the most important columns by default:
 - Entity Type
 - Status
 
-The Account Owner can enable additional columns when a deeper review is needed.
+Admin and SuperAdmin users can enable additional columns when a deeper review is needed.
 
 ## Filters
 
@@ -84,7 +84,7 @@ Filters apply to the audit trail shown in the table. Pagination remains availabl
 
 ## Column Management
 
-The column selector lets the Account Owner choose which audit fields are visible.
+The column selector lets Admin and SuperAdmin users choose which audit fields are visible.
 
 Always-visible columns keep the core timeline readable. Optional columns are useful during deeper investigations, support review, or security analysis.
 
@@ -92,7 +92,7 @@ Always-visible columns keep the core timeline readable. Optional columns are use
 
 When an action is performed through an impersonation session, Audit Logs mark the entry accordingly.
 
-This helps distinguish direct user activity from authorized support or administrative access. Impersonation visibility is important for Account Owner review, regulated environments, and post-incident analysis.
+This helps distinguish direct user activity from authorized support or administrative access. Impersonation visibility is important for Admin and SuperAdmin review, regulated environments, and post-incident analysis.
 
 ## Sanitized Request Details
 
@@ -108,7 +108,7 @@ For long-term compliance retention, export or archival workflows should be plann
 
 ## Security Review Workflow
 
-A typical Account Owner review flow is:
+A typical review flow for Admin and SuperAdmin users is:
 
 1. Select the time window for the investigation.
 2. Filter by product area, entity type, or operation method.
@@ -122,4 +122,4 @@ Audit Logs are a Logstag governance feature. They describe activity inside the L
 
 Audit Logs do not provide a database-native audit trail for every action performed directly inside a monitored database. Database-native auditing, compliance logs, and privileged access monitoring should continue to be managed according to the customer's database and security policies.
 
-Because Audit Logs are Account Owner-only, they should not be used as the primary collaboration surface for incident response. When an operational issue needs team follow-up, the Account Owner can correlate audit evidence with Alerts, Assets, Integrations, monitoring reports, or explorer pages and share only the necessary operational context through the appropriate workflow.
+Because Audit Logs are available only to the Admin and SuperAdmin roles, they should not be used as the primary collaboration surface for incident response. When an operational issue needs team follow-up, an Admin or SuperAdmin user can correlate audit evidence with Alerts, Assets, Integrations, monitoring reports, or explorer pages and share only the necessary operational context through the appropriate workflow.

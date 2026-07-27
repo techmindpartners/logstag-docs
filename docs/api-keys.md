@@ -31,9 +31,11 @@ api_key = "<your-logstag-agent-api-key>"
 
 Use the Logstag service URL provided for your organization. Shared documentation, tickets, screenshots, and chat messages should use masked keys and masked service URLs.
 
+The agent sends the key in the `x-logstag-api-key` request header on each call to the Logstag service.
+
 ## Local Storage
 
-The agent supports encrypted local values for sensitive fields, including `api_key`.
+The agent supports encrypted local values for sensitive fields, including `api_key`. Encrypted values are produced with `logstag-agent encrypt <api-key>`.
 
 Encrypted values are machine-specific. Generate the encrypted value on the host that runs the agent because encrypted values are not portable between hosts.
 
