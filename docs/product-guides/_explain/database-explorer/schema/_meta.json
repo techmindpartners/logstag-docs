@@ -1,0 +1,40 @@
+{
+  "group": "database-explorer.schema",
+  "category": "Database Explorer · Schema",
+  "docsPage": "/product-guides/database-explorer/schema/",
+  "entries": {
+    "metric.total-size": {
+      "file": "metric.total-size.md",
+      "kind": "metric",
+      "title": "Total Size",
+      "anchor": "#total-size",
+      "related": [
+        "chart.object-sizes",
+        "table.database-objects"
+      ],
+      "app": true
+    },
+    "chart.object-sizes": {
+      "file": "chart.object-sizes.md",
+      "kind": "chart",
+      "title": "Object Sizes",
+      "anchor": "#object-sizes",
+      "related": [
+        "metric.total-size",
+        "table.database-objects"
+      ],
+      "app": true
+    },
+    "table.database-objects": {
+      "file": "table.database-objects.md",
+      "kind": "table",
+      "title": "Database Objects",
+      "anchor": "#database-objects",
+      "related": [
+        "chart.object-sizes",
+        "metric.total-size"
+      ],
+      "app": true
+    }
+  }
+}

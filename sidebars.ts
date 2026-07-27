@@ -54,7 +54,15 @@ const sidebars: SidebarsConfig = {
       type: "category",
       label: "Product Guides",
       items: [
-        "product-guides/database-explorer",
+        {
+          type: "category",
+          label: "Database Explorer",
+          link: { type: "doc", id: "product-guides/database-explorer/index" },
+          items: [
+            "product-guides/database-explorer/overview",
+            "product-guides/database-explorer/schema",
+          ],
+        },
         {
           type: "category",
           label: "Activity Explorer",

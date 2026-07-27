@@ -1,0 +1,48 @@
+---
+title: "Schema Tab: Reference"
+sidebar_label: Schema
+description: What the Database Explorer schema tab shows — object counts, the size treemap, and the object inventory — and how each is collected.
+---
+
+import TotalSize from '../_explain/database-explorer/schema/metric.total-size.md';
+import ObjectSizes from '../_explain/database-explorer/schema/chart.object-sizes.md';
+import DatabaseObjects from '../_explain/database-explorer/schema/table.database-objects.md';
+
+# Schema Tab: Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Database Explorer](/product-guides/database-explorer/) detail view's Schema tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Schema tab is shown for PostgreSQL, Microsoft SQL Server, MongoDB, and Oracle. Redis and
+Valkey are key-value stores without a schema model, so the tab is hidden for them — note that
+their health score's Schema dimension still applies, scored from key-design signals.
+
+## Object Counts
+
+The tab opens with count tiles for the object types the engine reports: tables, indexes,
+views, procedures, functions, triggers, and sequences on relational engines; collections,
+indexes, and document counts on MongoDB. Tiles appear only when the engine provides that
+object type.
+
+Oracle adds a validity split — **Valid**, **Invalid**, and **N/A** object counts from the
+engine's object status. The N/A bucket covers objects Oracle itself reports without a
+validity status, such as some synonyms, and index partitions tracked separately.
+
+Counts come from the agent's schema inventory. Inventory freshness depends on the engine's
+collection cadence: SQL Server and Oracle refresh schema inventory on the schema tier
+(every 4 hours by default), while PostgreSQL and MongoDB collect it with the slower general
+tier (every 10 minutes by default).
+
+## Total Size {#total-size}
+
+<TotalSize />
+
+## Object Sizes {#object-sizes}
+
+<ObjectSizes />
+
+## Database Objects {#database-objects}
+
+<DatabaseObjects />

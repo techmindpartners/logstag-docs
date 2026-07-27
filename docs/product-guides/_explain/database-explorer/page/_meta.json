@@ -1,0 +1,27 @@
+{
+  "group": "database-explorer",
+  "category": "Database Explorer",
+  "docsPage": "/product-guides/database-explorer/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Database Explorer",
+      "anchor": "",
+      "related": [
+        "table.databases"
+      ],
+      "app": true
+    },
+    "table.databases": {
+      "file": "table.databases.md",
+      "kind": "table",
+      "title": "Databases",
+      "anchor": "#database-list",
+      "related": [
+        "page.overview"
+      ],
+      "app": true
+    }
+  }
+}

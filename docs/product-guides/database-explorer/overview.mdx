@@ -1,0 +1,68 @@
+---
+title: "Overview Tab: Metric Reference"
+sidebar_label: Overview
+description: What each Database Explorer overview tile, the health score, and the trend charts show, how they are calculated, and how to read them.
+---
+
+import Size from '../_explain/database-explorer/overview/metric.size.md';
+import Objects from '../_explain/database-explorer/overview/metric.objects.md';
+import Connections from '../_explain/database-explorer/overview/metric.connections.md';
+import Transactions from '../_explain/database-explorer/overview/metric.transactions.md';
+import Executions from '../_explain/database-explorer/overview/metric.executions.md';
+import Operations from '../_explain/database-explorer/overview/metric.operations.md';
+import DatabaseHealth from '../_explain/database-explorer/overview/chart.database-health.md';
+import TrendCharts from '../_explain/database-explorer/overview/chart.trends.md';
+
+# Overview Tab: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Database Explorer](/product-guides/database-explorer/) detail view's Overview tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The Overview tab is available for all six supported engines. The summary tiles adapt to the
+engine: every engine shows a size, an object count, and a connections tile, and the throughput
+tile is Transactions/sec (PostgreSQL, SQL Server), Executions/sec (Oracle), or Operations/sec
+(MongoDB, Redis, Valkey).
+
+## Database Size {#database-size}
+
+<Size />
+
+## Objects {#objects}
+
+<Objects />
+
+## Connections {#connections}
+
+<Connections />
+
+## Transactions/sec {#transactions-sec}
+
+<Transactions />
+
+## Executions/sec {#executions-sec}
+
+<Executions />
+
+## Operations/sec {#operations-sec}
+
+<Operations />
+
+## Database Information and Server Resources
+
+Beside the health ring, an information card shows the database's identity and its host's
+resource pressure: the engine and version, the hosting instance, and — where system metrics
+are collected — average CPU and memory usage plus network throughput for the server. These
+are host-level figures: databases sharing an instance share them.
+
+On Oracle databases without a Diagnostics Pack license, an additional card notes that Active
+Session History collection is unavailable for this database.
+
+## Database Health {#database-health}
+
+<DatabaseHealth />
+
+## Trend Charts {#trend-charts}
+
+<TrendCharts />

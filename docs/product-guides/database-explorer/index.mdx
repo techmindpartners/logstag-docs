@@ -1,0 +1,60 @@
+---
+sidebar_position: 2
+---
+
+import PageOverview from '../_explain/database-explorer/page/page.overview.md';
+import DatabasesTable from '../_explain/database-explorer/page/table.databases.md';
+
+# Database Explorer
+
+<PageOverview />
+
+## Database List
+
+<DatabasesTable />
+
+## Database Detail
+
+Selecting a database opens its detail view. The header shows the database name, online or
+offline status, engine and version, hosting instance, and last-updated time.
+
+The detail page has these tabs:
+
+| Tab | Purpose |
+| --- | --- |
+| Overview | Summary metrics, the health score, database information and server resources, and trend charts. |
+| Schema | Object counts, the object-size treemap, and the searchable object inventory. |
+| Alerts | Active alerts for the selected database and its hosting instance. |
+
+Redis and Valkey do not show the Schema tab — they are key-value stores without a schema model.
+
+Metric definitions and how each value is calculated live in the
+[Overview reference](./overview.mdx) and the [Schema reference](./schema.mdx).
+
+## Alerts
+
+Database Explorer combines database-scoped and instance-scoped alerts for quick triage:
+severity chips on the list page, and a full alerts view on the detail page with severity,
+status, type, assignment, and SLA context. The health score's dimension rows link straight
+into this tab, pre-filtered to the alerts behind a dimension.
+
+## Data Freshness
+
+Database Explorer uses collected metrics and metadata. Values reflect the selected time
+window and the most recent data available to Logstag.
+
+Runtime and workload signals can update quickly when high-frequency collectors are enabled.
+Schema and heavier metadata can take longer because they are collected less frequently. If a
+metric is unavailable, it usually means the relevant collector has not reported data for the
+selected time window, the engine does not expose that signal, or the monitoring user does not
+have the required visibility.
+
+## Data Boundaries
+
+Database Explorer is an observability surface. It shows operational metadata, metric
+summaries, schema metadata, alert context, and health indicators. It does not copy
+application table rows, MongoDB documents, or Redis key values into the product view.
+
+Some displayed metadata can still be sensitive, including object names, usernames, client
+addresses, configuration values, and alert context. Access to Database Explorer should be
+limited to users who are allowed to inspect database operational metadata.

@@ -1,0 +1,94 @@
+{
+  "group": "database-explorer.overview",
+  "category": "Database Explorer · Overview",
+  "docsPage": "/product-guides/database-explorer/overview/",
+  "entries": {
+    "metric.size": {
+      "file": "metric.size.md",
+      "kind": "metric",
+      "title": "Database Size",
+      "anchor": "#database-size",
+      "related": [
+        "metric.objects",
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "metric.objects": {
+      "file": "metric.objects.md",
+      "kind": "metric",
+      "title": "Objects",
+      "anchor": "#objects",
+      "related": [
+        "metric.size",
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "metric.connections": {
+      "file": "metric.connections.md",
+      "kind": "metric",
+      "title": "Connections",
+      "anchor": "#connections",
+      "related": [
+        "metric.transactions",
+        "metric.operations"
+      ],
+      "app": true
+    },
+    "metric.transactions": {
+      "file": "metric.transactions.md",
+      "kind": "metric",
+      "title": "Transactions/sec",
+      "anchor": "#transactions-sec",
+      "related": [
+        "metric.connections",
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "metric.executions": {
+      "file": "metric.executions.md",
+      "kind": "metric",
+      "title": "Executions/sec",
+      "anchor": "#executions-sec",
+      "related": [
+        "metric.connections",
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "metric.operations": {
+      "file": "metric.operations.md",
+      "kind": "metric",
+      "title": "Operations/sec",
+      "anchor": "#operations-sec",
+      "related": [
+        "metric.connections",
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "chart.database-health": {
+      "file": "chart.database-health.md",
+      "kind": "chart",
+      "title": "Database Health",
+      "anchor": "#database-health",
+      "related": [
+        "chart.trends"
+      ],
+      "app": true
+    },
+    "chart.trends": {
+      "file": "chart.trends.md",
+      "kind": "chart",
+      "title": "Trend Charts",
+      "anchor": "#trend-charts",
+      "related": [
+        "metric.size",
+        "chart.database-health"
+      ],
+      "app": true
+    }
+  }
+}
