@@ -1,0 +1,48 @@
+---
+title: "Overview Tab: Metric Reference"
+sidebar_label: Overview
+description: What the Query Explorer overview shows for a statement — the four metrics, the statement text, the trend charts, and the explain plan.
+---
+
+import CallsInPeriod from '../_explain/query-explorer/overview/metric.calls-in-period.md';
+import MeanExecutionTime from '../_explain/query-explorer/overview/metric.mean-execution-time.md';
+import RowsInPeriod from '../_explain/query-explorer/overview/metric.rows-in-period.md';
+import CacheHit from '../_explain/query-explorer/overview/metric.cache-hit.md';
+import QuerySection from '../_explain/query-explorer/overview/section.query.md';
+import PerformanceTrends from '../_explain/query-explorer/overview/chart.performance-trends.md';
+import ExplainPlan from '../_explain/query-explorer/overview/section.explain-plan.md';
+
+# Overview Tab: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Query Explorer](/product-guides/query-explorer/) detail view's Overview tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+## Calls in Period {#calls-in-period}
+
+<CallsInPeriod />
+
+## Mean Execution Time {#mean-execution-time}
+
+<MeanExecutionTime />
+
+## Rows in Period {#rows-in-period}
+
+<RowsInPeriod />
+
+## Cache Hit {#cache-hit}
+
+<CacheHit />
+
+## Query {#query}
+
+<QuerySection />
+
+## Performance Trends {#performance-trends}
+
+<PerformanceTrends />
+
+## Explain Plan {#explain-plan}
+
+<ExplainPlan />

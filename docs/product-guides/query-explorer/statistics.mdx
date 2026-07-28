@@ -1,0 +1,37 @@
+---
+title: "Statistics Tab: Reference"
+sidebar_label: Statistics
+description: The Query Explorer's detailed statistics — execution profile, block I/O timing, and shared and local buffer traffic, with per-engine availability.
+---
+
+import ExecutionStatistics from '../_explain/query-explorer/statistics/table.execution-statistics.md';
+import BlockStatistics from '../_explain/query-explorer/statistics/table.block-statistics.md';
+import SharedBlocks from '../_explain/query-explorer/statistics/table.shared-blocks.md';
+import LocalBlocks from '../_explain/query-explorer/statistics/table.local-blocks.md';
+
+# Statistics Tab: Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Query Explorer](/product-guides/query-explorer/) detail view's Statistics tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+The statistics model is richest on PostgreSQL; SQL Server and Oracle fill the shared rows
+with their nearest equivalents and show a dash where a counter has no counterpart. A dash
+means "this engine does not measure that," not "zero."
+
+## Execution Statistics {#execution-statistics}
+
+<ExecutionStatistics />
+
+## Block Statistics {#block-statistics}
+
+<BlockStatistics />
+
+## Shared Blocks {#shared-blocks}
+
+<SharedBlocks />
+
+## Local Blocks {#local-blocks}
+
+<LocalBlocks />

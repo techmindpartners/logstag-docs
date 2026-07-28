@@ -1,0 +1,51 @@
+{
+  "group": "query-explorer.statistics",
+  "category": "Query Explorer · Statistics",
+  "docsPage": "/product-guides/query-explorer/statistics/",
+  "entries": {
+    "table.execution-statistics": {
+      "file": "table.execution-statistics.md",
+      "kind": "table",
+      "title": "Execution Statistics",
+      "anchor": "#execution-statistics",
+      "related": [
+        "table.block-statistics",
+        "table.shared-blocks"
+      ],
+      "app": true
+    },
+    "table.block-statistics": {
+      "file": "table.block-statistics.md",
+      "kind": "table",
+      "title": "Block Statistics",
+      "anchor": "#block-statistics",
+      "related": [
+        "table.shared-blocks",
+        "table.execution-statistics"
+      ],
+      "app": true
+    },
+    "table.shared-blocks": {
+      "file": "table.shared-blocks.md",
+      "kind": "table",
+      "title": "Shared Blocks",
+      "anchor": "#shared-blocks",
+      "related": [
+        "table.local-blocks",
+        "table.block-statistics"
+      ],
+      "app": true
+    },
+    "table.local-blocks": {
+      "file": "table.local-blocks.md",
+      "kind": "table",
+      "title": "Local Blocks",
+      "anchor": "#local-blocks",
+      "related": [
+        "table.shared-blocks",
+        "table.execution-statistics"
+      ],
+      "app": true
+    }
+  }
+}

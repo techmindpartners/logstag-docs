@@ -1,0 +1,68 @@
+---
+sidebar_position: 4
+---
+
+import PageOverview from '../_explain/query-explorer/page/page.overview.md';
+import QueriesTable from '../_explain/query-explorer/page/table.queries.md';
+
+# Query Explorer
+
+<PageOverview />
+
+## Query List
+
+<QueriesTable />
+
+## Query Detail
+
+Selecting a query opens its detail view with three tabs:
+
+| Tab | Purpose |
+| --- | --- |
+| Overview | The four summary metrics, the full statement text, trend charts, and the explain plan where available. |
+| Statistics | The detailed execution profile: timing spread, block I/O, and buffer traffic. |
+| Alerts | Query-level alerts matched to exactly this statement. |
+
+Metric definitions and how each value is calculated live in the
+[Overview reference](./overview.mdx) and the [Statistics reference](./statistics.mdx).
+
+## Alert Signals
+
+The list's alert chips and the detail view's Alerts tab show query-level alerts — engine
+checks such as high duration, high execution frequency, high CPU consumption, or excessive
+reads, matched to the statement's identity. Critical and high findings are the triage
+signal; medium and low add context.
+
+## Engine Data Requirements
+
+Query Explorer depends on query-statistics visibility from the monitored engine:
+
+| Engine | Requirement |
+| --- | --- |
+| PostgreSQL | The `pg_stat_statements` extension provides per-statement statistics; without it, query visibility is limited. |
+| Microsoft SQL Server | Query Store gives the best historical visibility; without it, Logstag falls back to the engine's execution-statistics views, and only statements with a minimum execution count are tracked. |
+| Oracle | SQL performance metadata must be visible to the monitoring user; the agent samples the top statements by elapsed time each cycle. |
+
+If query data is missing, common causes include insufficient monitoring permissions,
+disabled query-statistics features, no query activity in the selected time window,
+collector delay, or an inactive database target.
+
+## Data Freshness
+
+Query statistics are collected roughly every minute. Some engines expose cumulative
+counters, which Logstag converts into interval values for the selected window. Trend
+values compare the selected period with the previous comparable period; when the previous
+period has no usable data, the trend can be empty even though the current value is present.
+
+## Data Boundaries
+
+Query Explorer displays operational query metadata: statement text, normalized query
+identifiers, database and instance names, execution counts, row counts, timing, cache and
+block statistics, alert context, and explain plans where available. Logstag does not
+execute queries from this surface and does not copy application table rows through it.
+
+Statement text deserves specific care: on PostgreSQL, the agent parameter-normalizes text
+before it leaves the database host, so literal values are replaced with placeholders and
+not retained. On SQL Server and Oracle, text is stored as the engine exposes it and can
+include literal values from application queries. Access to Query Explorer should be limited
+to users who are allowed to read SQL text, not just performance metrics.

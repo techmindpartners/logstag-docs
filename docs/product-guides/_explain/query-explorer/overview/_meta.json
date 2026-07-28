@@ -1,0 +1,82 @@
+{
+  "group": "query-explorer.overview",
+  "category": "Query Explorer · Overview",
+  "docsPage": "/product-guides/query-explorer/overview/",
+  "entries": {
+    "metric.calls-in-period": {
+      "file": "metric.calls-in-period.md",
+      "kind": "metric",
+      "title": "Calls in Period",
+      "anchor": "#calls-in-period",
+      "related": [
+        "metric.mean-execution-time",
+        "chart.performance-trends"
+      ],
+      "app": true
+    },
+    "metric.mean-execution-time": {
+      "file": "metric.mean-execution-time.md",
+      "kind": "metric",
+      "title": "Mean Execution Time",
+      "anchor": "#mean-execution-time",
+      "related": [
+        "metric.calls-in-period",
+        "chart.performance-trends"
+      ],
+      "app": true
+    },
+    "metric.rows-in-period": {
+      "file": "metric.rows-in-period.md",
+      "kind": "metric",
+      "title": "Rows in Period",
+      "anchor": "#rows-in-period",
+      "related": [
+        "metric.calls-in-period",
+        "chart.performance-trends"
+      ],
+      "app": true
+    },
+    "metric.cache-hit": {
+      "file": "metric.cache-hit.md",
+      "kind": "metric",
+      "title": "Cache Hit",
+      "anchor": "#cache-hit",
+      "related": [
+        "metric.mean-execution-time",
+        "chart.performance-trends"
+      ],
+      "app": true
+    },
+    "section.query": {
+      "file": "section.query.md",
+      "kind": "section",
+      "title": "Query",
+      "anchor": "#query",
+      "related": [
+        "section.explain-plan"
+      ],
+      "app": true
+    },
+    "chart.performance-trends": {
+      "file": "chart.performance-trends.md",
+      "kind": "chart",
+      "title": "Performance Trends",
+      "anchor": "#performance-trends",
+      "related": [
+        "metric.calls-in-period",
+        "metric.mean-execution-time"
+      ],
+      "app": true
+    },
+    "section.explain-plan": {
+      "file": "section.explain-plan.md",
+      "kind": "section",
+      "title": "Explain Plan",
+      "anchor": "#explain-plan",
+      "related": [
+        "section.query"
+      ],
+      "app": true
+    }
+  }
+}

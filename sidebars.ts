@@ -75,7 +75,15 @@ const sidebars: SidebarsConfig = {
             "product-guides/activity-explorer/wait-activity",
           ],
         },
-        "product-guides/query-explorer",
+        {
+          type: "category",
+          label: "Query Explorer",
+          link: { type: "doc", id: "product-guides/query-explorer/index" },
+          items: [
+            "product-guides/query-explorer/overview",
+            "product-guides/query-explorer/statistics",
+          ],
+        },
         {
           type: "category",
           label: "Schema Explorer",

@@ -1,0 +1,27 @@
+{
+  "group": "query-explorer",
+  "category": "Query Explorer",
+  "docsPage": "/product-guides/query-explorer/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Query Explorer",
+      "anchor": "",
+      "related": [
+        "table.queries"
+      ],
+      "app": true
+    },
+    "table.queries": {
+      "file": "table.queries.md",
+      "kind": "table",
+      "title": "Queries",
+      "anchor": "#query-list",
+      "related": [
+        "page.overview"
+      ],
+      "app": true
+    }
+  }
+}

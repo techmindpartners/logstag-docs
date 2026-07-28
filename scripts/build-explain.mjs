@@ -307,7 +307,7 @@ const schema = {
         required: ["key", "kind", "title", "docsUrl", "blocks"],
         properties: {
           key: { type: "string" },
-          kind: { enum: ["metric", "table", "page", "chart"] },
+          kind: { enum: ["metric", "table", "page", "chart", "section"] },
           title: { type: "string" },
           docsUrl: { type: "string" },
           source: { type: "string" },
