@@ -4,7 +4,7 @@ Every user and role with permissions on this schema, with a privilege matrix sho
 
 - **User/Role** — the principal's name.
 - **Type** — User (can log in) or Role (groups privileges).
-- **Select / Insert / Update / Delete / Truncate / Execute** — the common privilege matrix: a check means the principal holds that privilege somewhere in this schema.
+- **Privilege columns** — Select, Insert, Update, Delete, Truncate, and Execute: a check means the principal holds that privilege somewhere in this schema.
 
 The matrix is **schema-level**: it answers "can this principal do X in this schema," not which individual table each grant sits on. Engines also expose engine-specific privileges beyond these six (ownership and control flags, grant options); the common matrix keeps engines comparable, and the principal detail shows the fuller picture.
 
