@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
+    "explain": "node scripts/build-explain.mjs",
+    "prestart": "npm run explain",
     "start": "docusaurus start",
+    "prebuild": "npm run explain",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
