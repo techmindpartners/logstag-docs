@@ -1,0 +1,42 @@
+---
+title: "Changes Tab: Reference"
+sidebar_label: Changes
+description: How Logstag detects schema changes, what the change tiles and history table show, and the per-engine differences.
+---
+
+import TotalChanges from '../_explain/schema-explorer/changes/metric.total-changes.md';
+import Added from '../_explain/schema-explorer/changes/metric.added.md';
+import Modified from '../_explain/schema-explorer/changes/metric.modified.md';
+import Removed from '../_explain/schema-explorer/changes/metric.removed.md';
+import ChangeHistory from '../_explain/schema-explorer/changes/table.change-history.md';
+
+# Changes Tab: Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Schema Explorer](/product-guides/schema-explorer/) detail view's Changes tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+Changes are tracked for PostgreSQL, Microsoft SQL Server, MongoDB, and Oracle. Opening a
+change from the table leads to its detail page, which defaults to a seven-day window so
+deep-linked changes stay visible.
+
+## Total Changes {#total-changes}
+
+<TotalChanges />
+
+## Added {#added}
+
+<Added />
+
+## Modified {#modified}
+
+<Modified />
+
+## Removed {#removed}
+
+<Removed />
+
+## Change History {#change-history}
+
+<ChangeHistory />

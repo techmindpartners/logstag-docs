@@ -1,0 +1,66 @@
+---
+sidebar_position: 5
+---
+
+import PageOverview from '../_explain/schema-explorer/page/page.overview.md';
+import SchemasTable from '../_explain/schema-explorer/page/table.schemas.md';
+
+# Schema Explorer
+
+<PageOverview />
+
+## Schema List
+
+<SchemasTable />
+
+Engine specifics for the list: PostgreSQL and SQL Server rows are database schemas; a
+MongoDB database appears as a single schema row sized by the database; Oracle currently
+appears as one aggregate row per database (its schema inventory is collected as per-owner
+object counts), so per-owner sizes are not listed. Redis and Valkey have no schema model
+and never appear.
+
+## Schema Detail
+
+Selecting a schema opens the Schema Detail view. The header shows the schema with a
+switcher to jump between schemas of the same database, and the detail view has four tabs:
+
+| Tab | Purpose |
+| --- | --- |
+| Overview | Object counts, schema identity, health, the size treemap, and the object inventory. |
+| Changes | Detected structural changes with property-level diffs. |
+| Permissions | The principal privilege matrix and permission change history. |
+| Alerts | Alerts scoped to this schema, plus database-wide alerts not scoped to any schema. |
+
+Metric definitions and how each value is calculated live in the
+[Overview reference](./overview.mdx), the [Changes reference](./changes.mdx), and the
+[Permissions reference](./permissions.mdx).
+
+## Alerts
+
+The Alerts tab combines alerts that name this schema with database-wide alerts that are
+not scoped to any schema — a schema is affected by both. The health card's per-dimension
+arrows land here pre-filtered to the alerts behind a dimension.
+
+## Data Freshness
+
+Schema and permission data changes less often than runtime activity, and Logstag collects
+it accordingly: the schema inventory and permissions refresh roughly every 10 minutes on
+PostgreSQL and MongoDB, and every 4 hours on SQL Server and Oracle with default intervals.
+Changes are detected when the next snapshot lands, so detection lags the actual statement
+by up to one collection interval.
+
+If schema data is unavailable, common causes include no collected schema sample for the
+selected time window, insufficient monitoring permissions, unsupported engine metadata,
+collector delay, or an inactive database target.
+
+## Data Boundaries
+
+Schema Explorer displays structural and access metadata: schema, object, role, and user
+names, object types and sizes, privilege flags, permission history, and structural change
+records. Logstag does not copy application table rows, MongoDB documents, or Redis key
+values through Schema Explorer.
+
+Schema metadata can still be sensitive — object names, role names, definitions, and
+permission history can reveal business structure and security posture. Access to Schema
+Explorer should be limited to users who are allowed to inspect database structure and
+access metadata.

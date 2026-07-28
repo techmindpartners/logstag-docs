@@ -1,0 +1,47 @@
+---
+title: "Permissions Tab: Reference"
+sidebar_label: Permissions
+description: The schema permissions matrix, the principal summary tiles, and the permission change history — with per-engine sources.
+---
+
+import Users from '../_explain/schema-explorer/permissions/metric.users.md';
+import Roles from '../_explain/schema-explorer/permissions/metric.roles.md';
+import FullAccessRoles from '../_explain/schema-explorer/permissions/metric.full-access-roles.md';
+import ReadOnlyRoles from '../_explain/schema-explorer/permissions/metric.read-only-roles.md';
+import UserRolePermissions from '../_explain/schema-explorer/permissions/table.user-role-permissions.md';
+import PermissionHistory from '../_explain/schema-explorer/permissions/table.permission-history.md';
+
+# Permissions Tab: Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Schema Explorer](/product-guides/schema-explorer/) detail view's Permissions tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+Permissions are collected for PostgreSQL, Microsoft SQL Server, Oracle, and MongoDB —
+on MongoDB the database is the schema scope, and its users and roles come from the engine's
+own commands. Redis and Valkey have no schema permission model and are not covered here.
+
+## Users {#users}
+
+<Users />
+
+## Roles {#roles}
+
+<Roles />
+
+## Full Access Roles {#full-access-roles}
+
+<FullAccessRoles />
+
+## Read-only Roles {#read-only-roles}
+
+<ReadOnlyRoles />
+
+## User and Role Permissions {#user-and-role-permissions}
+
+<UserRolePermissions />
+
+## Permission Change History {#permission-change-history}
+
+<PermissionHistory />

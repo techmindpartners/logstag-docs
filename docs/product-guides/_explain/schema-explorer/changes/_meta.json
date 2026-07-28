@@ -1,0 +1,62 @@
+{
+  "group": "schema-explorer.changes",
+  "category": "Schema Explorer · Changes",
+  "docsPage": "/product-guides/schema-explorer/changes/",
+  "entries": {
+    "metric.total-changes": {
+      "file": "metric.total-changes.md",
+      "kind": "metric",
+      "title": "Total Changes",
+      "anchor": "#total-changes",
+      "related": [
+        "metric.added",
+        "table.change-history"
+      ],
+      "app": true
+    },
+    "metric.added": {
+      "file": "metric.added.md",
+      "kind": "metric",
+      "title": "Added",
+      "anchor": "#added",
+      "related": [
+        "metric.removed",
+        "table.change-history"
+      ],
+      "app": true
+    },
+    "metric.modified": {
+      "file": "metric.modified.md",
+      "kind": "metric",
+      "title": "Modified",
+      "anchor": "#modified",
+      "related": [
+        "metric.added",
+        "table.change-history"
+      ],
+      "app": true
+    },
+    "metric.removed": {
+      "file": "metric.removed.md",
+      "kind": "metric",
+      "title": "Removed",
+      "anchor": "#removed",
+      "related": [
+        "metric.added",
+        "table.change-history"
+      ],
+      "app": true
+    },
+    "table.change-history": {
+      "file": "table.change-history.md",
+      "kind": "table",
+      "title": "Change History",
+      "anchor": "#change-history",
+      "related": [
+        "metric.total-changes",
+        "metric.modified"
+      ],
+      "app": true
+    }
+  }
+}

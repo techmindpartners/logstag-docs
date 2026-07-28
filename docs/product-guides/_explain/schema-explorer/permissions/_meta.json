@@ -1,0 +1,72 @@
+{
+  "group": "schema-explorer.permissions",
+  "category": "Schema Explorer · Permissions",
+  "docsPage": "/product-guides/schema-explorer/permissions/",
+  "entries": {
+    "metric.users": {
+      "file": "metric.users.md",
+      "kind": "metric",
+      "title": "Users",
+      "anchor": "#users",
+      "related": [
+        "metric.roles",
+        "table.user-role-permissions"
+      ],
+      "app": true
+    },
+    "metric.roles": {
+      "file": "metric.roles.md",
+      "kind": "metric",
+      "title": "Roles",
+      "anchor": "#roles",
+      "related": [
+        "metric.users",
+        "table.user-role-permissions"
+      ],
+      "app": true
+    },
+    "metric.full-access-roles": {
+      "file": "metric.full-access-roles.md",
+      "kind": "metric",
+      "title": "Full Access Roles",
+      "anchor": "#full-access-roles",
+      "related": [
+        "metric.read-only-roles",
+        "table.user-role-permissions"
+      ],
+      "app": true
+    },
+    "metric.read-only-roles": {
+      "file": "metric.read-only-roles.md",
+      "kind": "metric",
+      "title": "Read-only Roles",
+      "anchor": "#read-only-roles",
+      "related": [
+        "metric.full-access-roles",
+        "table.user-role-permissions"
+      ],
+      "app": true
+    },
+    "table.user-role-permissions": {
+      "file": "table.user-role-permissions.md",
+      "kind": "table",
+      "title": "User and Role Permissions",
+      "anchor": "#user-and-role-permissions",
+      "related": [
+        "table.permission-history",
+        "metric.full-access-roles"
+      ],
+      "app": true
+    },
+    "table.permission-history": {
+      "file": "table.permission-history.md",
+      "kind": "table",
+      "title": "Permission Change History",
+      "anchor": "#permission-change-history",
+      "related": [
+        "table.user-role-permissions"
+      ],
+      "app": true
+    }
+  }
+}

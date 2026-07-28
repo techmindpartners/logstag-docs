@@ -1,0 +1,44 @@
+---
+title: "Overview Tab: Reference"
+sidebar_label: Overview
+description: What the Schema Explorer overview shows for a schema — health, object counts, the size treemap, and the object inventory.
+---
+
+import SchemaHealth from '../_explain/schema-explorer/overview/chart.schema-health.md';
+import TotalSize from '../_explain/schema-explorer/overview/metric.total-size.md';
+import ObjectSizes from '../_explain/schema-explorer/overview/chart.object-sizes.md';
+import DatabaseObjects from '../_explain/schema-explorer/overview/table.database-objects.md';
+
+# Overview Tab: Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Schema Explorer](/product-guides/schema-explorer/) detail view's Overview tab.
+Each section is written once as a content partial under `_explain/` and rendered both here
+and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+## Object Counts and Schema Identity
+
+The tab opens with count tiles for the object types the engine reports in this schema —
+tables, indexes, views, procedures, functions, triggers, and sequences on relational engines;
+collections, indexes, and documents on MongoDB. Oracle adds its Valid / Invalid / N/A object
+validity split. Tiles appear only when the engine provides that object type.
+
+An identity card lists the engine, hosting instance, database, and schema, and the schema
+switcher in the page header jumps between schemas of the same database without losing tab
+or time-window state.
+
+## Overall Health {#overall-health}
+
+<SchemaHealth />
+
+## Total Size {#total-size}
+
+<TotalSize />
+
+## Object Sizes {#object-sizes}
+
+<ObjectSizes />
+
+## Database Objects {#database-objects}
+
+<DatabaseObjects />

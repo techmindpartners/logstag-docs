@@ -76,7 +76,16 @@ const sidebars: SidebarsConfig = {
           ],
         },
         "product-guides/query-explorer",
-        "product-guides/schema-explorer",
+        {
+          type: "category",
+          label: "Schema Explorer",
+          link: { type: "doc", id: "product-guides/schema-explorer/index" },
+          items: [
+            "product-guides/schema-explorer/overview",
+            "product-guides/schema-explorer/changes",
+            "product-guides/schema-explorer/permissions",
+          ],
+        },
         "product-guides/alerts",
         "product-guides/insights",
         "product-guides/data-inventory",

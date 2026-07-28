@@ -48,7 +48,7 @@ Schemas (the Schema Explorer) shows structural metadata for monitored databases,
 
 **Where:** Monitoring group in the sidebar.
 
-**Engine scope:** covers PostgreSQL, Microsoft SQL Server, MongoDB, and Oracle. Redis and Valkey are not part of the schema model, and MongoDB does not appear in the Permissions tab.
+**Engine scope:** covers PostgreSQL, Microsoft SQL Server, MongoDB, and Oracle. Redis and Valkey are not part of the schema model.
 
 ## Activities
 

@@ -1,0 +1,27 @@
+{
+  "group": "schema-explorer",
+  "category": "Schema Explorer",
+  "docsPage": "/product-guides/schema-explorer/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Schema Explorer",
+      "anchor": "",
+      "related": [
+        "table.schemas"
+      ],
+      "app": true
+    },
+    "table.schemas": {
+      "file": "table.schemas.md",
+      "kind": "table",
+      "title": "Schemas",
+      "anchor": "#schema-list",
+      "related": [
+        "page.overview"
+      ],
+      "app": true
+    }
+  }
+}
