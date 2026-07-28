@@ -3,6 +3,50 @@
   "category": "Schema Explorer · Overview",
   "docsPage": "/product-guides/schema-explorer/overview/",
   "entries": {
+    "metric.object-counts": {
+      "file": "metric.object-counts.md",
+      "kind": "metric",
+      "title": "Object Counts",
+      "anchor": "#object-counts",
+      "related": [
+        "metric.total-size",
+        "table.database-objects"
+      ],
+      "app": true
+    },
+    "metric.valid-objects": {
+      "file": "metric.valid-objects.md",
+      "kind": "metric",
+      "title": "Valid",
+      "anchor": "#valid-objects",
+      "related": [
+        "metric.invalid-objects",
+        "metric.object-counts"
+      ],
+      "app": true
+    },
+    "metric.invalid-objects": {
+      "file": "metric.invalid-objects.md",
+      "kind": "metric",
+      "title": "Invalid",
+      "anchor": "#invalid-objects",
+      "related": [
+        "metric.valid-objects",
+        "metric.na-objects"
+      ],
+      "app": true
+    },
+    "metric.na-objects": {
+      "file": "metric.na-objects.md",
+      "kind": "metric",
+      "title": "N/A",
+      "anchor": "#na-objects",
+      "related": [
+        "metric.valid-objects",
+        "metric.invalid-objects"
+      ],
+      "app": true
+    },
     "chart.schema-health": {
       "file": "chart.schema-health.md",
       "kind": "chart",
