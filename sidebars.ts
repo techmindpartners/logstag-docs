@@ -94,6 +94,7 @@ const sidebars: SidebarsConfig = {
             "product-guides/schema-explorer/permissions",
           ],
         },
+        "product-guides/dashboard",
         "product-guides/alerts",
         "product-guides/insights",
         "product-guides/data-inventory",

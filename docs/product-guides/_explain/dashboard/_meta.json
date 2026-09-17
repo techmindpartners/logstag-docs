@@ -1,0 +1,77 @@
+{
+  "group": "dashboard",
+  "category": "Dashboard",
+  "docsPage": "/product-guides/dashboard/",
+  "entries": {
+    "metric.instances": {
+      "file": "metric.instances.md",
+      "kind": "metric",
+      "title": "Instances",
+      "anchor": "#instances",
+      "related": [
+        "metric.databases",
+        "metric.connections",
+        "metric.alerts"
+      ],
+      "app": true
+    },
+    "metric.databases": {
+      "file": "metric.databases.md",
+      "kind": "metric",
+      "title": "Databases",
+      "anchor": "#databases",
+      "related": [
+        "metric.instances",
+        "metric.connections",
+        "metric.alerts"
+      ],
+      "app": true
+    },
+    "metric.connections": {
+      "file": "metric.connections.md",
+      "kind": "metric",
+      "title": "Connections",
+      "anchor": "#connections",
+      "related": [
+        "metric.instances",
+        "metric.alerts",
+        "chart.alert-history"
+      ],
+      "app": true
+    },
+    "metric.alerts": {
+      "file": "metric.alerts.md",
+      "kind": "metric",
+      "title": "Alerts",
+      "anchor": "#alerts",
+      "related": [
+        "chart.alert-history",
+        "section.latest-alerts",
+        "metric.instances"
+      ],
+      "app": true
+    },
+    "chart.alert-history": {
+      "file": "chart.alert-history.md",
+      "kind": "chart",
+      "title": "Alert History",
+      "anchor": "#alert-history",
+      "related": [
+        "metric.alerts",
+        "section.latest-alerts"
+      ],
+      "app": true
+    },
+    "section.latest-alerts": {
+      "file": "section.latest-alerts.md",
+      "kind": "section",
+      "title": "Latest 10 Alerts",
+      "anchor": "#latest-alerts",
+      "related": [
+        "metric.alerts",
+        "chart.alert-history"
+      ],
+      "app": true
+    }
+  }
+}

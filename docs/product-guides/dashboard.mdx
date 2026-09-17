@@ -1,0 +1,46 @@
+---
+title: "Dashboard: Metric Reference"
+sidebar_label: Dashboard
+description: What the organization Dashboard shows at a glance — the KPI strip, alert history chart, and latest alerts digest.
+---
+
+import Instances from './_explain/dashboard/metric.instances.md';
+import Databases from './_explain/dashboard/metric.databases.md';
+import Connections from './_explain/dashboard/metric.connections.md';
+import Alerts from './_explain/dashboard/metric.alerts.md';
+import AlertHistory from './_explain/dashboard/chart.alert-history.md';
+import LatestAlerts from './_explain/dashboard/section.latest-alerts.md';
+
+# Dashboard: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+organization [Dashboard](https://app.logstag.com/) (`/`). Each section is written once as a
+content partial under `_explain/` and rendered both here and inside the app's info panel
+(`scripts/build-explain.mjs` compiles the registry).
+
+The topbar **instance filter** and **time window** apply to the widgets below as noted in
+each section. Platform super-admin home is a different surface and is not covered here.
+
+## Instances {#instances}
+
+<Instances />
+
+## Databases {#databases}
+
+<Databases />
+
+## Connections {#connections}
+
+<Connections />
+
+## Alerts {#alerts}
+
+<Alerts />
+
+## Alert History {#alert-history}
+
+<AlertHistory />
+
+## Latest 10 Alerts {#latest-alerts}
+
+<LatestAlerts />
