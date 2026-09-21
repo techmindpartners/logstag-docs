@@ -1,0 +1,79 @@
+{
+  "group": "alerts",
+  "category": "Alerts",
+  "docsPage": "/product-guides/alerts/overview/",
+  "entries": {
+    "metric.active-alerts": {
+      "file": "metric.active-alerts.md",
+      "kind": "metric",
+      "title": "Active Alerts",
+      "anchor": "#active-alerts",
+      "related": ["metric.critical", "section.open-alerts", "chart.alert-distribution"],
+      "app": true
+    },
+    "metric.critical": {
+      "file": "metric.critical.md",
+      "kind": "metric",
+      "title": "Critical",
+      "anchor": "#critical",
+      "related": ["metric.active-alerts", "chart.alert-distribution", "section.open-alerts"],
+      "app": true
+    },
+    "metric.avg-resolution": {
+      "file": "metric.avg-resolution.md",
+      "kind": "metric",
+      "title": "Avg. Resolution",
+      "anchor": "#avg-resolution",
+      "related": ["chart.resolution-time", "metric.alerts-fired", "chart.alerts-activity"],
+      "app": true
+    },
+    "metric.alerts-fired": {
+      "file": "metric.alerts-fired.md",
+      "kind": "metric",
+      "title": "Alerts Fired",
+      "anchor": "#alerts-fired",
+      "related": ["chart.alerts-activity", "metric.active-alerts", "chart.alerts-history"],
+      "app": true
+    },
+    "chart.alerts-history": {
+      "file": "chart.alerts-history.md",
+      "kind": "chart",
+      "title": "Alerts History",
+      "anchor": "#alerts-history",
+      "related": ["chart.alerts-activity", "metric.alerts-fired", "section.open-alerts"],
+      "app": true
+    },
+    "chart.alerts-activity": {
+      "file": "chart.alerts-activity.md",
+      "kind": "chart",
+      "title": "Alerts Activity",
+      "anchor": "#alerts-activity",
+      "related": ["chart.alerts-history", "metric.alerts-fired", "chart.resolution-time"],
+      "app": true
+    },
+    "chart.alert-distribution": {
+      "file": "chart.alert-distribution.md",
+      "kind": "chart",
+      "title": "Alert Distribution",
+      "anchor": "#alert-distribution",
+      "related": ["metric.active-alerts", "metric.critical", "section.open-alerts"],
+      "app": true
+    },
+    "chart.resolution-time": {
+      "file": "chart.resolution-time.md",
+      "kind": "chart",
+      "title": "Resolution Time",
+      "anchor": "#resolution-time",
+      "related": ["metric.avg-resolution", "chart.alerts-activity", "metric.alerts-fired"],
+      "app": true
+    },
+    "section.open-alerts": {
+      "file": "section.open-alerts.md",
+      "kind": "section",
+      "title": "Open Alerts",
+      "anchor": "#open-alerts",
+      "related": ["metric.active-alerts", "chart.alerts-history", "chart.alert-distribution"],
+      "app": true
+    }
+  }
+}

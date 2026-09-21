@@ -1,0 +1,63 @@
+{
+  "group": "alerts.detail",
+  "category": "Alerts · Detail",
+  "docsPage": "/product-guides/alerts/detail/",
+  "entries": {
+    "section.details": {
+      "file": "section.details.md",
+      "kind": "section",
+      "title": "Details",
+      "anchor": "#details",
+      "related": ["section.all-occurrences", "chart.timeline", "metric.occurrences"],
+      "app": true
+    },
+    "metric.occurrences": {
+      "file": "metric.occurrences.md",
+      "kind": "metric",
+      "title": "Occurrences",
+      "anchor": "#occurrences",
+      "related": ["metric.databases", "metric.instances", "section.all-occurrences"],
+      "app": true
+    },
+    "metric.databases": {
+      "file": "metric.databases.md",
+      "kind": "metric",
+      "title": "Databases",
+      "anchor": "#databases",
+      "related": ["metric.instances", "metric.occurrences", "chart.timeline"],
+      "app": true
+    },
+    "metric.instances": {
+      "file": "metric.instances.md",
+      "kind": "metric",
+      "title": "Instances",
+      "anchor": "#instances",
+      "related": ["metric.databases", "metric.occurrences", "chart.timeline"],
+      "app": true
+    },
+    "metric.last-triggered": {
+      "file": "metric.last-triggered.md",
+      "kind": "metric",
+      "title": "Last triggered",
+      "anchor": "#last-triggered",
+      "related": ["metric.occurrences", "section.all-occurrences", "chart.timeline"],
+      "app": true
+    },
+    "section.all-occurrences": {
+      "file": "section.all-occurrences.md",
+      "kind": "section",
+      "title": "All Occurrences",
+      "anchor": "#all-occurrences",
+      "related": ["section.details", "chart.timeline", "metric.occurrences"],
+      "app": true
+    },
+    "chart.timeline": {
+      "file": "chart.timeline.md",
+      "kind": "chart",
+      "title": "Timeline",
+      "anchor": "#timeline",
+      "related": ["section.all-occurrences", "metric.instances", "metric.last-triggered"],
+      "app": true
+    }
+  }
+}

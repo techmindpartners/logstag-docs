@@ -95,7 +95,16 @@ const sidebars: SidebarsConfig = {
           ],
         },
         "product-guides/dashboard",
-        "product-guides/alerts",
+        {
+          type: "category",
+          label: "Alerts",
+          link: { type: "doc", id: "product-guides/alerts/index" },
+          items: [
+            "product-guides/alerts/overview",
+            "product-guides/alerts/detail",
+          ],
+        },
+        "product-guides/reports",
         "product-guides/insights",
         "product-guides/data-inventory",
         "product-guides/assets",

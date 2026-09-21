@@ -1,0 +1,48 @@
+---
+title: "Alert Detail: Metric Reference"
+sidebar_label: Detail
+description: What the alert group detail page and occurrence Details panel show for a single alert template.
+---
+
+import Details from '../_explain/alerts/detail/section.details.md';
+import Occurrences from '../_explain/alerts/detail/metric.occurrences.md';
+import Databases from '../_explain/alerts/detail/metric.databases.md';
+import Instances from '../_explain/alerts/detail/metric.instances.md';
+import LastTriggered from '../_explain/alerts/detail/metric.last-triggered.md';
+import AllOccurrences from '../_explain/alerts/detail/section.all-occurrences.md';
+import Timeline from '../_explain/alerts/detail/chart.timeline.md';
+
+# Alert Detail: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the alert group detail
+view (`/alerts/detail?code=…`) and the Details block in the occurrence split panel. Each section
+is written once as a content partial under `_explain/alerts/detail/` and rendered both here and
+inside the app's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+## Details {#details}
+
+<Details />
+
+## Occurrences {#occurrences}
+
+<Occurrences />
+
+## Databases {#databases}
+
+<Databases />
+
+## Instances {#instances}
+
+<Instances />
+
+## Last triggered {#last-triggered}
+
+<LastTriggered />
+
+## All Occurrences {#all-occurrences}
+
+<AllOccurrences />
+
+## Timeline {#timeline}
+
+<Timeline />

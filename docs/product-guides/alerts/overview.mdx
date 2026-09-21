@@ -1,0 +1,62 @@
+---
+title: "Alerts: Metric Reference"
+sidebar_label: Overview
+description: What each KPI, trend chart, and the Open Alerts table show on the organization Alerts page.
+---
+
+import ActiveAlerts from '../_explain/alerts/metric.active-alerts.md';
+import Critical from '../_explain/alerts/metric.critical.md';
+import AvgResolution from '../_explain/alerts/metric.avg-resolution.md';
+import AlertsFired from '../_explain/alerts/metric.alerts-fired.md';
+import AlertsHistory from '../_explain/alerts/chart.alerts-history.md';
+import AlertsActivity from '../_explain/alerts/chart.alerts-activity.md';
+import AlertDistribution from '../_explain/alerts/chart.alert-distribution.md';
+import ResolutionTime from '../_explain/alerts/chart.resolution-time.md';
+import OpenAlerts from '../_explain/alerts/section.open-alerts.md';
+
+# Alerts: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the organization
+[Alerts](https://app.logstag.com/alerts) page (`/alerts`). Each section is written once as a
+content partial under `_explain/alerts/` and rendered both here and inside the app's info panel
+(`scripts/build-explain.mjs` compiles the registry).
+
+Open-now KPIs and Alert Distribution ignore the time chip; windowed metrics and charts use the
+topbar range. **Alerts History** and **Alerts Activity** are distinct charts — titles follow the
+UI, not internal component names. Explorer detail Alerts tabs are out of scope.
+
+## Active Alerts {#active-alerts}
+
+<ActiveAlerts />
+
+## Critical {#critical}
+
+<Critical />
+
+## Avg. Resolution {#avg-resolution}
+
+<AvgResolution />
+
+## Alerts Fired {#alerts-fired}
+
+<AlertsFired />
+
+## Alerts History {#alerts-history}
+
+<AlertsHistory />
+
+## Alerts Activity {#alerts-activity}
+
+<AlertsActivity />
+
+## Alert Distribution {#alert-distribution}
+
+<AlertDistribution />
+
+## Resolution Time {#resolution-time}
+
+<ResolutionTime />
+
+## Open Alerts {#open-alerts}
+
+<OpenAlerts />
