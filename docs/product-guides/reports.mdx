@@ -1,0 +1,45 @@
+---
+title: "Reports: Metric Reference"
+sidebar_label: Reports
+description: What the Reports catalog and async PDF request flow show for implemented report kinds.
+---
+
+import Overview from './_explain/reports/page.overview.md';
+import Request from './_explain/reports/section.request.md';
+import History from './_explain/reports/section.history.md';
+import Security from './_explain/reports/section.security.md';
+import Scorecard from './_explain/reports/section.instance-scorecard.md';
+import DataInventory from './_explain/reports/section.data-inventory.md';
+
+# Reports: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on
+[Reports](https://app.logstag.com/reports) (`/reports`) and the request flow at `/reports/view`
+for **Security**, **Per-Instance Scorecard**, and **Data Inventory**. Each section is written once
+as a content partial under `_explain/reports/` and rendered both here and inside the app's info
+panel (`scripts/build-explain.mjs` compiles the registry).
+
+Catalog cards that only show on-screen mock data (Performance & SLA Summary, Alerts Summary,
+Daily Operations Digest) are **not** documented here as available products.
+
+<Overview />
+
+## Request a report {#request}
+
+<Request />
+
+## Recent requests {#history}
+
+<History />
+
+## Security {#security}
+
+<Security />
+
+## Per-Instance Scorecard {#instance-scorecard}
+
+<Scorecard />
+
+## Data Inventory {#data-inventory}
+
+<DataInventory />

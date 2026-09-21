@@ -1,0 +1,55 @@
+{
+  "group": "reports",
+  "category": "Reports",
+  "docsPage": "/product-guides/reports/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Reports",
+      "anchor": "",
+      "related": ["section.request", "section.security", "section.instance-scorecard"],
+      "app": true
+    },
+    "section.request": {
+      "file": "section.request.md",
+      "kind": "section",
+      "title": "Request a report",
+      "anchor": "#request",
+      "related": ["section.history", "section.instance-scorecard", "page.overview"],
+      "app": true
+    },
+    "section.history": {
+      "file": "section.history.md",
+      "kind": "section",
+      "title": "Recent requests",
+      "anchor": "#history",
+      "related": ["section.request", "page.overview", "section.data-inventory"],
+      "app": true
+    },
+    "section.security": {
+      "file": "section.security.md",
+      "kind": "section",
+      "title": "Security",
+      "anchor": "#security",
+      "related": ["section.request", "section.data-inventory", "page.overview"],
+      "app": true
+    },
+    "section.instance-scorecard": {
+      "file": "section.instance-scorecard.md",
+      "kind": "section",
+      "title": "Per-Instance Scorecard",
+      "anchor": "#instance-scorecard",
+      "related": ["section.request", "section.security", "page.overview"],
+      "app": true
+    },
+    "section.data-inventory": {
+      "file": "section.data-inventory.md",
+      "kind": "section",
+      "title": "Data Inventory",
+      "anchor": "#data-inventory",
+      "related": ["section.request", "section.security", "page.overview"],
+      "app": true
+    }
+  }
+}
