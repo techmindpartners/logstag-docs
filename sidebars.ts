@@ -106,7 +106,15 @@ const sidebars: SidebarsConfig = {
         },
         "product-guides/reports",
         "product-guides/insights",
-        "product-guides/data-inventory",
+        {
+          type: "category",
+          label: "Data Inventory",
+          link: { type: "doc", id: "product-guides/data-inventory/index" },
+          items: [
+            "product-guides/data-inventory/overview",
+            "product-guides/data-inventory/detail",
+          ],
+        },
         "product-guides/assets",
         "product-guides/integrations",
         "product-guides/audit-logs",

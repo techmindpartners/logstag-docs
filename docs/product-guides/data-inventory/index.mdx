@@ -1,10 +1,14 @@
 ---
-sidebar_position: 9
+title: Data Inventory
+description: How Logstag classifies schema metadata to find sensitive-data categories, risk, and exposure across monitored databases.
 ---
 
 # Data Inventory
 
 Data Inventory is in Beta. It classifies the schema metadata of monitored databases — table, column, and field identifiers — to flag where sensitive-data categories are likely to live.
+
+Metric definitions for the Data Inventory list page and the table detail view live in the
+[Overview reference](./overview.mdx) and the [Detail reference](./detail.mdx).
 
 ## Purpose
 
@@ -56,3 +60,14 @@ Encryption status is currently reported for Microsoft SQL Server, based on trans
 Data Inventory classifies schema metadata only: schema names, table names, column names, and field names. It does not read row contents, document contents, or key values from monitored databases. Classification never touches application data — only the identifiers that describe where that data would live.
 
 Because classification works from names rather than content, a finding is an indicator to review, not a confirmed compliance determination. Column and field names that don't clearly describe their contents can be classified incorrectly or missed. Access to Data Inventory should be limited to users who are allowed to review sensitive-data exposure across the organization's databases.
+
+## Beta
+
+Data Inventory is a Beta product surface, not a feature flag. Scope is still expanding:
+
+- Classification covers PostgreSQL and Microsoft SQL Server only; other monitored engines are not classified.
+- Encryption status is tracked for Microsoft SQL Server only; other engines report as unknown.
+- Access level is computed per schema, so every table in a schema shares the same value.
+- Runs can lag a schema change by up to a day, and coverage can look incomplete for a database that was only just added.
+
+A point-in-time PDF export of this data — including a risk register and encryption coverage — is available from the [Data Inventory report](../reports.mdx#data-inventory).
