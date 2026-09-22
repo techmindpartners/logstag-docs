@@ -1,0 +1,49 @@
+---
+title: "Insights: Metric Reference"
+sidebar_label: Overview
+description: What each KPI, the Category filter, and the findings list show on the Insights page.
+---
+
+import Overview from '../_explain/insights/page.overview.md';
+import DatabasesAtRisk from '../_explain/insights/metric.databases-at-risk.md';
+import New from '../_explain/insights/metric.new.md';
+import Recurring from '../_explain/insights/metric.recurring.md';
+import HighConfidence from '../_explain/insights/metric.high-confidence.md';
+import Category from '../_explain/insights/section.category.md';
+import InsightsList from '../_explain/insights/table.insights.md';
+
+# Insights: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Insights](https://app.logstag.com/insights) page (`/insights`). Each section is written once as a
+content partial under `_explain/insights/` and rendered both here and inside the app's info panel
+(`scripts/build-explain.mjs` compiles the registry).
+
+The KPIs follow only the topbar instance and time filters; the status tabs and chip filters narrow
+the list alone. See the [Insights guide](./index.mdx) for detector families and engine coverage.
+
+<Overview />
+
+## Databases at risk {#databases-at-risk}
+
+<DatabasesAtRisk />
+
+## New {#new}
+
+<New />
+
+## Recurring {#recurring}
+
+<Recurring />
+
+## High-confidence {#high-confidence}
+
+<HighConfidence />
+
+## Category {#category}
+
+<Category />
+
+## Insights list {#insights-list}
+
+<InsightsList />
