@@ -1,0 +1,63 @@
+{
+  "group": "insights",
+  "category": "Insights",
+  "docsPage": "/product-guides/insights/overview/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Insights",
+      "anchor": "",
+      "related": ["table.insights", "metric.databases-at-risk", "section.category"],
+      "app": true
+    },
+    "metric.databases-at-risk": {
+      "file": "metric.databases-at-risk.md",
+      "kind": "metric",
+      "title": "Databases at risk",
+      "anchor": "#databases-at-risk",
+      "related": ["metric.new", "metric.recurring", "table.insights"],
+      "app": true
+    },
+    "metric.new": {
+      "file": "metric.new.md",
+      "kind": "metric",
+      "title": "New",
+      "anchor": "#new",
+      "related": ["metric.recurring", "metric.databases-at-risk", "table.insights"],
+      "app": true
+    },
+    "metric.recurring": {
+      "file": "metric.recurring.md",
+      "kind": "metric",
+      "title": "Recurring",
+      "anchor": "#recurring",
+      "related": ["metric.new", "metric.high-confidence", "table.insights"],
+      "app": true
+    },
+    "metric.high-confidence": {
+      "file": "metric.high-confidence.md",
+      "kind": "metric",
+      "title": "High-confidence",
+      "anchor": "#high-confidence",
+      "related": ["metric.recurring", "table.insights", "page.overview"],
+      "app": true
+    },
+    "section.category": {
+      "file": "section.category.md",
+      "kind": "section",
+      "title": "Category",
+      "anchor": "#category",
+      "related": ["table.insights", "page.overview", "metric.databases-at-risk"],
+      "app": true
+    },
+    "table.insights": {
+      "file": "table.insights.md",
+      "kind": "table",
+      "title": "Insights list",
+      "anchor": "#insights-list",
+      "related": ["section.category", "metric.high-confidence", "page.overview"],
+      "app": true
+    }
+  }
+}

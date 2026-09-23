@@ -1,0 +1,63 @@
+{
+  "group": "data-inventory",
+  "category": "Data Inventory",
+  "docsPage": "/product-guides/data-inventory/overview/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Data Inventory",
+      "anchor": "",
+      "related": ["metric.tables-with-pii", "metric.high-risk-tables", "table.sensitive-tables"],
+      "app": true
+    },
+    "metric.tables-with-pii": {
+      "file": "metric.tables-with-pii.md",
+      "kind": "metric",
+      "title": "Tables With PII",
+      "anchor": "#tables-with-pii",
+      "related": ["metric.high-risk-tables", "metric.sensitive-column-density", "table.sensitive-tables"],
+      "app": true
+    },
+    "metric.high-risk-tables": {
+      "file": "metric.high-risk-tables.md",
+      "kind": "metric",
+      "title": "High-Risk Tables",
+      "anchor": "#high-risk-tables",
+      "related": ["metric.tables-with-pii", "metric.unencrypted-tables", "table.sensitive-tables"],
+      "app": true
+    },
+    "metric.unencrypted-tables": {
+      "file": "metric.unencrypted-tables.md",
+      "kind": "metric",
+      "title": "Unencrypted Tables",
+      "anchor": "#unencrypted-tables",
+      "related": ["metric.high-risk-tables", "metric.sensitive-column-density", "table.sensitive-tables"],
+      "app": true
+    },
+    "metric.sensitive-column-density": {
+      "file": "metric.sensitive-column-density.md",
+      "kind": "metric",
+      "title": "Sensitive Column Density",
+      "anchor": "#sensitive-column-density",
+      "related": ["metric.tables-with-pii", "metric.unencrypted-tables", "page.overview"],
+      "app": true
+    },
+    "section.filters": {
+      "file": "section.filters.md",
+      "kind": "section",
+      "title": "Filters",
+      "anchor": "#filters",
+      "related": ["table.sensitive-tables", "metric.tables-with-pii", "page.overview"],
+      "app": true
+    },
+    "table.sensitive-tables": {
+      "file": "table.sensitive-tables.md",
+      "kind": "table",
+      "title": "Sensitive Tables",
+      "anchor": "#sensitive-tables",
+      "related": ["metric.high-risk-tables", "section.filters", "page.overview"],
+      "app": true
+    }
+  }
+}

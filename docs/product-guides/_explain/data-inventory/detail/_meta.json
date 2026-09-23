@@ -1,0 +1,15 @@
+{
+  "group": "data-inventory.detail",
+  "category": "Data Inventory · Detail",
+  "docsPage": "/product-guides/data-inventory/detail/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Table detail",
+      "anchor": "",
+      "related": [],
+      "app": true
+    }
+  }
+}

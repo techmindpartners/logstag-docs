@@ -1,0 +1,50 @@
+---
+title: "Data Inventory: Metric Reference"
+sidebar_label: Overview
+description: What each KPI, the Sensitive Tables table, and the filters show on the Data Inventory page.
+---
+
+import Overview from '../_explain/data-inventory/page.overview.md';
+import TablesWithPii from '../_explain/data-inventory/metric.tables-with-pii.md';
+import HighRiskTables from '../_explain/data-inventory/metric.high-risk-tables.md';
+import UnencryptedTables from '../_explain/data-inventory/metric.unencrypted-tables.md';
+import SensitiveColumnDensity from '../_explain/data-inventory/metric.sensitive-column-density.md';
+import Filters from '../_explain/data-inventory/section.filters.md';
+import SensitiveTables from '../_explain/data-inventory/table.sensitive-tables.md';
+
+# Data Inventory: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Data Inventory](https://app.logstag.com/data-inventory) page (`/data-inventory`). Each section is
+written once as a content partial under `_explain/data-inventory/` and rendered both here and
+inside the app's info panel (`scripts/build-explain.mjs` compiles the registry).
+
+All KPIs and the table respect the topbar instance filter and only cover PostgreSQL and SQL Server,
+the two classified engines. The single-table view is documented separately in the
+[Detail reference](./detail.mdx).
+
+<Overview />
+
+## Tables With PII {#tables-with-pii}
+
+<TablesWithPii />
+
+## High-Risk Tables {#high-risk-tables}
+
+<HighRiskTables />
+
+## Unencrypted Tables {#unencrypted-tables}
+
+<UnencryptedTables />
+
+## Sensitive Column Density {#sensitive-column-density}
+
+<SensitiveColumnDensity />
+
+## Filters {#filters}
+
+<Filters />
+
+## Sensitive Tables {#sensitive-tables}
+
+<SensitiveTables />

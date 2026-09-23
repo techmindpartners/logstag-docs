@@ -1,0 +1,69 @@
+---
+title: Insights
+description: How Logstag's background detectors surface query regressions, N+1 patterns, and workload anomalies against each database's own baseline.
+---
+
+# Insights
+
+Insights is in Beta. It runs scheduled background analysis over metrics Logstag has already collected, rather than querying monitored databases directly.
+
+Definitions for every KPI, the Category filter, and the findings list are in the
+[Overview reference](./overview.mdx).
+
+## Purpose
+
+Insights helps operators answer questions such as:
+
+1. Which queries are getting slower over time, compared to their own recent baseline?
+2. Which databases show query call patterns consistent with N+1 access?
+3. Which databases are behaving differently from their own recent workload pattern?
+4. How confident is Logstag in a given finding?
+5. What is the recommended next step?
+
+Insights is not a replacement for Alerts. Alerts evaluate fresh monitoring data against thresholds as it arrives. Insights re-examines already-collected metrics on a recurring schedule, about every 15 minutes per database. It surfaces slower-forming patterns that a single threshold check would not catch: regressions, repetitive query patterns, and workload shifts.
+
+## What Insights Analyzes
+
+Insights runs three detector families:
+
+- **Query performance regressions**: a query's performance has drifted from its own recent baseline. The last 4 hours are compared with the previous 7 days, and a time-of-day guard keeps normal daily peaks from firing. On MongoDB this covers collection operations; on Redis and Valkey it covers command latency and command failure rate.
+- **N+1-style query patterns**: a high rate of similar, small queries that return about one row per call, consistent with row-by-row access instead of a batched query. Evaluated over the last 15 minutes.
+- **Workload anomalies**: a database's overall workload shape has deviated from its own baseline for the same weekday and hour. This covers things like read/write mix, connection counts, and cache behavior.
+
+Regressions and N+1 patterns are filed under the **Query lifecycle** category; workload anomalies under **Workload anomaly**. The other categories in the filter are reserved for future detectors.
+
+Findings are computed per database and compared against that database's own recent history rather than a fixed global threshold.
+
+## Reading Findings
+
+The Insights page opens with four KPIs (Databases at risk, New, Recurring, and High-confidence) and a Confidence mix bar. Below them is a single list of findings. You can filter it by status (Active, Dismissed, Expired, No longer detected, or All), severity, confidence, category, and database, and sort it by activity, first detection, severity, recurrence, or title. The KPIs and the list both follow the topbar instance and time filters. A finding is in range if it was active at any point in the selected window.
+
+Each finding shows a title, the affected database and instance, a severity level (Critical, High, or Medium; low-severity findings are not kept), a confidence level (Very High, High, Medium, or Low), and how many times the same condition has recurred. Selecting a finding expands it to show:
+
+- what changed relative to baseline
+- likely causes
+- an ordered list of recommended remediation steps
+- the evidence behind the finding
+
+Findings that stop firing move to **No longer detected** after about 45 minutes. They are reactivated if the condition returns within 7 days.
+
+An active finding can be dismissed from its row, optionally with a reason of up to 500 characters that is shown on the row afterwards. A dismissed finding stays silent for about 30 days even if the detector sees it again. Dismissing a finding does not change anything in the monitored database.
+
+## Engine Scope
+
+| Engine | Coverage |
+| --- | --- |
+| PostgreSQL | Query regression, N+1 pattern detection, and workload anomaly detection. |
+| Microsoft SQL Server | Query regression, N+1 pattern detection, and workload anomaly detection. |
+| Oracle | Query regression, N+1 pattern detection, and workload anomaly detection. |
+| MongoDB | Collection-operation regression and workload anomaly detection. N+1 pattern detection is not available. |
+| Redis | Command latency and failure-rate regression, and workload anomaly detection. N+1 pattern detection is not available. |
+| Valkey | Command latency and failure-rate regression, and workload anomaly detection, using the Redis-compatible detection path. N+1 pattern detection is not available. |
+
+N+1 pattern detection is currently available for PostgreSQL, Microsoft SQL Server, and Oracle only.
+
+## Data Boundaries
+
+Insights re-analyzes metrics and metadata that Logstag has already collected through its normal monitoring path. It does not open new connections to monitored databases, and it does not read table rows, MongoDB documents, or Redis key values to produce a finding.
+
+Findings can still reference operational details such as query text snippets, database and instance names, and metric values. Access to Insights should be limited to users who are allowed to inspect this kind of monitoring detail.
