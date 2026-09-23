@@ -1,0 +1,31 @@
+{
+  "group": "audit-logs",
+  "category": "Audit Logs",
+  "docsPage": "/product-guides/audit-logs/overview/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Audit Logs",
+      "anchor": "",
+      "related": ["table.events", "section.event-detail"],
+      "app": true
+    },
+    "table.events": {
+      "file": "table.events.md",
+      "kind": "table",
+      "title": "Activity",
+      "anchor": "#activity",
+      "related": ["section.event-detail", "page.overview"],
+      "app": true
+    },
+    "section.event-detail": {
+      "file": "section.event-detail.md",
+      "kind": "section",
+      "title": "Event Detail",
+      "anchor": "#event-detail",
+      "related": ["table.events", "page.overview"],
+      "app": true
+    }
+  }
+}

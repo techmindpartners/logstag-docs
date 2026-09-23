@@ -1,0 +1,15 @@
+{
+  "group": "assets.new",
+  "category": "Assets",
+  "docsPage": "/product-guides/assets/new/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Add a Database Server",
+      "anchor": "",
+      "related": [],
+      "app": true
+    }
+  }
+}

@@ -105,6 +105,7 @@ const sidebars: SidebarsConfig = {
           ],
         },
         "product-guides/reports",
+        "product-guides/reports",
         {
           type: "category",
           label: "Insights",
@@ -120,9 +121,33 @@ const sidebars: SidebarsConfig = {
             "product-guides/data-inventory/detail",
           ],
         },
-        "product-guides/assets",
+        {
+          type: "category",
+          label: "Assets",
+          link: { type: "doc", id: "product-guides/assets/index" },
+          items: [
+            "product-guides/assets/overview",
+            "product-guides/assets/detail",
+            "product-guides/assets/new",
+          ],
+        },
+        "product-guides/users",
         "product-guides/integrations",
-        "product-guides/audit-logs",
+        {
+          type: "category",
+          label: "Audit Logs",
+          link: { type: "doc", id: "product-guides/audit-logs/index" },
+          items: ["product-guides/audit-logs/overview"],
+        },
+        "product-guides/integrations",
+        {
+          type: "category",
+          label: "Audit Logs",
+          link: { type: "doc", id: "product-guides/audit-logs/index" },
+          items: [
+            "product-guides/audit-logs/overview",
+          ],
+        },
       ],
     },
     {

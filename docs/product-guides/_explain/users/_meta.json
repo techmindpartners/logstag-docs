@@ -1,0 +1,63 @@
+{
+  "group": "users",
+  "category": "Users",
+  "docsPage": "/product-guides/users/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "User Management",
+      "anchor": "",
+      "related": ["metric.total-members", "section.roles", "table.members"],
+      "app": true
+    },
+    "metric.total-members": {
+      "file": "metric.total-members.md",
+      "kind": "metric",
+      "title": "Total Members",
+      "anchor": "#total-members",
+      "related": ["metric.active", "metric.pending-invite", "table.members"],
+      "app": true
+    },
+    "metric.active": {
+      "file": "metric.active.md",
+      "kind": "metric",
+      "title": "Active",
+      "anchor": "#active",
+      "related": ["metric.total-members", "metric.pending-invite", "table.members"],
+      "app": true
+    },
+    "metric.pending-invite": {
+      "file": "metric.pending-invite.md",
+      "kind": "metric",
+      "title": "Pending Invite",
+      "anchor": "#pending-invite",
+      "related": ["metric.active", "metric.total-members", "table.members"],
+      "app": true
+    },
+    "metric.admins": {
+      "file": "metric.admins.md",
+      "kind": "metric",
+      "title": "Admins",
+      "anchor": "#admins",
+      "related": ["section.roles", "metric.total-members", "table.members"],
+      "app": true
+    },
+    "section.roles": {
+      "file": "section.roles.md",
+      "kind": "section",
+      "title": "Roles & Permissions",
+      "anchor": "#roles-and-permissions",
+      "related": ["metric.admins", "table.members", "page.overview"],
+      "app": true
+    },
+    "table.members": {
+      "file": "table.members.md",
+      "kind": "table",
+      "title": "Members",
+      "anchor": "#members",
+      "related": ["section.roles", "metric.total-members", "page.overview"],
+      "app": true
+    }
+  }
+}

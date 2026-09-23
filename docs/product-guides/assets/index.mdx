@@ -1,5 +1,6 @@
 ---
-sidebar_position: 7
+title: Assets
+description: How Logstag's Assets area registers database servers, manages agent setup and connection state, and maps instances to external workflows.
 ---
 
 # Assets
@@ -7,6 +8,15 @@ sidebar_position: 7
 Assets are the monitored database instances registered in Logstag.
 
 The Assets area, called Asset Management in the navigation, is used to create an instance record, complete agent setup, review connection state, manage ownership metadata, and connect the instance to external workflows where integrations are configured.
+
+Metric definitions for the Assets list and detail pages live in the [Overview reference](./overview.mdx)
+and the [Detail reference](./detail.mdx). The Add a Database Server wizard is documented in the
+[New Asset reference](./new.mdx).
+
+## Access Model
+
+The Assets area requires the **ManageDatabases** permission. Admin, SuperAdmin, and DBA hold it by
+default; other roles are kept off `/assets` and its subroutes before the page loads.
 
 ## Purpose
 

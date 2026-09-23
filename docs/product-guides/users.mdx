@@ -1,0 +1,48 @@
+---
+title: "User Management: Metric Reference"
+sidebar_label: Users
+description: What the User Management KPI strip, Roles & Permissions, and Members table show, and who can see them.
+---
+
+import Overview from './_explain/users/page.overview.md';
+import TotalMembers from './_explain/users/metric.total-members.md';
+import Active from './_explain/users/metric.active.md';
+import PendingInvite from './_explain/users/metric.pending-invite.md';
+import Admins from './_explain/users/metric.admins.md';
+import Roles from './_explain/users/section.roles.md';
+import Members from './_explain/users/table.members.md';
+
+# User Management: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[User Management](https://app.logstag.com/users) page (`/users`). Each section is written once as
+a content partial under `_explain/users/` and rendered both here and inside the app's info panel
+(`scripts/build-explain.mjs` compiles the registry).
+
+User Management requires the **ManageMembers** permission, held by Admin and SuperAdmin by default.
+
+<Overview />
+
+## Total Members {#total-members}
+
+<TotalMembers />
+
+## Active {#active}
+
+<Active />
+
+## Pending Invite {#pending-invite}
+
+<PendingInvite />
+
+## Admins {#admins}
+
+<Admins />
+
+## Roles & Permissions {#roles-and-permissions}
+
+<Roles />
+
+## Members {#members}
+
+<Members />

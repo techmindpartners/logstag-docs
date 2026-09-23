@@ -1,0 +1,23 @@
+{
+  "group": "assets",
+  "category": "Assets",
+  "docsPage": "/product-guides/assets/overview/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Asset Management",
+      "anchor": "",
+      "related": ["table.instances"],
+      "app": true
+    },
+    "table.instances": {
+      "file": "table.instances.md",
+      "kind": "table",
+      "title": "Database Instances",
+      "anchor": "#database-instances",
+      "related": ["page.overview"],
+      "app": true
+    }
+  }
+}

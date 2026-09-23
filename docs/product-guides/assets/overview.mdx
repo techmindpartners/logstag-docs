@@ -1,0 +1,25 @@
+---
+title: "Asset Management: Metric Reference"
+sidebar_label: Overview
+description: What the Asset Management page and its Database Instances table show, and who can see them.
+---
+
+import Overview from '../_explain/assets/page.overview.md';
+import Instances from '../_explain/assets/table.instances.md';
+
+# Asset Management: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Asset Management](https://app.logstag.com/assets) page (`/assets`). Each section is written once
+as a content partial under `_explain/assets/` and rendered both here and inside the app's info
+panel (`scripts/build-explain.mjs` compiles the registry).
+
+Asset Management requires the **ManageDatabases** permission, held by Admin, SuperAdmin, and DBA
+by default. The single-asset detail view is documented separately in the
+[Detail reference](./detail.mdx), and the registration wizard in the [New Asset reference](./new.mdx).
+
+<Overview />
+
+## Database Instances {#database-instances}
+
+<Instances />
