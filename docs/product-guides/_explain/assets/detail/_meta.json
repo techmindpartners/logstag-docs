@@ -1,0 +1,39 @@
+{
+  "group": "assets.detail",
+  "category": "Assets",
+  "docsPage": "/product-guides/assets/detail/",
+  "entries": {
+    "page.overview": {
+      "file": "page.overview.md",
+      "kind": "page",
+      "title": "Asset Detail",
+      "anchor": "",
+      "related": ["section.connection-agent", "section.configuration", "section.notifications-tickets"],
+      "app": true
+    },
+    "section.connection-agent": {
+      "file": "section.connection-agent.md",
+      "kind": "section",
+      "title": "Connection & Agent",
+      "anchor": "#connection-and-agent",
+      "related": ["section.configuration", "page.overview"],
+      "app": true
+    },
+    "section.configuration": {
+      "file": "section.configuration.md",
+      "kind": "section",
+      "title": "Configuration",
+      "anchor": "#configuration",
+      "related": ["section.connection-agent", "page.overview"],
+      "app": true
+    },
+    "section.notifications-tickets": {
+      "file": "section.notifications-tickets.md",
+      "kind": "section",
+      "title": "Notifications & Tickets",
+      "anchor": "#notifications-and-tickets",
+      "related": ["page.overview"],
+      "app": true
+    }
+  }
+}

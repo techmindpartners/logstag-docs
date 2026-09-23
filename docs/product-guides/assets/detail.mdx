@@ -1,0 +1,31 @@
+---
+title: "Asset Detail: Metric Reference"
+sidebar_label: Detail
+description: What the asset detail page's summary card, Connection & Agent, Configuration, and Notifications & Tickets sections show.
+---
+
+import Overview from '../_explain/assets/detail/page.overview.md';
+import ConnectionAgent from '../_explain/assets/detail/section.connection-agent.md';
+import Configuration from '../_explain/assets/detail/section.configuration.md';
+import NotificationsTickets from '../_explain/assets/detail/section.notifications-tickets.md';
+
+# Asset Detail: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the asset detail view
+(`/assets/detail?id=...`). Each section is written once as a content partial under
+`_explain/assets/detail/` and rendered both here and inside the app's info panel
+(`scripts/build-explain.mjs` compiles the registry).
+
+<Overview />
+
+## Connection & Agent {#connection-and-agent}
+
+<ConnectionAgent />
+
+## Configuration {#configuration}
+
+<Configuration />
+
+## Notifications & Tickets {#notifications-and-tickets}
+
+<NotificationsTickets />

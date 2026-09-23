@@ -1,0 +1,28 @@
+---
+title: "Audit Logs: Metric Reference"
+sidebar_label: Overview
+description: What the Audit Logs Activity table and Event Detail panel show, and who can see them.
+---
+
+import Overview from '../_explain/audit-logs/page.overview.md';
+import Events from '../_explain/audit-logs/table.events.md';
+import EventDetail from '../_explain/audit-logs/section.event-detail.md';
+
+# Audit Logs: Metric Reference
+
+This page is the source of truth for the in-app **Explain this** panels on the
+[Audit Logs](https://app.logstag.com/audit-logs) page (`/audit-logs`). Each section is written
+once as a content partial under `_explain/audit-logs/` and rendered both here and inside the app's
+info panel (`scripts/build-explain.mjs` compiles the registry).
+
+Audit Logs are gated by the **ViewAuditLogs** permission, held by Admin and SuperAdmin by default.
+
+<Overview />
+
+## Activity {#activity}
+
+<Events />
+
+## Event Detail {#event-detail}
+
+<EventDetail />
