@@ -7,8 +7,8 @@ CPU, memory and disk usage across every monitored host in the selected window, o
 - **CPU (%):** each host's CPU usage averaged over the bucket, then averaged across hosts — every host weighted equally.
 - **Memory (%):** same averaging method; used vs. total RAM only — swap is not included.
 - **Disk (%):** the fullest single volume across all hosts at its peak in the bucket (max of max), not an average. `/boot`, `/boot/efi`, and `/snap/*` are ignored. This is the alerting-relevant figure.
-- Buckets with no data come back `null` and are drawn as gaps; a real zero stays 0. The in-progress last bucket is a partial average, and a host whose read fails is silently dropped from that bucket.
+- Buckets with no data come back `null` and are drawn as gaps; a real zero stays 0. The in-progress last bucket is a partial average.
 
 ### Reading it
 
-Disk is a peak, not an average, so it can spike well above what CPU and Memory suggest — treat it as the number that matters for capacity alerts. A CPU or Memory line that plateaus near 100% before Disk fills points to a resource-constrained host, not just a busy one. Hover stays in sync with the other three trend tiles.
+CPU and Memory are fleet averages, so one saturated host can hide behind several quiet ones; drill into the instance when a line creeps up. Disk is the single fullest volume at its peak, so a rising Disk line means at least one volume is filling up, even if the rest of the estate has room. Hover stays in sync with the other three trend tiles.
