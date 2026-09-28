@@ -1,7 +1,7 @@
 ---
 title: "Dashboard: Metric Reference"
 sidebar_label: Dashboard
-description: What the organization Dashboard shows at a glance — the KPI strip, alert history chart, and latest alerts digest.
+description: What the organization Dashboard shows at a glance — the KPI strip, the Alert History, Utilization, Query Performance and Wait Events trend charts, and the latest alerts digest.
 ---
 
 import Instances from './_explain/dashboard/metric.instances.md';
@@ -9,6 +9,9 @@ import Databases from './_explain/dashboard/metric.databases.md';
 import Connections from './_explain/dashboard/metric.connections.md';
 import Alerts from './_explain/dashboard/metric.alerts.md';
 import AlertHistory from './_explain/dashboard/chart.alert-history.md';
+import Utilization from './_explain/dashboard/chart.utilization.md';
+import QueryPerformance from './_explain/dashboard/chart.query-performance.md';
+import WaitEvents from './_explain/dashboard/chart.wait-events.md';
 import LatestAlerts from './_explain/dashboard/section.latest-alerts.md';
 
 # Dashboard: Metric Reference
@@ -40,6 +43,18 @@ each section. Platform super-admin home is a different surface and is not covere
 ## Alert History {#alert-history}
 
 <AlertHistory />
+
+## Utilization {#utilization}
+
+<Utilization />
+
+## Query Performance {#query-performance}
+
+<QueryPerformance />
+
+## Wait Events {#wait-events}
+
+<WaitEvents />
 
 ## Latest 10 Alerts {#latest-alerts}
 

@@ -58,7 +58,45 @@
       "anchor": "#alert-history",
       "related": [
         "metric.alerts",
-        "section.latest-alerts"
+        "section.latest-alerts",
+        "chart.utilization",
+        "chart.query-performance",
+        "chart.wait-events"
+      ],
+      "app": true
+    },
+    "chart.utilization": {
+      "file": "chart.utilization.md",
+      "kind": "chart",
+      "title": "Utilization",
+      "anchor": "#utilization",
+      "related": [
+        "chart.query-performance",
+        "chart.wait-events",
+        "metric.connections"
+      ],
+      "app": true
+    },
+    "chart.query-performance": {
+      "file": "chart.query-performance.md",
+      "kind": "chart",
+      "title": "Query Performance",
+      "anchor": "#query-performance",
+      "related": [
+        "chart.utilization",
+        "chart.wait-events"
+      ],
+      "app": true
+    },
+    "chart.wait-events": {
+      "file": "chart.wait-events.md",
+      "kind": "chart",
+      "title": "Wait Events",
+      "anchor": "#wait-events",
+      "related": [
+        "chart.query-performance",
+        "chart.utilization",
+        "metric.connections"
       ],
       "app": true
     },
