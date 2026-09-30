@@ -11,6 +11,9 @@ const config: Config = {
   url: 'https://docs.logstag.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
+  // GitHub Pages serves /foo/ and 301-redirects /foo, so canonicals and the
+  // sitemap must use the trailing-slash form.
+  trailingSlash: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -40,11 +43,18 @@ const config: Config = {
         docs: {
           routeBasePath: '/', // Docs will be served at the root
           sidebarPath: './sidebars.ts',
+          // Feeds sitemap <lastmod>; needs full git history in CI.
+          showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/techmindpartners/logstag-docs/tree/main/',
         },
         blog: false,
+        sitemap: {
+          lastmod: 'date',
+          changefreq: null,
+          priority: null,
+        },
         theme: {
           customCss: './src/css/custom.css',
         },
