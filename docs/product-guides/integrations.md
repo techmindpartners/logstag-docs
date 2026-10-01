@@ -26,39 +26,7 @@ Integrations are not used for monitoring collection. The Logstag agent still col
 | --- | --- | --- |
 | Jira Cloud | Supported | Alert escalation, ticket linking, and database-to-project routing. |
 
-Additional integration categories are planned. Jira Cloud is the active supported integration for operational workflows today.
-
-## Integration Catalog
-
-Logstag also includes a preview catalog that shows the broader integration direction.
-
-The catalog is a product preview, not a supported setup surface for every listed tool. It helps teams understand where Logstag intends to connect database operations with surrounding engineering and operations workflows.
-
-| Category | Integration | Status | Planned use |
-| --- | --- | --- | --- |
-| Application Performance Monitoring | New Relic | Coming soon | Correlate database findings with application performance signals. |
-| Application Performance Monitoring | Datadog | Coming soon | Connect database health and alert context with full-stack observability workflows. |
-| Application Performance Monitoring | Elastic APM | Coming soon | Relate database behavior to application traces and service performance. |
-| CI/CD | Jenkins | Coming soon | Associate database risk and deployment activity with pipeline workflows. |
-| CI/CD | GitHub Actions | Coming soon | Connect database operational checks with repository automation and deployment pipelines. |
-| CI/CD | GitLab CI | Coming soon | Bring database context into GitLab-based CI/CD workflows. |
-| Project Management | Jira Cloud | Supported | Create and track external tickets for database alerts. |
-| Project Management | Linear | Coming soon | Route database findings into issue tracking for product and engineering teams. |
-| Project Management | ClickUp | Coming soon | Connect database operational work with task and project management workflows. |
-| Source Control | GitHub | Coming soon | Relate database changes and operational findings to repository activity. |
-| Source Control | GitLab | Coming soon | Connect database operations with source control and DevOps workflows. |
-| Source Control | Bitbucket | Coming soon | Link database operational context with repository and code review workflows. |
-
-Additional catalog candidates include AWS CloudWatch, Azure Monitor, Google Cloud Monitoring, Prometheus, PagerDuty, Opsgenie, ServiceNow, Jaeger, OpenTelemetry, and Grafana. These are roadmap candidates and should be treated as planned integrations until they are available in the supported integration flow.
-
-## Catalog Status
-
-The catalog uses two documentation statuses:
-
-| Status | Meaning |
-| --- | --- |
-| Supported | Available in the operational integration flow and backed by Logstag workflow behavior. |
-| Coming soon | Visible in product direction or preview catalog, but not yet available for production configuration. |
+Jira Cloud is the supported integration for operational workflows today.
 
 ## Permissions
 

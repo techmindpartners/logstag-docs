@@ -234,7 +234,7 @@ Alerts depend on collected evidence. If the agent cannot collect a signal, the r
 
 ## Integrations Do Not Create External Tickets
 
-For Jira Cloud or other supported integrations:
+For Jira Cloud:
 
 - Confirm the integration is enabled.
 - Confirm credentials or tokens have not expired.
