@@ -3,7 +3,7 @@ Average and worst per-query latency across the selected window.
 ### How it's calculated
 
 - Served by `GET /api/v1/metrics/query-performance` with the dashboard's `from` / `to` / `bucketSize` and optional instance filter (empty = whole org). Results are cached for 30 s.
-- Covers PostgreSQL, SQL Server and Oracle only — MongoDB and MySQL are not included.
+- Covers PostgreSQL, SQL Server and Oracle only — MongoDB, Redis and Valkey are not included.
 - **Avg Latency (ms):** total query execution time ÷ total executions in the bucket, across all engines (execution-weighted, so busier engines pull the average toward themselves).
 - **Max Latency (ms):** the slowest query's *average* latency in the bucket — the highest per-query mean, not the slowest single execution.
 - **Per engine:** PostgreSQL uses `pg_stat_statements` deltas, collected every ~60 s. SQL Server uses the Query Store interval max where available, otherwise the per-execution average. Oracle uses per-plan averages from SQL statistics deltas; a statement seen only once in a bucket contributes nothing.
