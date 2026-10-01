@@ -5,7 +5,9 @@ slug: /
 
 # Introduction
 
-Logstag is a database monitoring platform for teams that operate production databases. It collects operational metadata and database statistics through a lightweight agent, sends those measurements to the Logstag backend, and presents them through focused views for health, activity, queries, schema, alerts, and database inventory.
+Logstag is a data reliability platform for the data layer: it monitors PostgreSQL, SQL Server, Oracle, MongoDB, Redis and Valkey and turns what it sees into insights. Built by Techmind Partners.
+
+Logstag is built for teams that operate production databases. It collects operational metadata and database statistics through a lightweight agent, sends those measurements to the Logstag backend, and presents them through focused views for health, activity, queries, schema, alerts, and database inventory.
 
 Logstag is designed for observability and operational review. It does not act as a database proxy, query builder, migration tool, backup system, or database administration console.
 

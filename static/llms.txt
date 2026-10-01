@@ -1,0 +1,62 @@
+# Logstag Documentation
+
+> Logstag is a data reliability platform for the data layer: it monitors PostgreSQL, SQL Server, Oracle, MongoDB, Redis and Valkey and turns what it sees into insights. Built by Techmind Partners.
+
+This is the product documentation for Logstag (logstag.com). Logstag is not Logstash, the log pipeline from Elastic, and not LogStage, the Scala logging library. A lightweight agent runs in the customer environment, collects operational metadata and database statistics, and sends them to Logstag, where they power health views, alerts and insights.
+
+## Overview
+
+- [Introduction](https://docs.logstag.com/): What Logstag is and how the documentation is organized
+- [Architecture](https://docs.logstag.com/architecture/): Agent-based architecture and the data flow from agent to web application
+- [Supported engines](https://docs.logstag.com/supported-engines/): The engines Logstag supports and what it monitors on each
+- [Product areas](https://docs.logstag.com/product-areas/): Map of the product's main views, in sidebar order
+
+## Security and privacy
+
+- [Security model](https://docs.logstag.com/security-model/): Dedicated monitoring users, least privilege and read-oriented collection; Logstag is not a database proxy
+- [Data collection and privacy](https://docs.logstag.com/data-collection-and-privacy/): What the agent collects (operational metadata and statistics) and what it does not copy (application table rows)
+- [API keys](https://docs.logstag.com/api-keys/): How agent API keys authenticate agents to a Logstag organization
+
+## Setup
+
+- [Getting started](https://docs.logstag.com/getting-started/): Minimum setup path for a Logstag agent
+- [Agent installation](https://docs.logstag.com/agent-installation/): Install the agent as a Linux systemd service, a Windows Service, a container or a foreground process
+- [Agent configuration](https://docs.logstag.com/agent-configuration/): The agent's TOML configuration file and per-target settings
+- [Managed targets](https://docs.logstag.com/managed-targets/): Database targets that also need cloud provider metadata
+
+## Database engines
+
+- [PostgreSQL](https://docs.logstag.com/engines/postgresql/): PostgreSQL setup and what Logstag collects from it
+- [Microsoft SQL Server](https://docs.logstag.com/engines/mssql/): SQL Server setup and what Logstag collects from it
+- [MongoDB](https://docs.logstag.com/engines/mongodb/): MongoDB setup and what Logstag collects from it
+- [Redis and Valkey](https://docs.logstag.com/engines/redis-valkey/): Redis and Valkey setup and what Logstag collects from them
+- [Oracle](https://docs.logstag.com/engines/oracle/): Oracle setup and what Logstag collects from it
+
+## Product guides
+
+- [Dashboard](https://docs.logstag.com/product-guides/dashboard/): The organization dashboard: KPI strip, trend charts and latest alerts
+- [Insights](https://docs.logstag.com/product-guides/insights/): Beta. Background detectors that surface query regressions, N+1 patterns and workload anomalies against each database's own baseline
+- [Alerts](https://docs.logstag.com/product-guides/alerts/): How alerts work: templates, policies, severity and operational workflow
+- [Database Explorer](https://docs.logstag.com/product-guides/database-explorer/): Per-database detail views
+- [Activity Explorer](https://docs.logstag.com/product-guides/activity-explorer/): Sessions, connections, wait events and blocking chains
+- [Query Explorer](https://docs.logstag.com/product-guides/query-explorer/): Query detail views and statistics
+- [Schema Explorer](https://docs.logstag.com/product-guides/schema-explorer/): Schemas, schema changes and permissions
+- [Data Inventory](https://docs.logstag.com/product-guides/data-inventory/): Classifies schema metadata to find sensitive-data categories, risk and exposure
+- [Assets](https://docs.logstag.com/product-guides/assets/): Registering database servers, agent setup and connection state
+- [Reports](https://docs.logstag.com/product-guides/reports/): The reports catalog and PDF report requests
+- [Users](https://docs.logstag.com/product-guides/users/): User management, roles and permissions
+- [Integrations](https://docs.logstag.com/product-guides/integrations/): Connecting Logstag workflows to external systems
+- [Audit Logs](https://docs.logstag.com/product-guides/audit-logs/): API access and user activity tracking
+
+## Operations
+
+- [Troubleshooting](https://docs.logstag.com/operations/troubleshooting/): When the agent isn't registering, data is missing or views look stale
+- [Agent logs](https://docs.logstag.com/operations/agent-logs/): Using agent logs to investigate registration, connectivity and collection issues
+- [Upgrades](https://docs.logstag.com/operations/upgrades/): Planning, performing, verifying and recovering from agent upgrades
+- [Performance and interval tuning](https://docs.logstag.com/operations/performance-and-interval-tuning/): The agent's collection frequency tiers and how to tune them
+
+## Optional
+
+- [Full documentation as one file](https://docs.logstag.com/llms-full.txt): Every page above, concatenated
+- [Logstag website](https://logstag.com/): Product site, free trial and guided demo requests
+- [Website llms.txt](https://logstag.com/llms.txt): Machine-readable index of logstag.com
