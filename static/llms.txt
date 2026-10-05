@@ -1,8 +1,8 @@
 # Logstag Documentation
 
-> Logstag is a data reliability platform for the data layer: it monitors PostgreSQL, SQL Server, Oracle, MongoDB, Redis and Valkey and turns what it sees into insights. Built by Techmind Partners.
+> Logstag is a database monitoring and reliability platform from Techmind Partners, for PostgreSQL, SQL Server, Oracle, MongoDB, Redis and Valkey.
 
-This is the product documentation for Logstag (logstag.com). Logstag is not Logstash, the log pipeline from Elastic, and not LogStage, the Scala logging library. A lightweight agent runs in the customer environment, collects operational metadata and database statistics, and sends them to Logstag, where they power health views, alerts and insights.
+This is the product documentation for Logstag (logstag.com). Logstag is not related to Logstash, the log-processing tool from Elastic, or to LogStage, the Scala logging library. A lightweight agent runs in the customer environment, collects operational metadata and database statistics, and sends them to Logstag, where they power health views, alerts and insights.
 
 ## Overview
 
