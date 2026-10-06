@@ -3,12 +3,17 @@
  * so AI assistants can read the whole documentation in one request
  * (https://llmstxt.org). static/llms.txt is the hand-written index.
  *
- * Pages are emitted in sidebar order (sidebars.ts), followed by any doc that
- * is not in the sidebar. For each page:
- *   - frontmatter is dropped; its `title` (or the first `# ` heading) is used
+ * Pages are emitted in sidebar order, followed by any doc that is not in the
+ * sidebar. sidebars.ts is read as text, not imported: the deploy runs Node 20,
+ * which cannot load TypeScript. Every quoted string in it that names a doc id
+ * counts, in order of appearance. For each page:
+ *   - frontmatter is parsed with gray-matter (the parser Docusaurus uses) and
+ *     dropped; its `title` (or the first `# ` heading) is used
  *   - `import X from '…/_explain/….md'` partials are inlined where `<X />` is
- *   - relative .md/.mdx links and root-relative links/images become absolute
- *     https://docs.logstag.com URLs
+ *   - relative .md/.mdx links, root-relative links/images and relative links
+ *     into static/ become absolute https://docs.logstag.com URLs. Any other
+ *     relative link is left as is with a warning: Docusaurus content-hashes
+ *     co-located images, so they have no stable URL; move them to static/.
  * Code fences are passed through untouched.
  *
  * Usage:
@@ -16,7 +21,8 @@
  */
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
-import { fileURLToPath, pathToFileURL } from "node:url";
+import { fileURLToPath } from "node:url";
+import matter from "gray-matter";
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const DOCS = join(ROOT, "docs");
@@ -41,14 +47,8 @@ function walk(dir) {
 }
 
 function parseFrontmatter(src) {
-  const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
-  if (!m) return { data: {}, body: src };
-  const data = {};
-  for (const line of m[1].split(/\r?\n/)) {
-    const kv = line.match(/^(\w+):\s*(.*)$/);
-    if (kv) data[kv[1]] = kv[2].replace(/^["']|["']$/g, "");
-  }
-  return { data, body: src.slice(m[0].length) };
+  const { data, content } = matter(src);
+  return { data, body: content };
 }
 
 function permalink(id, data) {
@@ -67,34 +67,31 @@ const urlByFile = new Map([...docs.values()].map((d) => [d.file, d.url]));
 
 // --- sidebar order -----------------------------------------------------------
 
-const { default: sidebars } = await import(pathToFileURL(join(ROOT, "sidebars.ts")).href);
-
-function sidebarIds(items) {
-  const ids = [];
-  for (const item of items) {
-    if (typeof item === "string") ids.push(item);
-    else if (item.type === "doc") ids.push(item.id);
-    else if (item.type === "category") {
-      if (item.link?.type === "doc") ids.push(item.link.id);
-      ids.push(...sidebarIds(item.items ?? []));
-    }
-  }
-  return ids;
-}
-
-const order = [...new Set(Object.values(sidebars).flatMap(sidebarIds))].filter((id) => docs.has(id));
+const sidebarSource = readFileSync(join(ROOT, "sidebars.ts"), "utf8")
+  .replace(/\/\*[\s\S]*?\*\//g, "")
+  .replace(/\/\/.*$/gm, "");
+const quoted = [...sidebarSource.matchAll(/["']([^"'\n]+)["']/g)].map((m) => m[1]);
+const order = [...new Set(quoted.filter((id) => docs.has(id)))];
 for (const id of docs.keys()) if (!order.includes(id)) order.push(id);
 
 // --- transform ---------------------------------------------------------------
 
+const STATIC = join(ROOT, "static");
+const warnings = [];
+
 function absolutize(text, file) {
   return text.replace(/(!?\[[^\]]*\])\(([^)\s]+)([^)]*)\)/g, (all, label, href, rest) => {
     if (/^[a-z]+:/i.test(href) || href.startsWith("#")) return all;
-    let [path, hash = ""] = href.split("#");
+    const [path, hash = ""] = href.split("#");
+    const target = resolve(dirname(file), path);
     let url;
     if (path.startsWith("/")) url = ORIGIN + path;
-    else if (/\.mdx?$/.test(path)) url = urlByFile.get(resolve(dirname(file), path));
-    if (!url) return all;
+    else if (/\.mdx?$/.test(path)) url = urlByFile.get(target);
+    else if (target.startsWith(STATIC + sep)) url = `${ORIGIN}/${toPosix(relative(STATIC, target))}`;
+    if (!url) {
+      warnings.push(`${toPosix(relative(ROOT, file))}: ${href}`);
+      return all;
+    }
     return `${label}(${url}${hash ? `#${hash}` : ""}${rest})`;
   });
 }
@@ -146,4 +143,5 @@ function render(doc) {
 const header = readFileSync(join(ROOT, "static", "llms.txt"), "utf8").split(/\r?\n## /)[0].trim();
 const pages = order.map((id) => render(docs.get(id)));
 writeFileSync(OUT, `${header}\n\nThis file contains the full Logstag documentation, one page after another.\n\n---\n\n${pages.join("\n---\n\n")}`);
+for (const w of warnings) console.warn(`llms-full: relative link left as is (no stable URL): ${w}`);
 console.log(`llms-full: ${pages.length} pages → ${toPosix(relative(ROOT, OUT))}`);
