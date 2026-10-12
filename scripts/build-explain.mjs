@@ -29,7 +29,8 @@
  *   ### Example            → figure slot: next `![alt](/img/….svg)` becomes
  *                            the figure; an italic paragraph after it is the
  *                            shared caption
- *   - list                 → list
+ *   - list                 → list (flat, one paragraph per item; nested
+ *                            lists and multi-block items fail the build)
  *   - **Term** — def       → dl (definition rows) when every item matches
  *   | Engine | … | table   → engines rows
  *   > **Tip:** …           → tip callout
@@ -182,7 +183,18 @@ function toBlocks(md, ctx) {
         break;
       }
       case "list": {
-        const items = tok.items.map((it) => toInlines(it.tokens?.[0]?.tokens ?? it.tokens, ctx));
+        const items = tok.items.map((it) => {
+          // an item is one run of inline text; anything more would be dropped
+          const parts = (it.tokens ?? []).filter((t) => t.type !== "space");
+          const label = `item "${it.text.split("\n")[0].slice(0, 40)}…"`;
+          if (parts.some((t) => t.type === "list")) {
+            throw new Error(`${ctx}: nested lists are not supported (${label}) — write a flat list or a definition list`);
+          }
+          if (parts.length !== 1 || !["text", "paragraph"].includes(parts[0].type)) {
+            throw new Error(`${ctx}: list items must be a single paragraph (${label})`);
+          }
+          return toInlines(parts[0].tokens, ctx);
+        });
         const asDl = items.map((inls) => {
           if (inls[0]?.t !== "b") return null;
           const rest = inls.slice(1);

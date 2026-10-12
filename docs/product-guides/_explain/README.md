@@ -131,7 +131,7 @@ The panel renders a small, safe subset. The compiler **fails the build** on anyt
 
 Not allowed: nested (indented) lists, code fences, other tables, horizontal rules, raw HTML, inline images, `<br>`, and links to hosts other than `docs.logstag.com`, `logstag.com`, `www.logstag.com` and `app.logstag.com`. Root-relative links (`/product-guides/...`) are fine.
 
-> ⚠ **Nested lists are dropped silently.** Sub-bullets vanish from the panel while the docs page still shows them. Write a flat list, or use a definition list instead.
+> ⚠ **Nested lists fail the build**, and so do list items with more than one paragraph. Write a flat list, or a paragraph followed by a list or definition list.
 
 Because `.md` files are compiled as MDX by Docusaurus, keep `{`, `}` and `<` inside backticks.
 
@@ -316,7 +316,6 @@ HELP_REGISTRY_ORIGIN=http://localhost:3111 npm run check:help
 |---|---|---|
 | `anchor` vs the `.mdx` heading id | "Open documentation" lands on the page top instead of the section | Match `{#id}` to `anchor` and click the link after deploy |
 | `kind` value | A typo shows a wrong badge | Use `metric`, `chart`, `table`, `section` or `page` |
-| Nested lists | Sub-bullets disappear from the panel | Flat lists only |
 | Every partial imported by its `.mdx` | Entry exists in the app but not on the docs site | Add the import + heading in the same PR |
 | Frontend keys vs published entries | Trigger silently missing | Run `check:help` after both sides ship |
 | New block or inline types | A new Markdown feature needs compiler + frontend schema + renderer changes; until the frontend ships, the whole group fails to parse and **all** of its triggers disappear | Coordinate with the frontend before extending the subset |
