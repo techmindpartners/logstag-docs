@@ -11,9 +11,13 @@ const config: Config = {
   url: 'https://docs.logstag.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   baseUrl: '/',
-  // GitHub Pages serves /foo/ and 301-redirects /foo, so canonicals and the
-  // sitemap must use the trailing-slash form.
+  // GitHub Pages serves /foo/ and 301-redirects /foo, so canonicals and
+  // internal links must use the trailing-slash form.
   trailingSlash: true,
+  // The docs stay out of search engines: every page gets
+  // <meta name="robots" content="noindex, nofollow"> and no sitemap is built.
+  // robots.txt still allows crawling, so search engines can read the noindex.
+  noIndex: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -43,18 +47,15 @@ const config: Config = {
         docs: {
           routeBasePath: '/', // Docs will be served at the root
           sidebarPath: './sidebars.ts',
-          // Feeds sitemap <lastmod>; needs full git history in CI.
+          // Shows "Last updated" on each page; needs full git history in CI.
           showLastUpdateTime: true,
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/techmindpartners/logstag-docs/tree/main/',
         },
         blog: false,
-        sitemap: {
-          lastmod: 'date',
-          changefreq: null,
-          priority: null,
-        },
+        // No sitemap: the docs stay out of search engines (see noIndex above).
+        sitemap: false,
         theme: {
           customCss: './src/css/custom.css',
         },
