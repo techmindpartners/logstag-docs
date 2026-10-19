@@ -2,9 +2,15 @@
 sidebar_position: 2
 ---
 
+import ArchifyDiagram from '@site/src/components/ArchifyDiagram';
+
 # Architecture
 
 Logstag uses an agent-based architecture. The agent runs in the customer environment, collects operational metadata and statistics from configured databases, and sends monitoring payloads to Logstag. The web application presents that data through focused views for health, activity, queries, schema, alerts, and assets.
+
+<ArchifyDiagram src="/diagrams/architecture/" title="Logstag architecture diagram" />
+
+The diagram follows monitoring data from the database targets through the agent to Logstag over outbound HTTPS. Logstag stores the data, runs alert checks, Insights, and reports against it, and shows the results in the Logstag app. For managed targets, the agent also reads system metrics from the cloud provider API. When an [integration](./product-guides/integrations.md) is configured, alerts can be escalated to external workflow and incident tools.
 
 ## Data Flow
 
