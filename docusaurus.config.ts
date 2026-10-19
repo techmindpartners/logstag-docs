@@ -14,6 +14,10 @@ const config: Config = {
   // GitHub Pages serves /foo/ and 301-redirects /foo, so canonicals and the
   // sitemap must use the trailing-slash form.
   trailingSlash: true,
+  // The docs stay out of search engines: every page gets
+  // <meta name="robots" content="noindex, nofollow"> and no sitemap is built.
+  // robots.txt still allows crawling, so search engines can read the noindex.
+  noIndex: true,
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.

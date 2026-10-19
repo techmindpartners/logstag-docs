@@ -1,4 +1,5 @@
+# The docs are kept out of search engines with a noindex tag on every page
+# (noIndex in docusaurus.config.ts). Crawling stays allowed: a crawler that is
+# blocked here never sees the noindex, and a blocked URL can still be indexed.
 User-agent: *
 Allow: /
-
-Sitemap: https://docs.logstag.com/sitemap.xml
