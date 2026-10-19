@@ -1,0 +1,15 @@
+.figure {
+  margin: 0 0 var(--ifm-leading);
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--ifm-global-radius);
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}

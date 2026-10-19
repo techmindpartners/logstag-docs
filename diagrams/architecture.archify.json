@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Logstag Architecture",
+    "locale": "en",
+    "output": ".archify/architecture.html",
+    "quality_profile": "showcase"
+  },
+  "components": [
+    {
+      "id": "databases",
+      "type": "database",
+      "label": "Database targets",
+      "sublabel": "read-only monitoring user",
+      "pos": [
+        40,
+        60
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "agent",
+      "type": "backend",
+      "label": "Logstag agent",
+      "sublabel": "collectors on intervals",
+      "pos": [
+        40,
+        220
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "cloud_apis",
+      "type": "cloud",
+      "label": "Cloud provider APIs",
+      "sublabel": "managed database metrics",
+      "pos": [
+        40,
+        390
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "agent_api",
+      "type": "backend",
+      "label": "Agent API",
+      "sublabel": "payload ingestion",
+      "pos": [
+        380,
+        220
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "store",
+      "type": "database",
+      "label": "Monitoring store",
+      "sublabel": "metrics + metadata",
+      "pos": [
+        640,
+        220
+      ],
+      "size": [
+        160,
+        64
+      ]
+    },
+    {
+      "id": "web",
+      "type": "frontend",
+      "label": "Logstag app",
+      "sublabel": "Insights · Explorers · Alerts",
+      "pos": [
+        900,
+        220
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "analysis",
+      "type": "backend",
+      "label": "Alerts & analysis",
+      "sublabel": "alert checks · Insights · reports",
+      "pos": [
+        620,
+        390
+      ],
+      "size": [
+        200,
+        64
+      ]
+    },
+    {
+      "id": "users",
+      "type": "external",
+      "label": "Users",
+      "sublabel": "role-based access",
+      "pos": [
+        900,
+        60
+      ],
+      "size": [
+        170,
+        64
+      ]
+    },
+    {
+      "id": "integrations",
+      "type": "external",
+      "label": "Integrations",
+      "sublabel": "workflow + incident tools",
+      "pos": [
+        640,
+        560
+      ],
+      "size": [
+        160,
+        64
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Customer environment",
+      "wraps": [
+        "databases",
+        "agent"
+      ],
+      "pad": 20
+    },
+    {
+      "kind": "region",
+      "label": "Logstag service",
+      "wraps": [
+        "agent_api",
+        "store",
+        "web",
+        "analysis"
+      ],
+      "pad": 20
+    }
+  ],
+  "connections": [
+    {
+      "id": "collect",
+      "from": "databases",
+      "to": "agent",
+      "label": "metadata + statistics",
+      "variant": "emphasis",
+      "labelAt": [
+        125,
+        172
+      ]
+    },
+    {
+      "id": "cloud-metrics",
+      "from": "cloud_apis",
+      "to": "agent",
+      "label": "managed targets only",
+      "variant": "dashed"
+    },
+    {
+      "id": "send",
+      "from": "agent",
+      "to": "agent_api",
+      "label": "outbound HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "id": "persist",
+      "from": "agent_api",
+      "to": "store",
+      "label": "persist",
+      "variant": "emphasis"
+    },
+    {
+      "id": "evaluate",
+      "from": "store",
+      "to": "analysis",
+      "label": "evaluate"
+    },
+    {
+      "id": "browse-data",
+      "from": "store",
+      "to": "web",
+      "label": "read",
+      "variant": "emphasis"
+    },
+    {
+      "id": "findings",
+      "from": "analysis",
+      "to": "web",
+      "label": "alerts + findings",
+      "fromSide": "right",
+      "toSide": "bottom"
+    },
+    {
+      "id": "escalate",
+      "from": "analysis",
+      "to": "integrations",
+      "label": "escalate",
+      "variant": "dashed"
+    },
+    {
+      "id": "review",
+      "from": "web",
+      "to": "users",
+      "label": "review",
+      "variant": "emphasis",
+      "labelAt": [
+        985,
+        172
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Connections",
+      "items": [
+        "The agent opens every connection: to database targets and outbound HTTPS to Logstag",
+        "Logstag needs no inbound access to the customer network",
+        "Queued commands, such as connection tests, are pulled by the agent"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Collected Data",
+      "items": [
+        "Operational metadata and database statistics",
+        "Logstag does not read or copy application table rows",
+        "Runtime signals as often as every 10 seconds by default"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Managed Targets",
+      "items": [
+        "System metrics for managed databases come from the cloud provider API",
+        "The agent uses the cloud credentials in its configuration"
+      ]
+    }
+  ]
+}
