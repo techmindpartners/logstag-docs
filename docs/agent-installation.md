@@ -124,8 +124,18 @@ $env:LOGSTAG_API_BASE_URL = "https://<logstag-agent-api-base-url>"
 $env:LOGSTAG_API_KEY = "<your-logstag-agent-api-key>"
 
 iwr -UseBasicParsing "https://<logstag-agent-windows-install-script-url>" -OutFile agent-install.ps1
-.\agent-install.ps1 -NonInteractive -StartService
+.\agent-install.ps1 -NonInteractive
 ```
+
+Non-interactive mode writes the API settings but cannot add a database target, so it installs the service without starting it. To finish the setup, run these in PowerShell as Administrator (adjust the path if you used `-InstallPath`):
+
+```powershell
+& "$env:ProgramFiles\Logstag Agent\bin\logstag-agent.exe" configure
+sc.exe config "Logstag Agent" start= auto
+Restart-Service "Logstag Agent"
+```
+
+The interactive installer starts the service, and sets it to start at boot, only when `configure` saves at least one database target. If the database login fails, `configure` shows the error and lets you retry with new credentials, enter the database name by hand, or skip. If no target is saved, the installer ends with "Installation finished with warnings" and prints the same three commands.
 
 If PowerShell script execution is restricted, use your organization's approved execution policy process or download and inspect the installer before running it.
 
@@ -198,19 +208,23 @@ Manual configuration is also available:
 2. Set the masked Logstag service URL to the organization-specific value.
 3. Set the agent API key directly, or encrypt it first with `logstag-agent encrypt <api-key>`.
 4. Add one or more database targets.
-5. Start or restart the service.
+5. Set the service to start at boot, then start or restart it.
 
 On Linux:
 
 ```bash
+sudo systemctl enable logstag-agent
 sudo systemctl restart logstag-agent
 ```
 
 On Windows:
 
 ```powershell
+sc.exe config "Logstag Agent" start= auto
 Restart-Service "Logstag Agent"
 ```
+
+A restart alone does not change the startup setting. If the installer did not start the service, run both commands, or the agent stops after the next reboot.
 
 Use the Agent Configuration page for field-level configuration details.
 
