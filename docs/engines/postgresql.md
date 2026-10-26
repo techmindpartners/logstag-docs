@@ -64,6 +64,17 @@ GRANT USAGE ON SCHEMA <schema_name> TO logstag_monitor;
 
 Repeat the schema grant for each schema you want monitored.
 
+### Optional: SSL rules in `pg_hba.conf`
+
+With `pg_monitor` alone, the "SSL connections not enforced" check can only see whether `ssl` is on. To also check that remote clients must use SSL (`hostssl` rules in `pg_hba.conf`), let the monitoring user read the parsed rules:
+
+```sql
+GRANT SELECT ON pg_hba_file_rules TO logstag_monitor;
+GRANT EXECUTE ON FUNCTION pg_hba_file_rules() TO logstag_monitor;
+```
+
+Without these grants, Logstag skips the rule check and says so on the alert.
+
 ## Enable Query Statistics
 
 Logstag uses `pg_stat_statements` for query performance metrics. Without it, PostgreSQL monitoring still works, but query statistics are unavailable.
