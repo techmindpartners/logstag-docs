@@ -51,7 +51,7 @@ Current backend capabilities include:
 
 ### Logstag Web Application
 
-The web application is the primary operator interface. It opens on Overview, a landing dashboard that summarizes health and activity across monitored databases. Alongside Overview, Alerts applies template-based alerting across all six engines, Insights (Beta) runs background analysis over already-collected metrics to surface findings such as query performance regressions and workload anomalies, and Data Inventory (Beta) applies identifier-based classification to schema metadata for sensitive-data categories such as PII, financial data, and credentials.
+The web application is the primary operator interface. It opens on Overview, a landing dashboard that summarizes health and activity across monitored databases. Alongside Overview, Alerts applies template-based alerting across all six engines, Insights runs background analysis over already-collected metrics to surface findings such as query performance regressions and workload anomalies, and Data Inventory (Beta) applies identifier-based classification to schema metadata for sensitive-data categories such as PII, financial data, and credentials.
 
 A Monitoring group of explorers — Databases, Schemas, Activities, and Queries — provides inventory and detail views for connected database targets, with some detail views scoped to specific engines. A Resources group provides Asset Management, Users, Audit Logs, and Workspace settings for organization administration.
 
