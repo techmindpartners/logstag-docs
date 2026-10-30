@@ -1,49 +1,134 @@
 ---
-title: "Insights: Metric Reference"
+title: "Insights: Page Reference"
 sidebar_label: Overview
-description: What each KPI, the Category filter, and the findings list show on the Insights page.
+description: What the Overview, Query patterns, and Workload changes views show on the Insights page, and how a finding's detail reads.
 ---
 
-import Overview from '../_explain/insights/page.overview.md';
-import DatabasesAtRisk from '../_explain/insights/metric.databases-at-risk.md';
-import New from '../_explain/insights/metric.new.md';
-import Recurring from '../_explain/insights/metric.recurring.md';
-import HighConfidence from '../_explain/insights/metric.high-confidence.md';
-import Category from '../_explain/insights/section.category.md';
-import InsightsList from '../_explain/insights/table.insights.md';
+# Insights: Page Reference
 
-# Insights: Metric Reference
+This page describes the [Insights](https://app.logstag.com/insights) page (`/insights`) view by view.
+See the [Insights guide](./index.mdx) for detector families, engine coverage, and data boundaries.
 
-This page is the source of truth for the in-app **Explain this** panels on the
-[Insights](https://app.logstag.com/insights) page (`/insights`). Each section is written once as a
-content partial under `_explain/insights/` and rendered both here and inside the app's info panel
-(`scripts/build-explain.mjs` compiles the registry).
+Every view follows the topbar instance and time filters. A finding is in range if it was active at
+any point in the selected window, so dismissed findings and findings that are no longer seen still
+appear when their history overlaps the window.
 
-The KPIs follow only the topbar instance and time filters; the status tabs and chip filters narrow
-the list alone. See the [Insights guide](./index.mdx) for detector families and engine coverage.
+## Subjects {#subjects}
 
-<Overview />
+The page lists **subjects**, not individual findings. A subject is the thing the findings are about:
 
-## Databases at risk {#databases-at-risk}
+- **Query** — a SQL query on PostgreSQL, Microsoft SQL Server, or Oracle, identified by its query fingerprint. An N+1 pattern and a regression on the same query appear as one subject.
+- **Operation** — a MongoDB collection operation, identified by namespace and operation type.
+- **Command** — a Redis or Valkey command.
+- **Database** — the subject of every workload anomaly.
 
-<DatabasesAtRisk />
+The backend stores one finding per detection episode. A finding that stops matching is reopened if
+the same pattern returns within 7 days; after a longer gap a new finding starts. A subject keeps all
+of its findings as history, newest first.
 
-## New {#new}
+A subject is **Seen now** when one of its open findings matched within roughly the last 90 minutes.
+An open finding with no recent match is shown as **Last seen …**. Checks can pause, for example
+during a gap in collected data. Insights does not use severity colors; whether a pattern is still
+being seen is the one state the page signals.
 
-<New />
+## Overview {#overview}
 
-## Recurring {#recurring}
+The default view (`?view=overview`) answers where to look.
 
-<Recurring />
+- **Seen now** — a line of chips for subjects seen now, each with its engine and what was found (Repeated lookups, Slower, More failures, Unusual workload). Select a chip to open the subject. When nothing is seen now, the line says so and gives when the most recent finding was last seen.
+- **Query patterns** panel — queries that run wastefully or got slower than their own history.
+- **Workload changes** panel — hours when a database behaved differently from usual.
 
-## High-confidence {#high-confidence}
+Each panel shows how many subjects it has in the selected window, how many are seen now, and how many
+came back after a quiet week. A strip of small columns shows when that panel's findings started, per
+day, or per hour for ranges of two days or less. It counts findings by their first match, so it reads
+as new findings, not as activity. Below the strip are the five most recent subjects and a link to the
+full view.
 
-<HighConfidence />
+The two lenses answer different questions, and their findings are not comparable, so the overview
+never ranks them in one list.
 
-## Category {#category}
+## Query patterns and Workload changes {#views}
 
-<Category />
+Both views (`?view=queries`, `?view=workload`) list subjects on the left and show the selected
+subject on the right. The selection is kept in the URL (`?subject=`), so a subject can be linked to and
+the browser's Back button works. On narrow screens the list and the detail stack.
 
-## Insights list {#insights-list}
+Each row shows the subject's name and where it lives (database for queries, instance for workload),
+what was found with one key figure, and when it was last seen.
 
-<InsightsList />
+**Sort:**
+
+- **Seen now, then returning** (default) — seen-now subjects first, then the ones that came back after more than 7 quiet days, then by recency.
+- **Most recently seen**.
+- **Matched most often** — by the total number of matching detector checks.
+- **Largest share of query time** — Query patterns only; uses the share of recorded query time from N+1 findings.
+
+**Filters:**
+
+- **All**, **Repeated single-row lookups**, **Slower or failing** — Query patterns only.
+- **Seen now only** — both views.
+
+A link to a subject that is outside the selected time range or instances opens a **Not in this view**
+message instead of another subject.
+
+When more than 500 findings match the filters, the page loads the most recent 500 and says
+"Showing the most recent findings only". Narrow the time range or instances to see all of them.
+
+## Query detail {#query-detail}
+
+The header shows the query, operation, or command with its database and instance. For SQL queries it
+also shows the query text (with **Show full query** and **Copy query**), **Open in Query explorer**,
+and **Open database**. Both links keep the current time range and instances, and their Back link
+returns to this view.
+
+One block follows for each kind of finding on the subject, using the most recent finding of that kind:
+
+- **Repeated single-row lookups** (N+1) — calls per minute, rows per call, time per call, and share of recorded query time over the 15 minutes checked, plus how many of those minutes matched the pattern.
+- **Slower than usual** — the usual against the current mean time, an hourly latency chart for SQL queries, an **Also compared** table (calls, other measures, and whether a plan not used in the previous 7 days appeared), and **Possible causes the detector noticed**. On SQL Server the chart's baseline band is approximate, because the chart reads Query Store deltas rather than the detector's source.
+- **Failing more than usual** (Redis and Valkey) — failure rate now, usual failure rate, failed calls now, and calls now.
+
+Each block ends with **How sure is this?**: the detector's confidence (Very high, High, Medium, or
+Low) and what it is based on.
+
+## Workload detail {#workload-detail}
+
+The header shows the database, engine, and instance, with **Open database**. The **Unusual workload**
+block names the hour the detector scored and shows the database's workload profile for that hour
+against its baseline: the same hour on earlier days, the same weekday when there is enough history.
+**How sure is this?** follows, as on queries.
+
+**Earlier episodes** lists the subject's previous findings with their dates, matching checks, and
+their latest unusual hour. Each episode keeps only its latest unusual hour; earlier hours inside it
+are not stored.
+
+**Open that hour in Activities** opens the Activities page on that hour, with one hour either side.
+
+## What you can do {#what-you-can-do}
+
+Both detail views list next steps. The first is a read-only check written by the product, such as
+opening the query in Query Explorer or the hour in Activities. Where an execution plan can be read
+depends on the engine: Query Explorer shows plans for PostgreSQL, SQL Server plans are in Query
+Store, and Oracle plans are in AWR or `DBMS_XPLAN`. The detector's own suggestions follow. Logstag
+never changes the monitored database or runs SQL for you.
+
+## Did it get better? {#outcome}
+
+The history section (**Did it settle?** for workload) says what the stored history can and cannot
+show, above a strip of the subject's findings on the selected window:
+
+- While the pattern is seen now, a fix shows up about 4 to 5 hours later for slowdowns, which are compared over a 4-hour window, and about an hour later for other findings.
+- Once no check matches, the subject reads **Not seen since …**. That records only that the last check stopped matching; it does not confirm a fix. If the same pattern returns within 7 days, the finding reopens.
+
+**Technical details**, collapsed by default, lists every stored finding behind the subject with the
+detector's own labels: state, first and last seen, checks matched, and the detector's rating.
+
+## Dismiss {#dismiss}
+
+Users with the `ManageAlerts` permission (for example the Admin and DBA roles) see **Dismiss** in the header of a subject that has open
+findings. Dismiss covers every open finding of the subject, for example an N+1 finding and a slowdown
+on the same query. An optional reason of up to 500 characters is shown on the subject afterwards.
+
+A dismissed finding stays silent for about 30 days even if the detector sees it again. For workload,
+that covers every workload change on the database. Dismissing does not change anything in the
+monitored database.

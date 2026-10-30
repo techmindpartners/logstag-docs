@@ -18,9 +18,9 @@ Alerts applies template-based alerting across all six supported engines, evaluat
 
 **Where:** top of the sidebar.
 
-## Insights (Beta)
+## Insights
 
-Insights (Beta) runs background analysis over metrics Logstag has already collected, rather than querying monitored databases directly. It produces findings such as query performance regressions and workload anomalies for operators to review.
+Insights runs background analysis over metrics Logstag has already collected, rather than querying monitored databases directly. It produces findings such as query performance regressions and workload anomalies for operators to review.
 
 **Where:** top of the sidebar.
 

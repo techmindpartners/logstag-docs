@@ -5,10 +5,10 @@ description: How Logstag's background detectors surface query regressions, N+1 p
 
 # Insights
 
-Insights is in Beta. It runs scheduled background analysis over metrics Logstag has already collected, rather than querying monitored databases directly.
+Insights runs scheduled background analysis over metrics Logstag has already collected, rather than querying monitored databases directly.
 
-Definitions for every KPI, the Category filter, and the findings list are in the
-[Overview reference](./overview.mdx).
+What each view and each part of a finding's detail shows is in the
+[Page reference](./overview.mdx).
 
 ## Purpose
 
@@ -28,26 +28,27 @@ Insights runs three detector families:
 
 - **Query performance regressions**: a query's performance has drifted from its own recent baseline. The last 4 hours are compared with the previous 7 days, and a time-of-day guard keeps normal daily peaks from firing. On MongoDB this covers collection operations; on Redis and Valkey it covers command latency and command failure rate.
 - **N+1-style query patterns**: a high rate of similar, small queries that return about one row per call, consistent with row-by-row access instead of a batched query. Evaluated over the last 15 minutes.
-- **Workload anomalies**: a database's overall workload shape has deviated from its own baseline for the same weekday and hour. This covers things like read/write mix, connection counts, and cache behavior.
+- **Workload anomalies**: a database's overall workload shape has deviated from its own baseline: the same hour on earlier days, the same weekday when there is enough history. This covers things like read/write mix, connection counts, and cache behavior.
 
-Regressions and N+1 patterns are filed under the **Query lifecycle** category; workload anomalies under **Workload anomaly**. The other categories in the filter are reserved for future detectors.
+Regressions and N+1 patterns appear under **Query patterns** on the Insights page; workload anomalies appear under **Workload changes**.
 
 Findings are computed per database and compared against that database's own recent history rather than a fixed global threshold.
 
 ## Reading Findings
 
-The Insights page opens with four KPIs (Databases at risk, New, Recurring, and High-confidence) and a Confidence mix bar. Below them is a single list of findings. You can filter it by status (Active, Dismissed, Expired, No longer detected, or All), severity, confidence, category, and database, and sort it by activity, first detection, severity, recurrence, or title. The KPIs and the list both follow the topbar instance and time filters. A finding is in range if it was active at any point in the selected window.
+The Insights page groups findings by **subject**: the query, MongoDB collection operation, Redis or Valkey command, or database they are about. An N+1 pattern and a regression on the same query appear as one subject, and a subject keeps its earlier findings as history. The page follows the topbar instance and time filters; a finding is in range if it was active at any point in the selected window.
 
-Each finding shows a title, the affected database and instance, a severity level (Critical, High, or Medium; low-severity findings are not kept), a confidence level (Very High, High, Medium, or Low), and how many times the same condition has recurred. Selecting a finding expands it to show:
+The page has three views:
 
-- what changed relative to baseline
-- likely causes
-- an ordered list of recommended remediation steps
-- the evidence behind the finding
+- **Overview** — what is being detected right now, and a panel per lens with its subject count and most recent subjects.
+- **Query patterns** — queries, operations, and commands with N+1 or regression findings.
+- **Workload changes** — databases with workload anomalies.
 
-Findings that stop firing move to **No longer detected** after about 45 minutes. They are reactivated if the condition returns within 7 days.
+Selecting a subject shows what changed against its baseline, how confident the detector is (Very high, High, Medium, or Low) and why, a read-only first check followed by the detector's suggested next steps, and the subject's history. See the [Page reference](./overview.mdx) for each view and block.
 
-An active finding can be dismissed from its row, optionally with a reason of up to 500 characters that is shown on the row afterwards. A dismissed finding stays silent for about 30 days even if the detector sees it again. Dismissing a finding does not change anything in the monitored database.
+A finding that stops matching shows **Not seen since …** after about 45 minutes. It reopens if the same pattern returns within 7 days.
+
+Users with the `ManageAlerts` permission can dismiss a subject's open findings, optionally with a reason of up to 500 characters that is shown afterwards. A dismissed finding stays silent for about 30 days even if the detector sees it again. Dismissing a finding does not change anything in the monitored database.
 
 ## Engine Scope
 
