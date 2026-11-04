@@ -6,8 +6,8 @@ A rolling record of notable activity on this database — recent operations with
 - **Type** — the kind of activity. The available types depend on the engine and the runtime data it exposes.
 - **Object** — the database object involved, when one applies.
 - **User** — the database user associated with the activity.
-- **Status** — the outcome, shown as a badge.
-- **Duration** — how long the activity took.
+- **Status** — the outcome, shown as a badge. For SQL Server, a request that is still running shows its current state instead (Running, Suspended or Blocked).
+- **Duration** — how long the activity took, or for a request that is still running, how long it has run so far.
 
 The list can be searched, filtered per column, and paginated.
 
