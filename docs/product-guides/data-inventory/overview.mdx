@@ -9,6 +9,7 @@ import TablesWithPii from '../_explain/data-inventory/metric.tables-with-pii.md'
 import HighRiskTables from '../_explain/data-inventory/metric.high-risk-tables.md';
 import UnencryptedTables from '../_explain/data-inventory/metric.unencrypted-tables.md';
 import SensitiveColumnDensity from '../_explain/data-inventory/metric.sensitive-column-density.md';
+import ClassifiedDatabases from '../_explain/data-inventory/metric.classification-status.md';
 import Filters from '../_explain/data-inventory/section.filters.md';
 import SensitiveTables from '../_explain/data-inventory/table.sensitive-tables.md';
 
@@ -19,8 +20,9 @@ This page is the source of truth for the in-app **Explain this** panels on the
 written once as a content partial under `_explain/data-inventory/` and rendered both here and
 inside the app's info panel (`scripts/build-explain.mjs` compiles the registry).
 
-All KPIs and the table respect the topbar instance filter and only cover PostgreSQL and SQL Server,
-the two classified engines. The single-table view is documented separately in the
+All KPIs and the table respect the topbar instance filter. Except for Classified Databases, which
+lists every engine, they only cover PostgreSQL and SQL Server, the two classified engines. The
+single-table view is documented separately in the
 [Detail reference](./detail.mdx).
 
 <Overview />
@@ -40,6 +42,10 @@ the two classified engines. The single-table view is documented separately in th
 ## Sensitive Column Density {#sensitive-column-density}
 
 <SensitiveColumnDensity />
+
+## Classified Databases {#classified-databases}
+
+<ClassifiedDatabases />
 
 ## Filters {#filters}
 

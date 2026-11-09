@@ -43,6 +43,14 @@
       "related": ["metric.tables-with-pii", "metric.unencrypted-tables", "page.overview"],
       "app": true
     },
+    "metric.classification-status": {
+      "file": "metric.classification-status.md",
+      "kind": "metric",
+      "title": "Classified Databases",
+      "anchor": "#classified-databases",
+      "related": ["metric.sensitive-column-density", "table.sensitive-tables", "page.overview"],
+      "app": true
+    },
     "section.filters": {
       "file": "section.filters.md",
       "kind": "section",
