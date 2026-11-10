@@ -122,8 +122,9 @@ Depending on enabled collectors and granted visibility, Logstag can collect:
 - Profile security settings, including failed login policy, password lifetime, password reuse, lock time, grace time, and password verification function metadata.
 - Schema object counts, users, roles, role memberships, object privileges, system privileges, role hierarchy, administrative grant flags, and computed privilege levels.
 - Index metadata, usage indicators, table association, tablespace, row estimates, distinct key estimates, leaf blocks, clustering factor, access count, and last-used metadata where available.
+- Table and column names with column data types for user tables (up to the agent's schema object limit), used by Data Inventory to classify sensitive columns. Read from `DBA_TABLES` and `DBA_TAB_COLUMNS`, which the dictionary grants above already cover.
 
-Logstag does not copy Oracle table rows as dataset content. SQL text, object names, file names, usernames, machine names, OS usernames, role names, privilege grants, queue names, profile settings, and configuration values can still be sensitive and should be treated as operational metadata.
+Logstag does not copy Oracle table rows as dataset content. SQL text, object names, table and column names, file names, usernames, machine names, OS usernames, role names, privilege grants, queue names, profile settings, and configuration values can still be sensitive and should be treated as operational metadata.
 
 ## Validate Setup
 

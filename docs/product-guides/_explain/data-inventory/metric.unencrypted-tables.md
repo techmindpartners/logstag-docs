@@ -8,4 +8,4 @@ How many sensitive tables are confirmed unencrypted.
 
 ### Reading it
 
-Zero does not mean everything is encrypted — it can mean nothing sensitive is on SQL Server yet, or that TDE status hasn't been read. Check the list's Encryption column, where PostgreSQL tables always show "—".
+Zero does not mean everything is encrypted — it can mean nothing sensitive is on SQL Server yet, or that TDE status hasn't been read. Check the list's Encryption column, where PostgreSQL and Oracle tables always show "—".
