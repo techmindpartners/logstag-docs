@@ -66,7 +66,9 @@ Repeat the schema grant for each schema you want monitored.
 
 ### Optional: SSL rules in `pg_hba.conf`
 
-With `pg_monitor` alone, the "SSL connections not enforced" check can only see whether `ssl` is on. To also check that remote clients must use SSL (`hostssl` rules in `pg_hba.conf`), let the monitoring user read the parsed rules:
+With `pg_monitor` alone, the "SSL connections not enforced" check can only see whether `ssl` is on. To also check that remote clients must use SSL (`hostssl` rules in `pg_hba.conf`), let the monitoring user read the parsed rules.
+
+These grants apply only to the database you are connected to: a grant run in `postgres` does not cover your application database. Run them in **every monitored database** (in `psql`, switch with `\c <database_name>` before each run):
 
 ```sql
 GRANT SELECT ON pg_hba_file_rules TO logstag_monitor;
