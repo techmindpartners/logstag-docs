@@ -51,7 +51,7 @@ A column or field can be classified into more than one category. Generic contain
 
 ## Engine Scope
 
-Classification currently runs for PostgreSQL and Microsoft SQL Server. Other supported engines can appear as monitored targets, but Data Inventory does not classify them today.
+Classification currently runs for PostgreSQL, Microsoft SQL Server, and Oracle. On Oracle, each owner is treated as a schema, and only tables are classified (not views or materialized views). Other supported engines can appear as monitored targets, but Data Inventory does not classify them today.
 
 Encryption status is currently reported for Microsoft SQL Server, based on transparent data encryption. Tables on other engines show an unknown encryption status rather than a claim either way.
 
@@ -65,7 +65,7 @@ Because classification works from names rather than content, a finding is an ind
 
 Data Inventory is a Beta product surface, not a feature flag. Scope is still expanding:
 
-- Classification covers PostgreSQL and Microsoft SQL Server only; other monitored engines are not classified.
+- Classification covers PostgreSQL, Microsoft SQL Server, and Oracle only; other monitored engines are not classified.
 - Encryption status is tracked for Microsoft SQL Server only; other engines report as unknown.
 - Access level is computed per schema, so every table in a schema shares the same value.
 - Runs can lag a schema change by up to a day, and coverage can look incomplete for a database that was only just added.

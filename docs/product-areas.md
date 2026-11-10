@@ -32,7 +32,7 @@ Data Inventory (Beta) applies identifier-based classification to schema metadata
 
 **Where:** top of the sidebar.
 
-**Engine scope:** classification currently runs for PostgreSQL and Microsoft SQL Server.
+**Engine scope:** classification currently runs for PostgreSQL, Microsoft SQL Server, and Oracle.
 
 ## Databases
 
