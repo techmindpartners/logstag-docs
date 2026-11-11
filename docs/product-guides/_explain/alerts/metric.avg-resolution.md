@@ -7,7 +7,7 @@ Mean time to resolve alerts that were raised in the selected time window and hav
 - The window filters on **when an alert was raised, not when it closed**. An alert raised inside the window counts however long afterwards it resolved, and one raised before the window never counts even if it closed inside it.
 - Unlike the bucketed severity counts on this page, this figure has no severity filter, so Info and Best Practice alerts are included. Muted alerts are excluded.
 - Shows an empty value when nothing raised in the window has resolved yet.
-- Respects the topbar instance filter. This is windowed — unlike Active Alerts / Critical.
+- Respects the topbar instance filter. This is windowed, unlike Active Alerts / Critical.
 
 ### Reading it
 

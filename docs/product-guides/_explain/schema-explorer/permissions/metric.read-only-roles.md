@@ -1,4 +1,4 @@
-The number of principals whose privileges on this schema classify as **read-only** — they can query, and nothing else.
+The number of principals whose privileges on this schema classify as **read-only**: they can query, and nothing else.
 
 ### How it's calculated
 
@@ -7,4 +7,4 @@ The number of principals whose privileges on this schema classify as **read-only
 
 ### Reading it
 
-A healthy number here is a good sign — it means reporting tools, analysts, and dashboards were given the least privilege that works. If this tile is near zero while Full Access is not, read-only consumers are probably borrowing write-capable credentials, which is the finding worth fixing first.
+A healthy number here is a good sign, because it means reporting tools, analysts, and dashboards were given the least privilege that works. If this tile is near zero while Full Access is not, read-only consumers are probably borrowing write-capable credentials, which is the finding worth fixing first.

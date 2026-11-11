@@ -1,7 +1,7 @@
 ---
 title: "Permissions Tab: Reference"
 sidebar_label: Permissions
-description: The schema permissions matrix, the principal summary tiles, and the permission change history — with per-engine sources.
+description: The schema permissions matrix, the principal summary tiles, and the permission change history, with per-engine sources.
 ---
 
 import Users from '../_explain/schema-explorer/permissions/metric.users.md';
@@ -18,8 +18,8 @@ This page is the source of truth for the in-app **Explain this** panels on the
 Each section is written once as a content partial under `_explain/` and rendered both here
 and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
 
-Permissions are collected for PostgreSQL, Microsoft SQL Server, Oracle, and MongoDB —
-on MongoDB the database is the schema scope, and its users and roles come from the engine's
+Permissions are collected for PostgreSQL, Microsoft SQL Server, Oracle, and MongoDB.
+On MongoDB the database is the schema scope, and its users and roles come from the engine's
 own commands. Redis and Valkey have no schema permission model and are not covered here.
 
 ## Users {#users}

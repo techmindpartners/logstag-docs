@@ -8,4 +8,4 @@ The database server's current resource pressure: CPU, memory, and network, each 
 
 ### Reading it
 
-This card answers "is the *machine* the problem?" — the fastest triage split there is. High CPU with high Active Sessions is genuine workload; high CPU with few sessions is one expensive query. Memory near the top on a database server is not automatically bad — databases deliberately use memory as cache — but a sudden *drop* often means a restart. When everything here is green and queries are still slow, the cause is inside the database: look at wait events, not the hardware.
+This card answers "is the *machine* the problem?" Check it first when something is slow. High CPU with high Active Sessions is genuine workload; high CPU with few sessions is one expensive query. Memory near the top on a database server is not automatically bad, since databases deliberately use memory as cache, but a sudden *drop* often means a restart. When everything here is green and queries are still slow, the cause is inside the database: look at wait events, not the hardware.

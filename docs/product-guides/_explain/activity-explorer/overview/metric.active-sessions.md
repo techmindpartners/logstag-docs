@@ -15,4 +15,4 @@ The number of sessions observed **actively executing work** on this database acr
 
 ### Reading it
 
-This is the database's concurrency at a glance — the same signal the Connections tab breaks down per session. Compare it against the CPU cores available to the database: a level persistently above the core count means sessions are queuing. A sudden spike usually accompanies a deploy, a retry storm, or a lock convoy forming; the Connections and Blocking Chains tabs show which.
+This is the database's concurrency, the same signal the Connections tab breaks down per session. Compare it against the CPU cores available to the database: a level persistently above the core count means sessions are queuing. A sudden spike usually accompanies a deploy, a retry storm, or a lock convoy forming; the Connections and Blocking Chains tabs show which.

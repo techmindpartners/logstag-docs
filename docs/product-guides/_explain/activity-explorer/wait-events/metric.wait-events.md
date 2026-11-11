@@ -1,4 +1,4 @@
-The number of wait events captured on this database in the selected time window — sessions observed waiting on something instead of executing.
+The number of wait events captured on this database in the selected time window: sessions observed waiting on something instead of executing.
 
 ### How it's calculated
 
@@ -8,4 +8,4 @@ The number of wait events captured on this database in the selected time window 
 
 ### Reading it
 
-Some waiting is normal — databases coordinate through locks and latches by design. What matters is the change: a count that doubles against the previous window deserves a look at the history chart to see *which category* grew. Locks growing means contention between sessions; IO growing means storage pressure; Client growing usually means slow consumers on the application side.
+Some waiting is normal, because databases coordinate through locks and latches by design. What matters is the change: a count that doubles against the previous window deserves a look at the history chart to see *which category* grew. Locks growing means contention between sessions; IO growing means storage pressure; Client growing usually means slow consumers on the application side.

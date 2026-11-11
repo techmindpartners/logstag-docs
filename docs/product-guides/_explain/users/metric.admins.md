@@ -7,4 +7,4 @@ How many members hold the Admin role.
 
 ### Reading it
 
-Admin and SuperAdmin are the only roles that can manage members, view billing and audit logs, and manage integrations — see **Roles & Permissions** for the full breakdown by role.
+Admin and SuperAdmin are the only roles that can manage members, view billing and audit logs, and manage integrations. See **Roles & Permissions** for the full breakdown by role.

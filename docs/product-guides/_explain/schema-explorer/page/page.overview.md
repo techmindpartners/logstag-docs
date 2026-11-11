@@ -10,4 +10,4 @@ Selecting a row opens the schema's detail view: an overview with health and the 
 
 ### Reading it
 
-This surface answers structure questions without touching data: sort by Size to find the heavy schemas, filter to a database when reviewing a deployment's footprint, and let the alert chips point at schemas whose structure is already causing findings. It is not a data browser — table contents never appear here.
+This surface answers structure questions without touching data: sort by Size to find the heavy schemas, filter to a database when reviewing a deployment's footprint, and let the alert chips point at schemas whose structure is already causing findings. It is not a data browser: table contents never appear here.

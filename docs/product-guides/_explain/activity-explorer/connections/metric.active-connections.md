@@ -1,4 +1,4 @@
-The number of connections that were **executing work** when sampled — running a statement rather than sitting idle or parked in an open transaction.
+The number of connections that were **executing work** when sampled: running a statement (idle and open-transaction connections are excluded).
 
 ### How it's calculated
 
@@ -10,4 +10,4 @@ The number of connections that were **executing work** when sampled — running 
 
 ### Reading it
 
-This is your concurrency at a glance. Compare it against the database's CPU capacity: an active count persistently higher than the cores available means sessions are queuing for CPU. A sudden drop to zero while Total Connections stays high can be just as interesting — everything connected, nothing working — and usually points at a lock convoy or an upstream stall.
+This is your concurrency. Compare it against the database's CPU capacity: an active count persistently higher than the cores available means sessions are queuing for CPU. A sudden drop to zero while Total Connections stays high can be just as interesting (everything connected, nothing working) and usually points at a lock convoy or an upstream stall.

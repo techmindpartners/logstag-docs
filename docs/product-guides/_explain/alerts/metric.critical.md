@@ -7,4 +7,4 @@ How many open alerts are at Critical severity right now.
 
 ### Reading it
 
-Treat this as the urgent slice of Active Alerts. A rising Critical count with a flat Active total means severity is concentrating, not just volume.
+Treat this as the urgent slice of Active Alerts. A rising Critical count with a flat Active total means severity is concentrating.

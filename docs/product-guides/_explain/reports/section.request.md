@@ -8,4 +8,4 @@ Ask for a PDF built in the background and emailed as a download link that works 
 
 ### Reading it
 
-Share the pre-filled request URL — scope lives in query params. If an identical request is already building, the API reuses it instead of starting a duplicate.
+Share the pre-filled request URL. Scope lives in query params. If an identical request is already building, the API reuses it instead of starting a duplicate.

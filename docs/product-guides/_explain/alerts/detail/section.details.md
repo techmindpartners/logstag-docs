@@ -2,7 +2,7 @@ Metadata for the selected alert occurrence in the split detail panel.
 
 ### How it's calculated
 
-- Fields come from the selected `AlertItem` row — not a separate detail endpoint for this table.
+- Fields come from the selected `AlertItem` row, with no separate detail endpoint for this table.
 - Rows, top to bottom: threshold, current value, unused index names, the template's key facts, instance/database, engine, category, check frequency, scope, type, status, created, assignee, SLA, escalation/ticket.
 - What the alert found comes first. The alert's template picks the current value and up to three key facts from the alert's context. Unused-index alerts also name their largest indexes (up to three, then "+N more").
 - Rows that are the same for every alert of the template (engine, category, check frequency) come after the alert's own values, so the findings are seen first.
@@ -13,4 +13,4 @@ Metadata for the selected alert occurrence in the split detail panel.
 
 ### Reading it
 
-Use Details to see what the alert found and where it fired, then who owns it. If the row is muted, the panel banner links to Alert Policy — muted alerts stay out of default list KPIs until you show muted.
+Use Details to see what the alert found and where it fired, then who owns it. If the row is muted, the panel banner links to Alert Policy. Muted alerts stay out of default list KPIs until you show muted.

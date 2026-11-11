@@ -17,10 +17,10 @@ appear when their history overlaps the window.
 
 The page lists **subjects**, not individual findings. A subject is the thing the findings are about:
 
-- **Query** — a SQL query on PostgreSQL, Microsoft SQL Server, or Oracle, identified by its query fingerprint. An N+1 pattern and a regression on the same query appear as one subject.
-- **Operation** — a MongoDB collection operation, identified by namespace and operation type.
-- **Command** — a Redis or Valkey command.
-- **Database** — the subject of every workload anomaly.
+- **Query:** a SQL query on PostgreSQL, Microsoft SQL Server, or Oracle, identified by its query fingerprint. An N+1 pattern and a regression on the same query appear as one subject.
+- **Operation:** a MongoDB collection operation, identified by namespace and operation type.
+- **Command:** a Redis or Valkey command.
+- **Database:** the subject of every workload anomaly.
 
 The backend stores one finding per detection episode. A finding that stops matching is reopened if
 the same pattern returns within 7 days; after a longer gap a new finding starts. A subject keeps all
@@ -35,14 +35,14 @@ being seen is the one state the page signals.
 
 The default view (`?view=overview`) answers where to look.
 
-- **Seen now** — a line of chips for subjects seen now, each with its engine and what was found (Repeated lookups, Slower, More failures, Unusual workload). Select a chip to open the subject. When nothing is seen now, the line says so and gives when the most recent finding was last seen.
-- **Query patterns** panel — queries that run wastefully or got slower than their own history.
-- **Workload changes** panel — hours when a database behaved differently from usual.
+- **Seen now:** a line of chips for subjects seen now, each with its engine and what was found (Repeated lookups, Slower, More failures, Unusual workload). Select a chip to open the subject. When nothing is seen now, the line says so and gives when the most recent finding was last seen.
+- **Query patterns** panel: queries that run wastefully or got slower than their own history.
+- **Workload changes** panel: hours when a database behaved differently from usual.
 
 Each panel shows how many subjects it has in the selected window, how many are seen now, and how many
 came back after a quiet week. A strip of small columns shows when that panel's findings started, per
 day, or per hour for ranges of two days or less. It counts findings by their first match, so it reads
-as new findings, not as activity. Below the strip are the five most recent subjects and a link to the
+as a count of new findings. Below the strip are the five most recent subjects and a link to the
 full view.
 
 The two lenses answer different questions, and their findings are not comparable, so the overview
@@ -59,15 +59,15 @@ what was found with one key figure, and when it was last seen.
 
 **Sort:**
 
-- **Seen now, then returning** (default) — seen-now subjects first, then the ones that came back after more than 7 quiet days, then by recency.
+- **Seen now, then returning** (default): seen-now subjects first, then the ones that came back after more than 7 quiet days, then by recency.
 - **Most recently seen**.
-- **Matched most often** — by the total number of matching detector checks.
-- **Largest share of query time** — Query patterns only; uses the share of recorded query time from N+1 findings.
+- **Matched most often:** by the total number of matching detector checks.
+- **Largest share of query time:** Query patterns only; uses the share of recorded query time from N+1 findings.
 
 **Filters:**
 
-- **All**, **Repeated single-row lookups**, **Slower or failing** — Query patterns only.
-- **Seen now only** — both views.
+- **All**, **Repeated single-row lookups**, **Slower or failing:** Query patterns only.
+- **Seen now only:** both views.
 
 A link to a subject that is outside the selected time range or instances opens a **Not in this view**
 message instead of another subject.
@@ -84,9 +84,9 @@ returns to this view.
 
 One block follows for each kind of finding on the subject, using the most recent finding of that kind:
 
-- **Repeated single-row lookups** (N+1) — calls per minute, rows per call, time per call, and share of recorded query time over the 15 minutes checked, plus how many of those minutes matched the pattern.
-- **Slower than usual** — the usual against the current mean time, an hourly latency chart for SQL queries, an **Also compared** table (calls, other measures, and whether a plan not used in the previous 7 days appeared), and **Possible causes the detector noticed**. On SQL Server the chart's baseline band is approximate, because the chart reads Query Store deltas rather than the detector's source.
-- **Failing more than usual** (Redis and Valkey) — failure rate now, usual failure rate, failed calls now, and calls now.
+- **Repeated single-row lookups** (N+1): calls per minute, rows per call, time per call, and share of recorded query time over the 15 minutes checked, plus how many of those minutes matched the pattern.
+- **Slower than usual:** the usual against the current mean time, an hourly latency chart for SQL queries, an **Also compared** table (calls, other measures, and whether a plan not used in the previous 7 days appeared), and **Possible causes the detector noticed**. On SQL Server the chart's baseline band is approximate, because the chart reads Query Store deltas and the detector uses a different source.
+- **Failing more than usual** (Redis and Valkey): failure rate now, usual failure rate, failed calls now, and calls now.
 
 Each block ends with **How sure is this?**: the detector's confidence (Very high, High, Medium, or
 Low) and what it is based on.

@@ -23,7 +23,7 @@ Audit Logs answer questions such as:
 
 ## Access Model
 
-Audit Logs are available to users whose role carries the **ViewAuditLogs** permission. Admin and SuperAdmin hold it by default; the audience is the permission itself, not a hardcoded role check, so a future role or a custom grant could carry it too.
+Audit Logs are available to users whose role carries the **ViewAuditLogs** permission. Admin and SuperAdmin hold it by default; the audience follows the permission itself, so a future role or a custom grant could carry it too.
 
 This restriction keeps the audit trail independent from normal operational workflows. Database operators, developers, and billing users should use the product areas relevant to their work without receiving direct access to the organization audit trail.
 

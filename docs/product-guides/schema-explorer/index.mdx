@@ -38,7 +38,7 @@ Metric definitions and how each value is calculated live in the
 ## Alerts
 
 The Alerts tab combines alerts that name this schema with database-wide alerts that are
-not scoped to any schema — a schema is affected by both. The health card's per-dimension
+not scoped to any schema. A schema is affected by both. The health card's per-dimension
 arrows land here pre-filtered to the alerts behind a dimension.
 
 ## Data Freshness
@@ -60,7 +60,7 @@ names, object types and sizes, privilege flags, permission history, and structur
 records. Logstag does not copy application table rows, MongoDB documents, or Redis key
 values through Schema Explorer.
 
-Schema metadata can still be sensitive — object names, role names, definitions, and
+Schema metadata can still be sensitive: object names, role names, definitions, and
 permission history can reveal business structure and security posture. Access to Schema
 Explorer should be limited to users who are allowed to inspect database structure and
 access metadata.

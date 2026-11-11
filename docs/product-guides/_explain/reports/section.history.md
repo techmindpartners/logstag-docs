@@ -8,4 +8,4 @@ Every report request for this kind across the organization, newest first.
 
 ### Reading it
 
-Org-wide on purpose — someone else's in-flight copy is why you may see a deduped "already being built" confirmation on Request. Empty state means nobody in the org has requested this kind yet.
+Org-wide on purpose: someone else's in-flight copy is why you may see a deduped "already being built" confirmation on Request. Empty state means nobody in the org has requested this kind yet.

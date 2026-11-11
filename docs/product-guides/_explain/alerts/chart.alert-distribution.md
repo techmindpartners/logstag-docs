@@ -9,4 +9,4 @@ Share of currently open alerts by severity (Critical, High, Medium, Low).
 
 ### Reading it
 
-This is a snapshot of the open queue's mix. It will disagree with Alerts Activity whenever recent firings have already cleared — and also because the two cards treat Info and Best Practice differently: folded into Low here, excluded there.
+This is a snapshot of the open queue's mix. It will disagree with Alerts Activity whenever recent firings have already cleared, and also because the two cards treat Info and Best Practice differently: folded into Low here, excluded there.

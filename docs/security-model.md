@@ -85,7 +85,7 @@ Logstag does not require application write access for monitoring. It does not cr
 
 For Redis and Valkey, the agent reads slow log entries without resetting the slow log. Normal monitoring does not rely on state-changing commands.
 
-Some engines require read access to powerful metadata interfaces. A permission may be read-only while still revealing sensitive operational or security information. Review those grants according to your internal access policy.
+Some engines require read access to detailed metadata interfaces. A permission may be read-only while still revealing sensitive operational or security information. Review those grants according to your internal access policy.
 
 ## Permission-Limited Data
 

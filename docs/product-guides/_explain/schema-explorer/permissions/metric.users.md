@@ -1,4 +1,4 @@
-The number of **user principals** with permissions on this schema — identities that can log in, as opposed to roles that only group privileges.
+The number of **user principals** with permissions on this schema: identities that can log in, as opposed to roles that only group privileges.
 
 ### How it's calculated
 
@@ -7,4 +7,4 @@ The number of **user principals** with permissions on this schema — identities
 
 ### Reading it
 
-Compare it against your team's size plus the service accounts you know about. A count that outgrows that sum means credentials are accumulating — former staff, one-off debugging accounts, or copies of service users. The table below names each one.
+Compare it against your team's size plus the service accounts you know about. A count that outgrows that sum means credentials are accumulating: former staff, one-off debugging accounts, or copies of service users. The table below names each one.

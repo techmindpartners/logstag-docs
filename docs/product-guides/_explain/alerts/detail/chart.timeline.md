@@ -1,4 +1,4 @@
-When and where this template fired in the window — bubbles by instance over time.
+When and where this template fired in the window, shown as bubbles by instance over time.
 
 ### How it's calculated
 

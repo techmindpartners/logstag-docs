@@ -2,10 +2,10 @@ How many active databases have completed at least one sensitive-data classificat
 
 ### How it's calculated
 
-- Served by `GET /api/v1/insights/data-inventory/classification-status`, one row per active database, filtered by the topbar instance filter. Unlike the other KPIs it lists every engine, not only the classified ones (PostgreSQL, SQL Server, and Oracle).
+- Served by `GET /api/v1/insights/data-inventory/classification-status`, one row per active database, filtered by the topbar instance filter. Unlike the other KPIs it lists every engine, including ones beyond the classified PostgreSQL, SQL Server, and Oracle.
 - A database counts as classified once any classification run for it has completed. The figure after "of" is every active database in scope.
 - **N skipped on last run** counts classified databases whose most recent run was skipped. They keep the results of their earlier run, so their tables still count toward the other KPIs.
-- Read live, not from the 5-minute KPI cache. Shows "—" when the status can't be read or there are no active databases.
+- Read live, not from the 5-minute KPI cache. Shows `—` when the status can't be read or there are no active databases.
 
 ### Statuses and reasons
 

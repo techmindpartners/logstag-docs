@@ -4,7 +4,7 @@
   <text x="76" y="32" font-size="12.5" fill="#838b9a">sa</text>
   <rect x="94" y="17" width="60" height="20" rx="10" fill="none" stroke="rgba(163,170,182,.7)"/>
   <text x="124" y="31" font-size="10.5" fill="#7f8694" text-anchor="middle">Holding</text>
-  <text x="166" y="31" font-size="11" fill="#9aa1ad">root blocker — not waiting</text>
+  <text x="166" y="31" font-size="11" fill="#9aa1ad">root blocker (not waiting)</text>
   <path d="M28 44 L28 78 Q28 84 34 84 L52 84" fill="none" stroke="rgba(163,170,182,.8)" stroke-width="1.5"/>
   <rect x="52" y="68" width="252" height="32" rx="16" fill="none" stroke="rgba(163,170,182,.7)"/>
   <text x="66" y="89" font-family="ui-monospace, monospace" font-size="13" font-weight="700" fill="#6f7787">PID 67</text>

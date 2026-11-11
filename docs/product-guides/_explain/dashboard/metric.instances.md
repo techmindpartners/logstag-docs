@@ -2,10 +2,10 @@ How many database servers (instances) are connected in this organization right n
 
 ### How it's calculated
 
-- Served by `GET /api/v1/health-checks/overview` and overlaid live onto the dashboard response — not read from a cached snapshot of the KPI strip.
+- Served by `GET /api/v1/health-checks/overview` and overlaid live onto the dashboard response. It is not read from a cached snapshot of the KPI strip.
 - Counts every server belonging to the organization. When the topbar instance filter is set, only the selected server IDs are included (`InstanceFilter`).
 - The trend label ("vs. last week") is the difference between the current count and how many of those same servers already existed seven days ago (`CreatedAt ≤ now − 7 days`). A new server registered this week raises the trend; removing one that was present last week lowers it.
-- Independent of the topbar time-window chip — this is a live estate count, not a windowed series.
+- Independent of the topbar time-window chip. This is a live estate count.
 
 ### Reading it
 

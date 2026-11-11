@@ -86,7 +86,7 @@ Engine behavior differs:
 - Microsoft SQL Server can expose current SQL text and query text through Query Store or DMV-based collection.
 - Oracle can expose SQL identifiers, plan hashes, metrics, and SQL text snippets.
 - Redis and Valkey slowlog entries can include command arguments.
-- MongoDB currently focuses on server, database, collection, security, and aggregate operation metrics rather than storing current operation command documents.
+- MongoDB currently focuses on server, database, collection, security, and aggregate operation metrics and does not store current operation command documents.
 
 Operators should avoid embedding secrets, tokens, personally identifiable information, or business-sensitive literals in SQL, Redis commands, or database object names. Where an engine supports query normalization, normalization can reduce but does not eliminate sensitivity.
 

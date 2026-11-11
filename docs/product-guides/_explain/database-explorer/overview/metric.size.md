@@ -9,7 +9,7 @@ How much space this database occupies, as the engine itself reports it. On Redis
 
 | Engine | Source |
 | --- | --- |
-| PostgreSQL | `pg_database_size()` — when unavailable on a managed service, Logstag falls back to summing the sizes of the database's objects |
+| PostgreSQL | `pg_database_size()`; when unavailable on a managed service, Logstag falls back to summing the sizes of the database's objects |
 | MongoDB | the `dbStats` command |
 | Redis / Valkey | `used_memory` from `INFO memory` |
 | SQL Server | the engine's database size statistics |
@@ -17,4 +17,4 @@ How much space this database occupies, as the engine itself reports it. On Redis
 
 ### Reading it
 
-Watch the slope, not the number. Databases are supposed to grow; what deserves attention is a change in the growth *rate* — a sudden jump usually maps to a bulk load or a runaway log/temp structure, and a sudden drop to a cleanup or a restore. The Schema tab's size treemap shows which objects the space actually lives in.
+Watch the growth slope. Databases are supposed to grow; a change in the growth *rate* deserves attention. A sudden jump usually maps to a bulk load or a runaway log/temp structure, and a sudden drop to a cleanup or a restore. The Schema tab's size treemap shows which objects the space actually lives in.

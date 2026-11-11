@@ -1,4 +1,4 @@
-Activity Explorer shows runtime database activity — sessions, connections, waits, blocking, and transactions. It is built for operators who need to understand what is happening inside a database while a workload is running.
+Activity Explorer shows runtime database activity: sessions, connections, waits, blocking, and transactions. It is built for operators who need to understand what is happening inside a database while a workload is running.
 
 ### What it answers
 
@@ -13,4 +13,4 @@ Detailed activity views cover **PostgreSQL**, **SQL Server**, and **Oracle**. Mo
 
 ### Reading it
 
-Every metric uses the selected time window and compares against the previous period of the same length. An upward trend is not always bad — rising throughput can simply mean more workload. Rising deadlocks, wait time, blocked sessions, or blocking duration usually deserves review.
+Every metric uses the selected time window and compares against the previous period of the same length. An upward trend is not always bad: rising throughput can mean more workload. Rising deadlocks, wait time, blocked sessions, or blocking duration usually deserves review.

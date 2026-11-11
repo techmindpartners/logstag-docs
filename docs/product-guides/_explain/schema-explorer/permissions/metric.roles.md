@@ -1,4 +1,4 @@
-The number of **role principals** with permissions on this schema — groupings that hold privileges and pass them to their members, rather than identities that log in.
+The number of **role principals** with permissions on this schema: groupings that hold privileges and pass them to their members.
 
 ### How it's calculated
 
@@ -7,4 +7,4 @@ The number of **role principals** with permissions on this schema — groupings 
 
 ### Reading it
 
-Healthy setups have few, well-named roles and many members. Many roles with one member each is permission management by copy-paste — every access review gets harder. Click a role in the table to see its members and what it inherits.
+Healthy setups have few, well-named roles and many members. Many roles with one member each is permission management by copy-paste, and every access review gets harder. Click a role in the table to see its members and what it inherits.

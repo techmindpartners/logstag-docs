@@ -8,4 +8,4 @@ The classification detail for one table: risk badge, summary, and every sensitiv
 
 ### Reading it
 
-Confidence is per column, not per table — a low score on one column doesn't lower the others. Use "N / M" to gauge how concentrated sensitivity is before deciding whether the whole table needs remediation.
+Confidence is per column, so a low score on one column doesn't lower the others. Use "N / M" to gauge how concentrated sensitivity is before deciding whether the whole table needs remediation.

@@ -16,4 +16,4 @@ How many client connections the database currently has. On MongoDB the tile is l
 
 ### Reading it
 
-Judge it against the connection limit and the pool size, not in isolation. A count parked near the engine's maximum is an outage waiting for one traffic spike. For the split between active and idle — and the per-session detail — the Activity Explorer's Connections tab is the drill-down surface.
+Judge it against the connection limit and the pool size. A count parked near the engine's maximum is an outage waiting for one traffic spike. For the split between active and idle, and the per-session detail, use the Activity Explorer's Connections tab.

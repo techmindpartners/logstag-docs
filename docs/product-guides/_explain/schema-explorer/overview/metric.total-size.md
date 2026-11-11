@@ -7,4 +7,4 @@ The combined size of the selected schema's objects, summed from the most recent 
 
 ### Reading it
 
-Read it with the treemap next to it: the tile says how much, the treemap says where. A schema growing while its object count stays flat means existing objects are growing — usually a handful, which the treemap makes obvious.
+Read it with the treemap next to it: the tile says how much, the treemap says where. A schema growing while its object count stays flat means existing objects are growing, usually a handful, which the treemap makes obvious.

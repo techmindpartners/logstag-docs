@@ -1,4 +1,4 @@
-The total time sessions spent **actively working** — on CPU or in a wait — during the selected window, derived from Oracle's Active Session History (ASH).
+The total time sessions spent **actively working** (on CPU or in a wait) during the selected window, derived from Oracle's Active Session History (ASH).
 
 ### How it's calculated
 
@@ -8,8 +8,8 @@ The total time sessions spent **actively working** — on CPU or in a wait — d
 
 ### Requirements
 
-ASH is part of Oracle's Diagnostics Pack. This tab has data when the database edition and the `control_management_pack_access` parameter permit it (Enterprise and Free editions qualify; Standard, Express, and Personal do not). Without it, the tab reports no ASH data — that is a licensing state, not a collection failure.
+ASH is part of Oracle's Diagnostics Pack. This tab has data when the database edition and the `control_management_pack_access` parameter permit it (Enterprise and Free editions qualify; Standard, Express, and Personal do not). Without it, the tab reports no ASH data. That is a licensing state.
 
 ### Reading it
 
-This is Oracle's own measure of database load, in units of "session-seconds of work." Divide it by the window length to get average active sessions — the number Oracle tuning literature compares against CPU count. The CPU vs Wait split tells you whether that time was productive or spent waiting.
+This is Oracle's own measure of database load, in units of "session-seconds of work." Divide it by the window length to get average active sessions, the number Oracle tuning literature compares against CPU count. The CPU vs Wait split tells you whether that time was productive or spent waiting.

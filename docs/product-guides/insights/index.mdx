@@ -5,7 +5,7 @@ description: How Logstag's background detectors surface query regressions, N+1 p
 
 # Insights
 
-Insights runs scheduled background analysis over metrics Logstag has already collected, rather than querying monitored databases directly.
+Insights runs scheduled background analysis over metrics Logstag has already collected and does not query monitored databases directly.
 
 What each view and each part of a finding's detail shows is in the
 [Page reference](./overview.mdx).
@@ -32,7 +32,7 @@ Insights runs three detector families:
 
 Regressions and N+1 patterns appear under **Query patterns** on the Insights page; workload anomalies appear under **Workload changes**.
 
-Findings are computed per database and compared against that database's own recent history rather than a fixed global threshold.
+Findings are computed per database and compared against that database's own recent history, with no fixed global threshold.
 
 ## Reading Findings
 
@@ -40,9 +40,9 @@ The Insights page groups findings by **subject**: the query, MongoDB collection 
 
 The page has three views:
 
-- **Overview** — what is being detected right now, and a panel per lens with its subject count and most recent subjects.
-- **Query patterns** — queries, operations, and commands with N+1 or regression findings.
-- **Workload changes** — databases with workload anomalies.
+- **Overview:** what is being detected right now, and a panel per lens with its subject count and most recent subjects.
+- **Query patterns:** queries, operations, and commands with N+1 or regression findings.
+- **Workload changes:** databases with workload anomalies.
 
 Selecting a subject shows what changed against its baseline, how confident the detector is (Very high, High, Medium, or Low) and why, a read-only first check followed by the detector's suggested next steps, and the subject's history. See the [Page reference](./overview.mdx) for each view and block.
 

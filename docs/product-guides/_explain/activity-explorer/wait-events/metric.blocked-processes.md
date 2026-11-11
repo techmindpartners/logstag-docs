@@ -1,4 +1,4 @@
-The number of sessions that were **blocked by another session** in the selected window — waiting on a lock someone else holds.
+The number of sessions that were **blocked by another session** in the selected window, waiting on a lock someone else holds.
 
 ### How it's calculated
 
@@ -8,4 +8,4 @@ The number of sessions that were **blocked by another session** in the selected 
 
 ### Reading it
 
-This is the human-impact number: each unit is a session going nowhere. One or two blocked sessions that clear within a sample interval are everyday contention. A stable or growing count means a blocker is not letting go — open the Blocking Chains tab, find the root blocker, and read its query text. The fix is almost always at the root, not at the blocked sessions.
+This is the human-impact number: each unit is a session going nowhere. One or two blocked sessions that clear within a sample interval are everyday contention. A stable or growing count means a blocker is not letting go. Open the Blocking Chains tab, find the root blocker, and read its query text. The fix is almost always at the root blocker.

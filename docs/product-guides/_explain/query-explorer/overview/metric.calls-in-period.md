@@ -14,4 +14,4 @@ How many times this statement executed during the selected window.
 
 ### Reading it
 
-Calls are the multiplier on everything else: a 5 ms statement at a million calls costs more than a 2-second statement running hourly. When calls jump without a traffic change, suspect a new code path or a loop — the classic N+1 signature the Insights page also watches for.
+Calls are the multiplier on everything else: a 5 ms statement at a million calls costs more than a 2-second statement running hourly. When calls jump without a traffic change, suspect a new code path or a loop, the classic N+1 signature the Insights page also watches for.

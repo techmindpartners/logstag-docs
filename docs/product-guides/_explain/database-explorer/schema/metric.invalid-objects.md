@@ -1,4 +1,4 @@
-The number of Oracle objects whose status is **INVALID** — objects that failed compilation or were invalidated by a change to something they depend on. This tile appears for Oracle databases.
+The number of Oracle objects whose status is **INVALID**: objects that failed compilation or were invalidated by a change to something they depend on. This tile appears for Oracle databases.
 
 ### How it's calculated
 
@@ -6,4 +6,4 @@ The number of Oracle objects whose status is **INVALID** — objects that failed
 
 ### Reading it
 
-Zero is the target. Oracle often recompiles an invalid object automatically on next use, so a transient non-zero after a deployment can self-heal — but objects that stay invalid are broken code paths waiting for a caller. Cross-reference the Changes tab for what changed right before the number rose, and recompile or fix what remains.
+Zero is the target. Oracle often recompiles an invalid object automatically on next use, so a transient non-zero after a deployment can self-heal, but objects that stay invalid are broken code paths waiting for a caller. Cross-reference the Changes tab for what changed right before the number rose, and recompile or fix what remains.

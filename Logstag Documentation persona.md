@@ -25,6 +25,16 @@ Logstag is technical, direct, and careful. It does not create panic, promise mag
 - Avoid implying that Logstag modifies customer databases.
 - Avoid vague phrases such as "like never before", "intelligent", "seamless", or "powerful" unless the sentence explains the concrete capability.
 
+## Writing style
+
+- Do not use an em dash (—) as a sentence break. Use a period, comma, colon or parentheses. Two shorter sentences often read best.
+- Write lists with a bold label as `**Name:** text`, not `**Name** — text`.
+- Do not use an en dash (–) in ranges. Write "1.5 to 2.5 minutes" or use a plain hyphen.
+- Use "X, not Y" and "not just X" only where the contrast really matters. Otherwise state the point directly.
+- Avoid vague filler such as "powerful", "actionable", "at a glance", "simply" and "seamless". Give the concrete fact.
+- Allowed: "—" only as the exact value the app shows in an empty tile or cell, written in backticks (`—`); quoted UI text such as "Not seen since …"; status flows such as Queued → Building → Ready; code blocks and API paths.
+- `npm run check:style` enforces the dash rules, and the docs build runs it too.
+
 ## Preferred Wording
 
 Use:

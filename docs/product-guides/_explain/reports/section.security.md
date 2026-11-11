@@ -3,8 +3,8 @@ Engine versions and known vulnerabilities, support status, security findings, pr
 ### How it's calculated
 
 - Backend kind `Security`. PDF sections: Summary, Versions and known vulnerabilities, Security findings, Privileged accounts, Remediation plan, Coverage and methodology, plus a CVE appendix.
-- Snapshot at generation time — there is no date-range picker. Optional multi-instance filter; empty scope means **all active instances** (inactive servers are counted but not assessed).
-- Delivered only as an emailed / downloadable PDF — this page shows the request form and history, not an on-screen report body.
+- Snapshot at generation time. There is no date-range picker. Optional multi-instance filter; empty scope means **all active instances** (inactive servers are counted but not assessed).
+- Delivered only as an emailed / downloadable PDF. This page shows the request form and history, with no on-screen report body.
 
 ### Reading it
 

@@ -1,10 +1,10 @@
-How many alerts are open and actionable right now across the selected instances.
+How many alerts are open right now across the selected instances.
 
 ### How it's calculated
 
-- Served by `GET /api/v1/alerts/query` with `pageSize: 1` — the KPI uses `pagination.totalCount`, not a cached strip.
+- Served by `GET /api/v1/alerts/query` with `pageSize: 1`. The KPI uses `pagination.totalCount`.
 - Counts non-resolved alert rows (the backend's open scope). The list's default **Active** filter is narrower (`New` + `Acknowledged` only); this KPI matches the dashboard Alerts tile.
-- Muted alerts are excluded. The topbar **instance** filter applies; the **time window does not** — this is "open now", not "fired in the window".
+- Muted alerts are excluded. The topbar **instance** filter applies; the **time window does not**. This is "open now", not "fired in the window".
 
 ### Reading it
 

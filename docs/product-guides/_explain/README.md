@@ -1,4 +1,4 @@
-# HelpPanel ("Explain this") — maintainer guide
+# HelpPanel ("Explain this"): maintainer guide
 
 How the in-app help panel works, and how to fix, update, add and remove its content.
 
@@ -27,10 +27,10 @@ routed page (.mdx) imports the same .md files  ──►  https://docs.logstag.c
 
 - **Content** is Markdown partials plus one `_meta.json` sidecar per group, in `docs/product-guides/_explain/`.
 - **Compiler.** `scripts/build-explain.mjs` turns them into typed JSON blocks (never HTML), one file per group, plus `index.json` and `schema.json`. It runs on `npm start`, `npm run build` and in the deploy workflow. It fails the build on anything it cannot represent.
-- **Deploy.** The "Deploy to GitHub Pages" workflow runs on every push to `main` and takes about 1.5–2.5 minutes. The registry is served from `https://docs.logstag.com/explain/v1/` with `Cache-Control: max-age=600`.
+- **Deploy.** The "Deploy to GitHub Pages" workflow runs on every push to `main` and takes about 1.5 to 2.5 minutes. The registry is served from `https://docs.logstag.com/explain/v1/` with `Cache-Control: max-age=600`.
 - **Frontend.** When a page with a trigger renders, the app fetches `<group>.json`, validates it, and shows the book icon. Trigger ids are type-checked against `lib/help/help-keys.ts` (`HELP_KEYS`). The data is cached for 5 minutes and refetched when the browser tab regains focus.
 - **Backend.** `GET /api/v1/features` decides per organization whether triggers appear at all. It is on for every organization by default.
-- **Everything fails closed.** A missing entry, a failed fetch, a disabled registry or a disabled organization makes the trigger disappear rather than error.
+- **Everything fails closed.** A missing entry, a failed fetch, a disabled registry or a disabled organization makes the trigger disappear without an error.
 
 Vocabulary: a **group** is one JSON file and one app surface (page or tab). An **entry** is one explanation (a metric, chart, table, section or page). An **id** is `group#key`, e.g. `dashboard#metric.instances`.
 
@@ -103,7 +103,7 @@ How many client connections are open across the selected instances at this momen
 
 ### How it's calculated
 
-- Served by `GET /api/v1/metrics/connections` — a **point-in-time snapshot**, not a series over the topbar time window.
+- Served by `GET /api/v1/metrics/connections`. It is a **point-in-time snapshot** with no series over the topbar time window.
 - ...
 
 ### Reading it
@@ -111,7 +111,7 @@ How many client connections are open across the selected instances at this momen
 Treat this as current load on the estate. ...
 ```
 
-House conventions: a one-sentence lead that answers "what is this", then `### How it's calculated`, then `### Reading it`. Tables add `### Columns`; per-engine sources add `### Source by engine`. Write for a DBA: technical, precise and verifiable; see `Logstag Documentation persona.md` at the repo root. Most entries run 70–400 words.
+House conventions: a one-sentence lead that answers "what is this", then `### How it's calculated`, then `### Reading it`. Tables add `### Columns`; per-engine sources add `### Source by engine`. Write for a DBA: technical, precise and verifiable; see `Logstag Documentation persona.md` at the repo root. Most entries run 70 to 400 words.
 
 ### What Markdown is allowed
 
@@ -123,11 +123,15 @@ The panel renders a small, safe subset. The compiler **fails the build** on anyt
 | More paragraphs | body text |
 | `##`, `###` or `####` heading | small section label (`#` and `#####` fail) |
 | Bullet or numbered list | dot bullets (⚠ numbers are not kept) |
-| List where **every** item is `**Term** — definition` (spaced em dash) | two-column definition list; keep terms short, long terms wrap badly |
+| List where **every** item is `**Term:** definition` (colon inside the bold) | two-column definition list; keep terms short, long terms wrap badly |
 | Table whose first header cell is exactly `Engine` (`\| Engine \| Source \|`) | per-engine rows (⚠ columns after the second are ignored) |
 | `> **Tip:** ...` | tip callout (the blockquote must start with `**Tip:**`) |
 | `**bold**`, `*italic*`, `` `code` ``, links | inline formatting |
 | A paragraph that is only an image, under `### Example` | figure (§4.6) |
+
+#### Writing style
+
+Follow the "Writing style" section of `Logstag Documentation persona.md` at the repo root. The build fails on any em dash or en dash outside backticks or code fences (it checks every docs file, including front matter and `_meta.json`). Run `npm run check:style` to see the offenders. Use a period, comma, colon or parentheses instead, and write definition lists as `**Term:** definition`.
 
 Not allowed: nested (indented) lists, code fences, other tables, horizontal rules, raw HTML, inline images, `<br>`, and links to hosts other than `docs.logstag.com`, `logstag.com`, `www.logstag.com` and `app.logstag.com`. Root-relative links (`/product-guides/...`) are fine.
 
@@ -219,7 +223,7 @@ Order: docs first is the clean path. Frontend first is safe for users (the trigg
 ### 4.4 Cover a new page (new group)
 
 1. Create a folder `docs/product-guides/_explain/<path>/` with `_meta.json` (`group`, `category`, `docsPage`, `entries`) and the partials. No registration: the compiler finds any folder with a `_meta.json` and adds it to `index.json`.
-2. Create the routed `.mdx` at the path in `docsPage`. Give it frontmatter `title`, `sidebar_label` and `description`, the single-source intro sentence the other pages use, the imports and the headings. **Add it to `sidebars.ts`**, which is explicit, not autogenerated.
+2. Create the routed `.mdx` at the path in `docsPage`. Give it frontmatter `title`, `sidebar_label` and `description`, the single-source intro sentence the other pages use, the imports and the headings. **Add it to `sidebars.ts`**, which is maintained by hand.
 3. Frontend: add the group and its keys to `HELP_KEYS` and mount the triggers. The page-level entry `page.overview` (`anchor: ""`) goes in `PageHeader badge`.
 4. Ship and verify as in §4.3 and §5.
 
@@ -275,7 +279,7 @@ npm run explain -- --docs-origin http://localhost:3111
 npm run docusaurus -- start --port 3111
 ```
 
-- Use `npm run docusaurus -- start` rather than `npm start`. `npm start` recompiles without `--docs-origin`, so deep links point at the live site.
+- Use `npm run docusaurus -- start` instead of `npm start`. `npm start` recompiles without `--docs-origin`, so deep links point at the live site.
 - There is no file watcher for the registry. Re-run `npm run explain -- --docs-origin http://localhost:3111` after each edit.
 - The registry is at `http://localhost:3111/explain/v1/index.json`.
 
@@ -318,6 +322,7 @@ HELP_REGISTRY_ORIGIN=http://localhost:3111 npm run check:help
 | `kind` value | A typo shows a wrong badge | Use `metric`, `chart`, `table`, `section` or `page` |
 | Every partial imported by its `.mdx` | Entry exists in the app but not on the docs site | Add the import + heading in the same PR |
 | Frontend keys vs published entries | Trigger silently missing | Run `check:help` after both sides ship |
+| Wording beyond dashes | Em and en dashes fail the build (`npm run check:style`), but filler words, "X, not Y" contrasts and vague claims are not checked | Review against the persona's "Writing style" section |
 | New block or inline types | A new Markdown feature needs compiler + frontend schema + renderer changes; until the frontend ships, the whole group fails to parse and **all** of its triggers disappear | Coordinate with the frontend before extending the subset |
 
 ---

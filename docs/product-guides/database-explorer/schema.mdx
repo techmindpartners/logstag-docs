@@ -1,7 +1,7 @@
 ---
 title: "Schema Tab: Reference"
 sidebar_label: Schema
-description: What the Database Explorer schema tab shows — object counts, the size treemap, and the object inventory — and how each is collected.
+description: What the Database Explorer schema tab shows (object counts, the size treemap, and the object inventory) and how each is collected.
 ---
 
 import ObjectCounts from '../_explain/database-explorer/schema/metric.object-counts.md';
@@ -20,7 +20,7 @@ Each section is written once as a content partial under `_explain/` and rendered
 and inside the dashboard's info panel (`scripts/build-explain.mjs` compiles the registry).
 
 The Schema tab is shown for PostgreSQL, Microsoft SQL Server, MongoDB, and Oracle. Redis and
-Valkey are key-value stores without a schema model, so the tab is hidden for them — note that
+Valkey are key-value stores without a schema model, so the tab is hidden for them. Note that
 their health score's Schema dimension still applies, scored from key-design signals.
 
 ## Object Counts {#object-counts}

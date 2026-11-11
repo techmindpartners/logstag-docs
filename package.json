@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "explain": "node scripts/build-explain.mjs",
+    "check:style": "node scripts/check-style.mjs",
     "prestart": "npm run explain",
     "start": "docusaurus start",
     "prebuild": "npm run explain",

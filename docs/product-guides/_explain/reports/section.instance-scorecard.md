@@ -4,7 +4,7 @@ A single-instance health report over a chosen date range, computed from continuo
 
 - Backend kind `InstanceScorecard`. PDF sections include Overall health, Resource utilization, Alert history, Remediation plan, Recommendations, and Detailed results (Performance, Security, Configuration, Schema, Maintenance).
 - Requires exactly one instance; optional one database on that instance. Time window: Past 7 days, Past 30 days, or a custom range of at most **31 days** (`from` / `to` UTC, floored to the minute at request time).
-- Async PDF delivery only — request form + history on this page.
+- Async PDF delivery only: request form + history on this page.
 
 ### Reading it
 

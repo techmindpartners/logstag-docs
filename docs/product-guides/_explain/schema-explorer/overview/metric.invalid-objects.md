@@ -1,4 +1,4 @@
-The number of Oracle objects in this schema whose status is **INVALID** — objects that failed compilation or were invalidated by a change to something they depend on. This tile appears for Oracle.
+The number of Oracle objects in this schema whose status is **INVALID**: objects that failed compilation or were invalidated by a change to something they depend on. This tile appears for Oracle.
 
 ### How it's calculated
 
@@ -6,4 +6,4 @@ The number of Oracle objects in this schema whose status is **INVALID** — obje
 
 ### Reading it
 
-Zero is the target. A transient non-zero after a deployment can self-heal — Oracle often recompiles on next use — but objects that stay invalid are broken code paths waiting for a caller. The Changes tab shows what changed right before the number rose; recompile or fix what remains.
+Zero is the target. A transient non-zero after a deployment can self-heal, because Oracle often recompiles on next use, but objects that stay invalid are broken code paths waiting for a caller. The Changes tab shows what changed right before the number rose; recompile or fix what remains.

@@ -218,7 +218,7 @@ If the agent is healthy but a Logstag page looks empty:
 6. Confirm the relevant collector tier is enabled.
 7. Confirm the target has data in another product area.
 
-For example, a database can appear in Assets while Query Explorer is empty if query statistics are not available. That is a data coverage issue, not necessarily an agent registration issue.
+For example, a database can appear in Assets while Query Explorer is empty if query statistics are not available. That points to a data coverage issue, and agent registration may be fine.
 
 ## Alerts Are Not Generated
 

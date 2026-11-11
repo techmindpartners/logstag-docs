@@ -1,4 +1,4 @@
-How many deadlocks the engine resolved in the window. A deadlock is not slow blocking — it is a **cycle** of sessions waiting on each other that can never resolve, so the engine kills one of them.
+How many deadlocks the engine resolved in the window. A deadlock is not slow blocking. It is a **cycle** of sessions waiting on each other that can never resolve, so the engine kills one of them.
 
 ### How it's calculated
 
@@ -13,7 +13,7 @@ The agent ingests these events; the tile counts them in the window.
 
 ![Deadlock cycle between two sessions](/img/explain/activity-explorer/blocking-chains/cycle.svg)
 
-*A deadlock is a cycle — neither side can ever proceed, so the engine terminates one victim and rolls its transaction back.*
+*A deadlock is a cycle: neither side can ever proceed, so the engine terminates one victim and rolls its transaction back.*
 
 ### Reading it
 

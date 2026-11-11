@@ -2,9 +2,9 @@ The wait classes that consumed the most active session time in the selected wind
 
 ### How it's calculated
 
-- Every ASH sample taken during a wait carries Oracle's **wait class** for that event — Oracle's own native taxonomy (`User I/O`, `Concurrency`, `Commit`, `Network`, and so on), not Logstag's shared five-category model used on the Wait Events tab.
+- Every ASH sample taken during a wait carries Oracle's **wait class** for that event. This is Oracle's own native taxonomy (`User I/O`, `Concurrency`, `Commit`, `Network`, and so on); the Wait Events tab uses Logstag's shared five-category model.
 - Each class's bar is its sample count (≈ seconds of active session time), with the percentage of all wait samples alongside.
-- Samples taken on CPU belong to no wait class; when every sample was on CPU, this card reports no waits — that is a healthy result, not missing data.
+- Samples taken on CPU belong to no wait class; when every sample was on CPU, this card reports no waits, which is a healthy result.
 
 ### Reading it
 

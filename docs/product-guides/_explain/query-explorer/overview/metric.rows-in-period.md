@@ -7,4 +7,4 @@ How many rows this statement produced during the selected window, where the engi
 
 ### Reading it
 
-Rows per call is the ratio to watch: divide by Calls in Period. A statement returning thousands of rows per call to an application that displays twenty is shipping data nobody reads — pagination or a tighter predicate fixes more than index tuning would.
+Rows per call is the ratio to watch: divide by Calls in Period. A statement returning thousands of rows per call to an application that displays twenty is shipping data nobody reads. Pagination or a tighter predicate fixes more than index tuning would.

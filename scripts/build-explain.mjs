@@ -31,7 +31,7 @@
  *                            shared caption
  *   - list                 → list (flat, one paragraph per item; nested
  *                            lists and multi-block items fail the build)
- *   - **Term** — def       → dl (definition rows) when every item matches
+ *   - **Term:** def        → dl (definition rows) when every item matches
  *   | Engine | … | table   → engines rows
  *   > **Tip:** …           → tip callout
  *
@@ -41,6 +41,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, existsSync, statSync } from "node:fs";
 import { join, resolve, basename } from "node:path";
 import { marked } from "marked";
+import { checkStyle } from "./check-style.mjs";
 
 /* ── CLI ── */
 const argv = process.argv.slice(2);
@@ -67,6 +68,9 @@ function assertAllowedUrl(url, where) {
   }
   return url;
 }
+
+/* ── style gate: no em/en dashes outside code (fails the build) ── */
+checkStyle();
 
 /* ── discover groups: any dir under an _explain folder with a _meta.json ── */
 function findGroups(dir, acc = []) {
@@ -196,10 +200,11 @@ function toBlocks(md, ctx) {
           return toInlines(parts[0].tokens, ctx);
         });
         const asDl = items.map((inls) => {
-          if (inls[0]?.t !== "b") return null;
+          // `**Term:** definition` (colon inside the bold, then a space)
+          if (inls[0]?.t !== "b" || !inls[0].v.endsWith(":")) return null;
           const rest = inls.slice(1);
-          if (rest[0]?.t !== "text" || !rest[0].v.startsWith(" — ")) return null;
-          return { term: inls[0].v, def: [{ t: "text", v: rest[0].v.slice(3) }, ...rest.slice(1)] };
+          if (rest[0]?.t !== "text" || !rest[0].v.startsWith(" ")) return null;
+          return { term: inls[0].v.slice(0, -1).trim(), def: [{ t: "text", v: rest[0].v.slice(1) }, ...rest.slice(1)] };
         });
         if (items.length > 0 && asDl.every(Boolean)) blocks.push({ type: "dl", rows: asDl });
         else blocks.push({ type: "list", items });

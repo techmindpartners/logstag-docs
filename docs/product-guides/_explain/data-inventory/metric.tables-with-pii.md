@@ -2,8 +2,8 @@ How many classified tables have at least one column flagged as PII.
 
 ### How it's calculated
 
-- Counts distinct tables with ≥1 column classified into the **PII** category specifically — the other 7 categories (Financial, Credentials, Payment, Health, Location, Legal, HR) don't count toward this KPI.
-- Only PostgreSQL, SQL Server, and Oracle tables are classified, so this is a lower bound on the real estate, not organization-wide coverage.
+- Counts distinct tables with ≥1 column classified into the **PII** category specifically. The other 7 categories (Financial, Credentials, Payment, Health, Location, Legal, HR) don't count toward this KPI.
+- Only PostgreSQL, SQL Server, and Oracle tables are classified, so this is a lower bound on the real estate.
 - Respects the topbar instance filter. Cached for about 5 minutes and refreshed after each successful classification run.
 
 ### Reading it

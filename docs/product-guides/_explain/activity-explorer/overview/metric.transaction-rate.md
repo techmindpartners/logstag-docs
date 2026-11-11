@@ -15,4 +15,4 @@ The rate of transactions the database is committing, per second, averaged over t
 
 ### Reading it
 
-This is your throughput baseline. Read it together with Active Sessions and Avg Query Time: rate up with flat latency is healthy growth; rate down while active sessions climb means work is arriving but not completing — usually blocking or resource saturation. A rate near zero on a database that should be busy is worth checking before anything else, starting with whether the application can reach it.
+This is your throughput baseline. Read it together with Active Sessions and Avg Query Time: rate up with flat latency is healthy growth; rate down while active sessions climb means work is arriving but not completing, usually from blocking or resource saturation. A rate near zero on a database that should be busy is worth checking before anything else, starting with whether the application can reach it.

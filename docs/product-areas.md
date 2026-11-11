@@ -20,7 +20,7 @@ Alerts applies template-based alerting across all six supported engines, evaluat
 
 ## Insights
 
-Insights runs background analysis over metrics Logstag has already collected, rather than querying monitored databases directly. It produces findings such as query performance regressions and workload anomalies for operators to review.
+Insights runs background analysis over metrics Logstag has already collected and does not query monitored databases directly. It produces findings such as query performance regressions and workload anomalies for operators to review.
 
 **Where:** top of the sidebar.
 
