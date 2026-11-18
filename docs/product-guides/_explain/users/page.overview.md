@@ -4,7 +4,7 @@ Manage organization members, their roles, and pending invitations.
 
 - The page requires the **ManageMembers** permission, held by Admin and SuperAdmin only. Every other role is kept off the route before it loads.
 - The KPI strip always reflects the whole organization; the Members table below it is a separate, independently filtered and paginated view. Narrowing the table never changes the KPI numbers.
-- Inviting a member sends an invite with an email, optional name, and a role. Editing a member changes name and role; email is fixed once an account exists.
+- Inviting a member sends an invite with an email, optional name, and a role. Each row's **⋯** menu lets you edit a member's name and role, resend or cancel a pending invite, or remove a member. Email is fixed once an account exists.
 
 ### Reading it
 
