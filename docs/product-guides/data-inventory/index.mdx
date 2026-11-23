@@ -28,9 +28,21 @@ Classification runs automatically, without a manual tagging step. It is model-as
 Classification work is triggered by:
 
 - A detected schema change on a supported database.
-- A daily sweep that re-evaluates databases which have not been classified recently.
+- A daily check of each database.
+- A change to the organization's rules that brings excluded tables back.
 
-Classification runs are batched and bounded per database, so a single large schema cannot block or overwhelm the classification pipeline. If a run fails partway through, Logstag preserves the previously stored classification for that database; no partial result replaces it.
+Each run sends only tables that are new or changed since their last classification; every other table keeps its stored result. Runs are saved in parts, so a run that stops partway (for example on the model's quota) keeps what it finished, and the rest goes in a later run. A table whose answer comes back empty keeps its previous result until a re-check.
+
+## Rules
+
+Admins and DBAs can adjust what Data Inventory reports, per organization, under **Data Inventory → Rules**. Rules are applied when pages load, after the model's answer: the answer itself is kept, so a rule shows at once and can always be undone.
+
+- **Column names**: columns whose name matches a pattern (`*` for any text, `?` for one character, upper and lower case the same) lose the chosen categories, or all of them. The **IP addresses are not PII** switch adds three editable rules for IP address, host name and MAC address columns.
+- **Categories**: a category can be turned off for the whole organization.
+- **Exclusions**: a database, schema or table is left out of Data Inventory and is not sent to the model. Its earlier results are kept, so removing the exclusion brings them back at once.
+- **Column overrides**: on a table's detail page, a column the model flagged can be set by hand, including "not sensitive".
+
+When rules disagree, the order is fixed: exclusion, then category off, then column override, then column name rule. A preview shows how many columns and tables a rule changes before it is saved. The detail page shows which rule changed each column, lists the flagged columns a rule hid, and says when the whole table is excluded. The PDF report lists the active rules.
 
 ## Categories
 
@@ -67,7 +79,7 @@ Data Inventory is a Beta product surface. Scope is still expanding:
 
 - Classification covers PostgreSQL, Microsoft SQL Server, and Oracle only; other monitored engines are not classified.
 - Encryption status is tracked for Microsoft SQL Server only; other engines report as unknown.
-- Access level is computed per schema, so every table in a schema shares the same value.
+- Access level is computed per schema, so every table in a schema shares the same value. Oracle admins who reach every table (DBA, SELECT ANY TABLE) aren't counted yet.
 - Runs can lag a schema change by up to a day, and coverage can look incomplete for a database that was only just added.
 
 A point-in-time PDF export of this data, including a risk register and encryption coverage, is available from the [Data Inventory report](../reports.mdx#data-inventory).
