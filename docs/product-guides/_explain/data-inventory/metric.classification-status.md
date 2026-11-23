@@ -15,7 +15,8 @@ How many active databases have completed at least one sensitive-data classificat
 - **Too many columns to classify**: the database has more columns than the per-database limit (10,000 by default), so the run is skipped.
 - **Classification quota reached**: the classification model's quota ran out. A later run retries.
 - **Classification failed**: the run returned an error.
-- **No results returned; previous classifications kept**: the model returned nothing while earlier results exist, so those results were kept.
+- **Some tables came back empty; their results are kept until a re-check**: the model returned nothing for some tables that had results before, so those results were kept and the tables are checked again on the next run.
+- **Excluded by a rule**: every table of the database is excluded by the organization's rules, so nothing is sent to the model.
 - **Engine not supported yet**: MongoDB, Redis and Valkey are not classified yet.
 - **No classification attempt recorded yet**: no run has reached the database so far.
 
