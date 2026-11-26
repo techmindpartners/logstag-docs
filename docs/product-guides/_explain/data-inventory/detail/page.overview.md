@@ -5,7 +5,7 @@ The classification detail for one table: risk badge, summary, and every sensitiv
 - Reached by clicking a Sensitive Tables row. Heading is `schema.table` with the same risk badge and bucket as the list, plus a "Classified …" relative timestamp from the table's latest classification time.
 - Summary shows Database, Schema, Table, Instance, Encryption, Access level, Sensitive columns as "N / M" (sensitive vs. total columns in the table), and Engine.
 - The Sensitive columns table lists only columns with ≥1 assigned category, each with its categories and confidence percentage, and which organization rule changed it, if any. Columns the model flagged that a rule hid are listed on request, with the rule.
-- "Who has rights in schema …" lists each user, group or role with its rights (Read, Write, Manage), including admins who reach every table (marked "Superuser", "Every table" or "Server admin"). A role shows the users in it under its name. The ones that count towards the access level come first, and PUBLIC is marked "Everyone (PUBLIC)". Logstag's own monitoring login, built-in roles, names with schema access only and roles with no members are listed greyed out, with the reason.
+- "Who has rights in schema …" lists each user, group or role with its rights (Read, Write, Manage), including admins who reach every table (marked "Superuser", "Every table" or "Server admin"). A role shows the users in it under its name. The ones that count towards the access level come first, and PUBLIC is marked "Everyone (PUBLIC)". Logstag's own monitoring login, built-in roles, names with schema access only, roles with no members and admins who manage every table ("Admin, not counted": superusers, sysadmins, db_owner) are listed greyed out, with the reason.
 
 ### Reading it
 
