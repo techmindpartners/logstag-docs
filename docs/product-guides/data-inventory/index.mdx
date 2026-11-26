@@ -79,7 +79,7 @@ Data Inventory is a Beta product surface. Scope is still expanding:
 
 - Classification covers PostgreSQL, Microsoft SQL Server, and Oracle only; other monitored engines are not classified.
 - Encryption status is tracked for Microsoft SQL Server only; other engines report as unknown.
-- Access level is computed per schema, so every table in a schema shares the same value. Oracle admins who reach every table (DBA, SELECT ANY TABLE) aren't counted yet.
+- Access level is computed per schema, so every table in a schema shares the same value. Admins who manage every table (PostgreSQL superusers; SQL Server sysadmins and db_owner members) are listed but not counted: they reach every table of every database. Oracle admins who reach every table (DBA, SELECT ANY TABLE) aren't listed yet.
 - Runs can lag a schema change by up to a day, and coverage can look incomplete for a database that was only just added.
 
 A point-in-time PDF export of this data, including a risk register and encryption coverage, is available from the [Data Inventory report](../reports.mdx#data-inventory).
