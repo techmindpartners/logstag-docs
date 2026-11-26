@@ -31,6 +31,8 @@ Classification work is triggered by:
 - A daily check of each database.
 - A change to the organization's rules that brings excluded tables back.
 
+SQL Server's own catalogs are never part of Data Inventory: SSISDB (Integration Services), ReportServer and ReportServerTempDB (Reporting Services, including named-instance copies such as `ReportServer$NAME`) and distribution (replication). They hold Microsoft's tables, not your data, so they are not sent to the model and do not show on any Data Inventory page. They are not counted as hidden by your rules.
+
 Each run sends only tables that are new or changed since their last classification; every other table keeps its stored result. Runs are saved in parts, so a run that stops partway (for example on the model's quota) keeps what it finished, and the rest goes in a later run. A table whose answer comes back empty keeps its previous result until a re-check.
 
 ## Rules
